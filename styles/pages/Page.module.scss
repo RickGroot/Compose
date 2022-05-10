@@ -1,4 +1,7 @@
+@import '~/styles/helpers.scss';
+
 .main {
+    background-color: $c-background;
     min-height: 100vh;
     padding: 4rem 0;
     flex: 1;
