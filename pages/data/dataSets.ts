@@ -1,29 +1,57 @@
 import { DataSetTopic } from '~source/types/data';
 
 const dynamics: DataSetTopic = {
-    easy: [],
-    medium: [],
-    hard: [],
+    desc: 'How quietly or loudly',
+    icon: '\uD834\uDD91\uD834\uDD91',
+    levels: {
+        easy: [],
+        medium: [],
+        hard: [],
+    },
 };
 const tempo: DataSetTopic = {
-    easy: [],
-    medium: [],
-    hard: [],
+    desc: 'The rate of speed',
+    icon: 'accel.',
+    levels: {
+        easy: [],
+        medium: [],
+        hard: [],
+    },
 };
 const articulation: DataSetTopic = {
-    easy: [],
-    medium: [],
-    hard: [],
+    desc: 'The style to play a note',
+    icon: '\uD834\uDD7B \uD834\uDD7C',
+    levels: {
+        easy: [],
+        medium: [],
+        hard: [],
+    },
 };
 const ornamentation: DataSetTopic = {
-    easy: [],
-    medium: [],
-    hard: [],
+    desc: 'Make the melody more interesting',
+    icon: 'tr',
+    levels: {
+        easy: [],
+        medium: [],
+        hard: [],
+    },
 };
 const notes: DataSetTopic = {
-    easy: [],
-    medium: [],
-    hard: [],
+    desc: 'How long to (not) play a note',
+    icon: '\uD834\uDD61',
+    levels: {
+        easy: [],
+        medium: [],
+        hard: [],
+    },
 };
 
-export { dynamics, tempo, articulation, ornamentation, notes };
+const allDataSets: { [key: string]: DataSetTopic } = {
+    dynamics,
+    tempo,
+    articulation,
+    ornamentation,
+    notes,
+};
+
+export { dynamics, tempo, articulation, ornamentation, notes, allDataSets };

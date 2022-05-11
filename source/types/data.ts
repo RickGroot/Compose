@@ -11,5 +11,9 @@ export type DataType = {
 };
 
 export type DataSetTopic = {
-    [key in TopicDifficulty]: number[];
+    desc: string;
+    icon: string; // unicode JS source code or text
+    levels: {
+        [key in TopicDifficulty]: number[];
+    };
 };

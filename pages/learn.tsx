@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { Nav } from '~source/ui';
+import { Nav, TestBlock } from '~source/ui';
 import $ from '../styles/pages/Page.module.scss';
 
 const Home: NextPage = () => {
@@ -16,9 +16,9 @@ const Home: NextPage = () => {
             </Head>
 
             <main className={$.main}>
-                <h1 className={$.title}>Learn</h1>
-
                 <Nav />
+                <h1 className={$.title}>Test your knowledge</h1>
+                <TestBlock />
             </main>
         </>
     );

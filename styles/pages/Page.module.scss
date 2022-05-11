@@ -1,29 +1,13 @@
 @import '~/styles/helpers.scss';
 
 .main {
+    $padding-top: px(50);
     background-color: $c-background;
-    min-height: 100vh;
-    padding: 4rem 0;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    min-height: calc(100vh - #{$padding-top} * 2);
+    padding: $padding-top px(20);
 }
 
 .title {
-    margin: 0;
-    line-height: 1.15;
-    font-size: 4rem;
-}
-
-.title,
-.description {
-    text-align: center;
-}
-
-.description {
-    margin: 4rem 0;
-    line-height: 1.5;
-    font-size: 1.5rem;
+    @include pageTitle;
+    margin: 0 0 px(24);
 }

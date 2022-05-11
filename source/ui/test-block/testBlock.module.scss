@@ -1,0 +1,55 @@
+@import '~/styles/helpers.scss';
+
+.container {
+    margin-bottom: $nav-height;
+}
+
+.block {
+    position: relative;
+    border-radius: px(20);
+    padding: px(40);
+    margin-bottom: px(30);
+
+    &Title {
+        @include pageTitle;
+        @include firstLetterCapital;
+        margin: 0 0 px(5);
+    }
+
+    &Desc {
+        @include subText;
+        @include firstLetterCapital;
+        margin: 0;
+    }
+
+    &Icon {
+        $size: px(60);
+        position: absolute;
+        top: 0;
+        right: px(30);
+        width: $size;
+        height: $size;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Times New Roman', Times, serif;
+        border-radius: 0 0 px(10) px(10);
+        background-color: rgba(#ffffff, 0.8);
+        color: $c-icon;
+        font-size: px(22);
+        text-size-adjust: auto;
+        margin: 0;
+        overflow: hidden;
+    }
+
+    &Link {
+        &::after {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
