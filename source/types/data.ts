@@ -1,3 +1,9 @@
+export type Topics =
+    | 'dynamics'
+    | 'tempo'
+    | 'articulation'
+    | 'ornamentation'
+    | 'notes';
 export type TopicDifficulty = 'easy' | 'medium' | 'hard';
 
 export type Topic = {
@@ -14,6 +20,9 @@ export type DataSetTopic = {
     desc: string;
     icon: string; // unicode JS source code or text
     levels: {
-        [key in TopicDifficulty]: number[];
+        [key in TopicDifficulty]: {
+            topics: number[];
+            expNeeded: number;
+        };
     };
 };
