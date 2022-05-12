@@ -11,11 +11,13 @@ const availableBackgroundTypes: BackgroundTypes[] = ['linear', 'radial'];
 const ColoredBox = ({
     className,
     children,
+    onClick,
     color,
     backgroundType,
 }: {
-    className: string;
     children: any;
+    onClick?: () => void;
+    className?: string;
     color?: AvailableColors;
     backgroundType?: BackgroundTypes;
 }) => {
@@ -47,8 +49,8 @@ const ColoredBox = ({
     return (
         <section
             className={cx(
-                className,
                 $.container,
+                className && className,
                 isLinear && isRed && $.containerRedLinear,
                 isLinear && isGreen && $.containerGreenLinear,
                 isLinear && isYellow && $.containerYellowLinear,
@@ -58,6 +60,7 @@ const ColoredBox = ({
                 isRadial && isYellow && $.containerYellowRadial,
                 isRadial && isBlue && $.containerBlueRadial,
             )}
+            onClick={() => onClick && onClick()}
         >
             {children}
         </section>

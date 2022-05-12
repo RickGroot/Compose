@@ -1,4 +1,5 @@
-import { allDataSets as dataSets } from 'pages/data/dataSets';
+import Link from 'next/link';
+import { dataSets } from 'pages/data/dataSets';
 import React from 'react';
 import { ColoredBox } from '~source/ui';
 import {
@@ -32,7 +33,13 @@ const TestBlock = () => {
                                 </text>
                             </svg>
                         </div> */}
-                        <a href={'learn/' + keyName} className={$.blockLink} />
+                        <Link
+                            href={{
+                                pathname: '/learn/' + keyName,
+                            }}
+                        >
+                            <span className={$.blockLink} />
+                        </Link>
                     </ColoredBox>
                 );
             })}

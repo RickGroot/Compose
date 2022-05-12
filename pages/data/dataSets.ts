@@ -46,7 +46,7 @@ const notes: DataSetTopic = {
     },
 };
 
-const allDataSets: { [key: string]: DataSetTopic } = {
+const dataSets: { [key: string]: DataSetTopic } = {
     dynamics,
     tempo,
     articulation,
@@ -54,4 +54,4 @@ const allDataSets: { [key: string]: DataSetTopic } = {
     notes,
 };
 
-export { dynamics, tempo, articulation, ornamentation, notes, allDataSets };
+export { dataSets };

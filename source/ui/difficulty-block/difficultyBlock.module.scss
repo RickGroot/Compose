@@ -1,0 +1,38 @@
+@import '~/styles/helpers.scss';
+
+.container {
+    position: relative;
+    margin-bottom: $nav-height;
+    border-radius: px(10);
+    padding: px(20) px(20) px(30);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: px(20);
+}
+
+.icon {
+    $size: px(50);
+    width: $size;
+    height: $size;
+    background-color: rgba($c-white, 0.8);
+    border-radius: px(5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    @include pageTitle;
+    @include firstLetterCapital;
+    margin: 0;
+}
+
+.progressBar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: px(10);
+    background-color: rgba($c-white, 0.8);
+}
