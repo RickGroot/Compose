@@ -8,7 +8,6 @@ import $ from './quizHandler.module.scss';
 
 const QuizHandler = () => {
     const router = useRouter();
-    // const subject = router.query.subject as TopicDifficulty;
     const [subject, setSubject] = React.useState<TopicDifficulty | null>(null);
 
     const handleQuizStart = (level: TopicDifficulty) => {
@@ -19,10 +18,11 @@ const QuizHandler = () => {
     };
 
     React.useEffect(() => {
+        if (!router.isReady) return;
         if (router.query.subject)
             setSubject(router.query.subject as TopicDifficulty);
         console.log(router.query);
-    }, []);
+    }, [router.isReady]);
 
     return (
         <section className={$.container}>
