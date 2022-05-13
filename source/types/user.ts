@@ -1,5 +1,12 @@
 import { TopicDifficulty, Topics } from './data';
 
+type StreakDay =
+    | {
+          date: string;
+          score: number;
+      }
+    | undefined;
+
 type User = {
     userName: string;
     userId: number;
@@ -8,7 +15,7 @@ type User = {
             [key in TopicDifficulty]: number; //? { topicDifficulty: userXP }
         };
     };
-    streakDays: number[];
+    streakDays: StreakDay[];
     badges: {
         [key: number]: number | undefined; //? { badgeId: levelNumber }
     };

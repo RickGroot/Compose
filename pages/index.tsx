@@ -1,9 +1,13 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { Nav } from '~source/ui';
+import User from '~source/types/user';
+import { Nav, StreaksBar } from '~source/ui';
+import user from '../source/data/user';
+import cx from 'classnames';
 import $ from '../styles/pages/Page.module.scss';
 
-const Home: NextPage = () => {
+const Home: NextPage = (props: any) => {
+    const userData: User = user;
     return (
         <>
             <Head>
@@ -15,13 +19,18 @@ const Home: NextPage = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <main className={$.main}>
-                <h1 className={$.title}>Daily</h1>
-
+            <main className={cx($.main, $.mainDaily)}>
                 <Nav />
+                <StreaksBar user={userData} />
             </main>
         </>
     );
 };
+
+//! getServerSideProps added for possible future user data fetching
+export async function getServerSideProps() {
+    const userData = user;
+    return { props: { userData } };
+}
 
 export default Home;

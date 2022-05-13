@@ -1,14 +1,13 @@
 import { useRouter } from 'next/router';
 import React from 'react';
-import { dataSets } from 'pages/data/dataSets';
+import { dataSets } from '~source/data/dataSets';
 import { DifficultyBlock } from '~source/ui';
 import { TopicDifficulty } from '~source/types/data';
 
 import $ from './quizHandler.module.scss';
 
-const QuizHandler = () => {
+const QuizHandler = ({ subject }: { subject: TopicDifficulty }) => {
     const router = useRouter();
-    const [subject, setSubject] = React.useState<TopicDifficulty | null>(null);
 
     const handleQuizStart = (level: TopicDifficulty) => {
         console.log(level);
@@ -16,13 +15,6 @@ const QuizHandler = () => {
     const handleBackButton = () => {
         router.push({ pathname: '/learn' });
     };
-
-    React.useEffect(() => {
-        if (!router.isReady) return;
-        if (router.query.subject)
-            setSubject(router.query.subject as TopicDifficulty);
-        console.log(router.query);
-    }, [router.isReady]);
 
     return (
         <section className={$.container}>
