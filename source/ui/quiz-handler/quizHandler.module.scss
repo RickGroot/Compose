@@ -1,0 +1,17 @@
+@import '~/styles/helpers.scss';
+
+.container {
+    margin-bottom: $nav-height;
+    height: 100%;
+    margin-top: 15vh;
+}
+
+.backButton {
+    @include removeButton;
+    background-color: $c-green;
+    color: $c-white;
+    padding: px(10) px(24);
+    border-radius: px(10);
+    margin: 0 auto;
+    display: block;
+}

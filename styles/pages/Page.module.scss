@@ -1,0 +1,14 @@
+@import '~/styles/helpers.scss';
+
+.main {
+    $padding-top: px(50);
+    position: relative;
+    background-color: $c-background;
+    min-height: calc(100vh - #{$padding-top} * 2);
+    padding: $padding-top px(20);
+}
+
+.title {
+    @include pageTitle;
+    margin: 0 0 px(24);
+}

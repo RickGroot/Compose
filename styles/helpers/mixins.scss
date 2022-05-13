@@ -23,3 +23,22 @@ $base-size: 16;
 @function px($target, $context: $base-size) {
     @return math.div($target, $context) * 1rem;
 }
+
+// font mixins
+@mixin pageTitle {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: px(20);
+}
+
+@mixin subText {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: px(12);
+}
+
+@mixin firstLetterCapital {
+    &::first-letter {
+        text-transform: uppercase;
+    }
+}
