@@ -6,6 +6,10 @@
     background-color: $c-background;
     min-height: calc(100vh - #{$padding-top} * 2);
     padding: $padding-top px(20);
+
+    &Daily {
+        padding-top: px(20);
+    }
 }
 
 .title {

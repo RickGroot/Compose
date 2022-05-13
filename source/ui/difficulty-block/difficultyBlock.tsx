@@ -1,5 +1,5 @@
 import React from 'react';
-import { dataSets } from 'pages/data/dataSets';
+import { dataSets } from '~source/data/dataSets';
 import { ColoredBox } from '~source/ui';
 
 import $ from './difficultyBlock.module.scss';

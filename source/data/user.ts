@@ -30,7 +30,11 @@ const user: User = {
             hard: 0,
         },
     },
-    streakDays: [],
+    streakDays: [
+        { date: '2022/05/13', score: 100 },
+        { date: '2022/05/12', score: 100 },
+        { date: '2022/05/11', score: 100 },
+    ],
     badges: {},
 };
 

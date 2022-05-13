@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import React from 'react';
-import { dataSets } from 'pages/data/dataSets';
+import { dataSets } from '~source/data/dataSets';
 import { DifficultyBlock } from '~source/ui';
 import { TopicDifficulty } from '~source/types/data';
 

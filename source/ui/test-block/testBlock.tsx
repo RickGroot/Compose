@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { dataSets } from 'pages/data/dataSets';
+import { dataSets } from '~source/data/dataSets';
 import React from 'react';
 import { ColoredBox } from '~source/ui';
 import {
