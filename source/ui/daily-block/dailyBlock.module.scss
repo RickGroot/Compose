@@ -1,0 +1,72 @@
+@import '~/styles/helpers.scss';
+
+.container {
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: px(75) 0;
+}
+
+.icon {
+    $size: px(200);
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: px(35);
+
+    &Content {
+        font-size: px(100);
+        margin: 0;
+    }
+}
+
+.challengeTitle {
+    font-weight: 400;
+    font-size: px(20);
+    margin: 0;
+}
+
+.title {
+    font-weight: 700;
+    font-size: px(24);
+    margin: px(10) 0;
+}
+
+.score {
+    font-weight: 300;
+    font-size: px(16);
+    margin: 0;
+
+    &Highlight {
+        font-weight: 400;
+    }
+}
+
+.button {
+    position: relative;
+    font-weight: 400;
+    font-size: px(16);
+    margin-top: px(80);
+    padding: px(15) px(40);
+    border-radius: px(10);
+
+    &Text {
+        margin: 0;
+    }
+
+    &Link {
+        &::after {
+            position: absolute;
+            content: '';
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: px(10);
+        }
+    }
+}

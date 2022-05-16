@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import User from '~source/types/user';
-import { Nav, StreaksBar } from '~source/ui';
+import { DailyBlock, Nav, StreaksBar } from '~source/ui';
 import user from '../source/data/user';
 import cx from 'classnames';
 import $ from '../styles/pages/Page.module.scss';
@@ -22,6 +22,7 @@ const Home: NextPage = (props: any) => {
             <main className={cx($.main, $.mainDaily)}>
                 <Nav />
                 <StreaksBar user={userData} />
+                <DailyBlock />
             </main>
         </>
     );
