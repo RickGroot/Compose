@@ -9,12 +9,13 @@ import User from '~source/types/user';
 import cx from 'classnames';
 
 import $ from './streaksBar.module.scss';
-import { getLongestStreak } from '~source/core/getStreak';
+import { getCurrentStreak, getLongestStreak } from '~source/core/getStreak';
 
 const StreaksBar = ({ user }: { user: User }) => {
     const currentDate = getDate();
     const datesInBar = getStreakDates();
     const longestStreak = getLongestStreak(user);
+    const currentStreak = getCurrentStreak(user);
 
     const hasPlayed = (date: string) =>
         !!user.streakDays.find((streakDay) => streakDay?.date === date);
@@ -40,6 +41,7 @@ const StreaksBar = ({ user }: { user: User }) => {
                             hasNotPlayed(date) && $.barDateRed,
                             upcomingDate(date) && $.barDateUpcoming,
                         )}
+                        key={date}
                     >
                         {getDayFromDate(date)}
                     </p>
@@ -47,11 +49,13 @@ const StreaksBar = ({ user }: { user: User }) => {
             </div>
             <div className={$.info}>
                 <p className={$.infoCurrent}>
-                    Current streak: <span className={$.bold}>3 days</span>
+                    Current streak:{' '}
+                    <span className={$.bold}>{currentStreak} days</span>
                 </p>
                 <p className={$.infoToday}>Today</p>
                 <p className={$.infoLongest}>
-                    Longest streak: <span className={$.bold}>5 days</span>
+                    Longest streak:{' '}
+                    <span className={$.bold}>{longestStreak} days</span>
                 </p>
             </div>
         </section>

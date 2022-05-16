@@ -31,9 +31,16 @@ const user: User = {
         },
     },
     streakDays: [
-        { date: '2022/05/13', score: 100 },
-        { date: '2022/05/12', score: 100 },
+        { date: '2022/05/01', score: 100 },
+        { date: '2022/05/02', score: 100 },
+        { date: '2022/05/04', score: 100 },
+        { date: '2022/05/05', score: 100 },
+        { date: '2022/05/06', score: 100 },
+        { date: '2022/05/07', score: 100 },
+        { date: '2022/05/08', score: 100 },
         { date: '2022/05/11', score: 100 },
+        { date: '2022/05/15', score: 100 },
+        { date: '2022/05/16', score: 100 },
     ],
     badges: {},
 };
