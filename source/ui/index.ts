@@ -5,3 +5,4 @@ export { default as QuizHandler } from './quiz-handler';
 export { default as DifficultyBlock } from './difficulty-block';
 export { default as StreaksBar } from './streaks-bar';
 export { default as DailyBlock } from './daily-block';
+export { default as Leaderboard } from './leaderboard';

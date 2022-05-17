@@ -1,13 +1,16 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import User from '~source/types/user';
-import { DailyBlock, Nav, StreaksBar } from '~source/ui';
+import { DailyBlock, Leaderboard, Nav, StreaksBar } from '~source/ui';
 import user from '../source/data/user';
 import cx from 'classnames';
 import $ from '../styles/pages/Page.module.scss';
+import friends from '~source/data/friends';
+import { Friend } from '~source/types/friend';
 
 const Home: NextPage = (props: any) => {
-    const userData: User = user;
+    const userData: User = props.userData;
+    const friendsData: Friend[] = props.friendsData;
     return (
         <>
             <Head>
@@ -23,6 +26,7 @@ const Home: NextPage = (props: any) => {
                 <Nav />
                 <StreaksBar user={userData} />
                 <DailyBlock />
+                <Leaderboard user={userData} friends={friendsData} />
             </main>
         </>
     );
@@ -31,7 +35,11 @@ const Home: NextPage = (props: any) => {
 //! getServerSideProps added for possible future user data fetching
 export async function getServerSideProps() {
     const userData = user;
-    return { props: { userData } };
+    const friendsDataBase = friends;
+    const friendsData = userData.friends.map(
+        (friend) => friendsDataBase[friend],
+    );
+    return { props: { userData, friendsData } };
 }
 
 export default Home;
