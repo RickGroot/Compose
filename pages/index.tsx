@@ -25,7 +25,7 @@ const Home: NextPage = (props: any) => {
             <main className={cx($.main, $.mainDaily)}>
                 <Nav />
                 <StreaksBar user={userData} />
-                <DailyBlock />
+                <DailyBlock user={userData} />
                 <Leaderboard user={userData} friends={friendsData} />
             </main>
         </>

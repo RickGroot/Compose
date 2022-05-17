@@ -66,6 +66,20 @@ const Leaderboard = ({
                         <p className={$.rowItem}>{row.score.score}</p>
                     </div>
                 ))}
+            {user && user.friends.length < 1 && (
+                <div className={$.row}>
+                    <p className={cx($.rowItem, $.rowItemError)}>
+                        Add friends now!
+                    </p>
+                </div>
+            )}
+            {!user && (
+                <div className={$.row}>
+                    <p className={cx($.rowItem, $.rowItemError)}>
+                        Log in to see your friends!
+                    </p>
+                </div>
+            )}
         </section>
     );
 };
