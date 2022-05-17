@@ -4,6 +4,7 @@ const friends: Friends = {
     4321: {
         userName: 'Brian',
         userId: 4321,
+        img: null,
         streakDays: [
             { date: '2022/05/01', score: 100 },
             { date: '2022/05/02', score: 100 },
@@ -20,6 +21,7 @@ const friends: Friends = {
     5678: {
         userName: 'James',
         userId: 5678,
+        img: null,
         streakDays: [
             { date: '2022/05/01', score: 100 },
             { date: '2022/05/02', score: 100 },
@@ -36,6 +38,7 @@ const friends: Friends = {
     5433: {
         userName: 'Jasmine',
         userId: 5433,
+        img: null,
         streakDays: [
             { date: '2022/05/01', score: 100 },
             { date: '2022/05/02', score: 100 },
@@ -52,6 +55,7 @@ const friends: Friends = {
     6666: {
         userName: 'Matt',
         userId: 6666,
+        img: null,
         streakDays: [
             { date: '2022/05/01', score: 100 },
             { date: '2022/05/02', score: 100 },

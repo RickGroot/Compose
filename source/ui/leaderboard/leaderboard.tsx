@@ -60,9 +60,11 @@ const Leaderboard = ({
                 scores.map((row) => (
                     <div
                         className={cx($.row, isMe(row) && $.rowMe)}
-                        key={row.id}
+                        key={`${row.name}${row.id}`}
                     >
-                        <p className={$.rowItem}>{row.name}</p>
+                        <p className={$.rowItem}>
+                            {isMe(row) ? 'Me' : row.name}
+                        </p>
                         <p className={$.rowItem}>{row.score.score}</p>
                     </div>
                 ))}

@@ -3,6 +3,7 @@ import User from '~source/types/user';
 const user: User = {
     userName: 'RickG',
     userId: 1234,
+    img: null,
     progress: {
         dynamics: {
             easy: 100,

@@ -9,14 +9,13 @@
 }
 
 .icon {
-    $size: px(200);
-    width: $size;
-    height: $size;
+    width: $icon-size;
+    height: $icon-size;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: px(35);
+    margin-bottom: px(30);
 
     &Content {
         font-size: px(100);
