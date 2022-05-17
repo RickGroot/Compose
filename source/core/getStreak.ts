@@ -1,10 +1,11 @@
+import { Friend } from '~source/types/friend';
 import User from '~source/types/user';
 import { getDate, getDateType } from './getDate';
 
 const oneDay = 1000 * 60 * 60 * 24; // day in miliseconds
 const today = getDate();
 
-const getLongestStreak = (userData: User) => {
+const getLongestStreak = (userData: User | Friend) => {
     let successive: boolean[] = [];
 
     const streakArray = userData.streakDays.map(
@@ -38,7 +39,7 @@ const getLongestStreak = (userData: User) => {
     return highestCount();
 };
 
-const getCurrentStreak = (userData: User) => {
+const getCurrentStreak = (userData: User | Friend) => {
     let count = 0;
 
     const streakArray = userData.streakDays.map(

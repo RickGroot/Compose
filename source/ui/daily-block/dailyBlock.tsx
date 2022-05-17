@@ -1,10 +1,13 @@
 import React from 'react';
+import getTodayScore from '~source/core/getScore';
+import User from '~source/types/user';
 import { ColoredBox } from '~source/ui';
 
 import $ from './dailyBlock.module.scss';
 
-const DailyBlock = () => {
+const DailyBlock = ({ user }: { user: User }) => {
     const today = new Date();
+    const dayScore = getTodayScore(user);
     return (
         <section className={$.container}>
             <ColoredBox
@@ -23,7 +26,8 @@ const DailyBlock = () => {
                 {today.getFullYear()}
             </h1>
             <p className={$.score}>
-                Your highscore: <span className={$.scoreHighlight}>1200</span>
+                Your highscore:{' '}
+                <span className={$.scoreHighlight}>{dayScore?.score || 0}</span>
             </p>
             <ColoredBox
                 color="green"

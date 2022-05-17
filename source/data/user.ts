@@ -3,6 +3,7 @@ import User from '~source/types/user';
 const user: User = {
     userName: 'RickG',
     userId: 1234,
+    img: null,
     progress: {
         dynamics: {
             easy: 100,
@@ -41,8 +42,10 @@ const user: User = {
         { date: '2022/05/11', score: 100 },
         { date: '2022/05/15', score: 100 },
         { date: '2022/05/16', score: 100 },
+        { date: '2022/05/17', score: 500 },
     ],
     badges: {},
+    friends: [4321, 5678, 5433],
 };
 
 export default user;

@@ -1,0 +1,10 @@
+@import '~/styles/helpers.scss';
+
+.container {
+    font-family: 'Lato', sans-serif;
+}
+
+.title {
+    @include pageTitle;
+    margin: 0 0 px(20);
+}
