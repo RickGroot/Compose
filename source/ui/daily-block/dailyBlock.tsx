@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import getTodayScore from '~source/core/getScore';
 import User from '~source/types/user';
@@ -34,8 +35,14 @@ const DailyBlock = ({ user }: { user: User }) => {
                 className={$.button}
                 backgroundType="linear"
             >
-                <p className={$.buttonText}>Play Now!</p>
-                <a href="" className={$.buttonLink} />
+                <Link
+                    href={{
+                        pathname: '/quiz',
+                        query: { test: 'daily', difficulty: 'none' },
+                    }}
+                >
+                    <p className={$.buttonText}>Play Now!</p>
+                </Link>
             </ColoredBox>
         </section>
     );

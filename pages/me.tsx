@@ -7,9 +7,14 @@ import User from '~source/types/user';
 import { Achievements, Friends, Nav, UserData } from '~source/ui';
 import $ from '../styles/pages/Page.module.scss';
 
-const Home: NextPage = (props: any) => {
-    const userData: User = props.userData;
-    const friendsData: Friend[] = props.friendsData;
+interface Props {
+    userData: User;
+    friendsData: Friend[];
+}
+
+const Home: NextPage<Props> = (props) => {
+    const userData = props.userData;
+    const friendsData = props.friendsData;
     return (
         <>
             <Head>

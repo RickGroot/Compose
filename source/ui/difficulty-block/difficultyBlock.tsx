@@ -1,9 +1,11 @@
 import React from 'react';
-import { dataSets } from '~source/data/dataSets';
 import { ColoredBox } from '~source/ui';
 
 import $ from './difficultyBlock.module.scss';
-import { TopicDifficulty } from '~source/types/data';
+import { TopicDifficulty, Topics } from '~source/types/data';
+import { getPercentage } from '~source/core/calculations';
+import { dataSets } from '~source/data/dataSets';
+import user from '~source/data/user';
 
 const DifficultyBlock = ({
     level,
@@ -11,7 +13,7 @@ const DifficultyBlock = ({
     startQuiz,
 }: {
     level: TopicDifficulty;
-    subject: string;
+    subject: Topics;
     startQuiz: (level: TopicDifficulty) => void;
 }) => {
     const getColor = () => {
@@ -33,7 +35,16 @@ const DifficultyBlock = ({
             <div className={$.icon}>
                 <p>{[...Array(getAmountOfStars())].map(() => '\u2605')}</p>
             </div>
-            <h1 className={$.title}>{level}</h1>
+            <div>
+                <h1 className={$.title}>{level}</h1>
+                <p className={$.percentage}>
+                    {getPercentage(
+                        dataSets[subject].levels[level].expNeeded,
+                        user.progress[subject][level],
+                    )}
+                    % completed
+                </p>
+            </div>
             <div className={$.progressBar}></div>
         </ColoredBox>
     );

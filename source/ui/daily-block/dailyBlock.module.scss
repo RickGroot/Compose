@@ -55,9 +55,6 @@
 
     &Text {
         margin: 0;
-    }
-
-    &Link {
         &::after {
             position: absolute;
             content: '';

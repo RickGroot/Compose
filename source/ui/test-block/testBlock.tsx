@@ -6,6 +6,7 @@ import {
     availableBackgroundTypes,
     availableColors,
 } from '../colored-box/coloredBox';
+import cx from 'classnames';
 import $ from './testBlock.module.scss';
 
 const TestBlock = () => {
@@ -25,14 +26,15 @@ const TestBlock = () => {
                     >
                         <h1 className={$.blockTitle}>{keyName}</h1>
                         <p className={$.blockDesc}>{dataSets[keyName].desc}</p>
-                        <p className={$.blockIcon}>{dataSets[keyName].icon}</p>
-                        {/* <div className={$.blockIcon}>
-                            <svg width="100%" height="100%" viewBox="0 0 60 60">
-                                <text x="0" y="60" fontSize="75">
-                                    {dataSets[keyName].icon}
-                                </text>
-                            </svg>
-                        </div> */}
+                        <p
+                            className={cx(
+                                $.blockIcon,
+                                dataSets[keyName].iconType === 'text' &&
+                                    $.blockIconText,
+                            )}
+                        >
+                            {dataSets[keyName].icon}
+                        </p>
                         <Link
                             href={{
                                 pathname: '/learn/' + keyName,

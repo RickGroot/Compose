@@ -2,15 +2,18 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import { dataSets } from '~source/data/dataSets';
 import { DifficultyBlock } from '~source/ui';
-import { TopicDifficulty } from '~source/types/data';
+import { TopicDifficulty, Topics } from '~source/types/data';
 
 import $ from './quizHandler.module.scss';
 
-const QuizHandler = ({ subject }: { subject: TopicDifficulty }) => {
+const QuizHandler = ({ subject }: { subject: Topics }) => {
     const router = useRouter();
 
     const handleQuizStart = (level: TopicDifficulty) => {
-        console.log(level);
+        router.push({
+            pathname: '/quiz',
+            query: { test: subject, difficulty: level },
+        });
     };
     const handleBackButton = () => {
         router.push({ pathname: '/learn' });

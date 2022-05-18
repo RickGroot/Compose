@@ -8,9 +8,14 @@ import $ from '../styles/pages/Page.module.scss';
 import friends from '~source/data/friends';
 import { Friend } from '~source/types/friend';
 
-const Home: NextPage = (props: any) => {
-    const userData: User = props.userData;
-    const friendsData: Friend[] = props.friendsData;
+interface Props {
+    userData: User;
+    friendsData: Friend[];
+}
+
+const Home: NextPage<Props> = (props) => {
+    const userData = props.userData;
+    const friendsData = props.friendsData;
     return (
         <>
             <Head>
