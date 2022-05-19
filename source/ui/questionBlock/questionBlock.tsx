@@ -26,7 +26,11 @@ const QuestionBlock = ({ topicId, next }: Props) => {
     >(null);
     const [question, setQuestion] = React.useState<string | null>(null);
 
-    const handleNextQuestion = (answer: Answer) => {
+    const handleNextQuestion = (
+        answer: Answer,
+        userQuestion: string,
+        userQuestionType: QuestionTypes,
+    ) => {
         const correctAnswer =
             questionAnswers?.find((obj) => obj.isCorrect)?.text || 'N/A';
         const userAnswer: QuestionResult = {
@@ -34,6 +38,8 @@ const QuestionBlock = ({ topicId, next }: Props) => {
             userAnswer: answer.text,
             correctAnswer: correctAnswer,
             isCorrect: answer.isCorrect,
+            question: userQuestion,
+            questionType: userQuestionType,
         };
 
         next(userAnswer);
@@ -70,7 +76,9 @@ const QuestionBlock = ({ topicId, next }: Props) => {
             <div className={$.answers}>
                 {questionAnswers.map((answer, i) => (
                     <button
-                        onClick={() => handleNextQuestion(answer)}
+                        onClick={() =>
+                            handleNextQuestion(answer, question, questionType)
+                        }
                         className={cx(
                             $.answer,
                             i === 0 && $.answerBlue,

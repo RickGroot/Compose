@@ -5,6 +5,8 @@ type QuestionResult = {
     userAnswer: string;
     correctAnswer: string;
     isCorrect: boolean;
+    question: string;
+    questionType: QuestionTypes;
 };
 
 type Answer = {

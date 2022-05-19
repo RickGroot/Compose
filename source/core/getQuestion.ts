@@ -40,11 +40,13 @@ const getQuestionAnswers = (questionType: QuestionTypes, topic: Topic) => {
 
         return answers;
     }
+    return [];
 };
 
 const getQuestion = (questionType: QuestionTypes, topic: Topic) => {
     if (questionType === 'choose right') return 'Which is true?';
     if (questionType === 'choose wrong') return 'Which is NOT correct?';
+    return '';
 };
 
 export { getItemData, getQuestionType, getQuestionAnswers, getQuestion };

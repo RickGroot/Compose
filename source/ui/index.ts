@@ -11,3 +11,4 @@ export { default as Friends } from './friends';
 export { default as Achievements } from './achievements';
 export { default as QuestionBlock } from './questionBlock';
 export { default as CloseButton } from './close-button';
+export { default as QuizDone } from './quiz-done';

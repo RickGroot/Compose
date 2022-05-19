@@ -12,8 +12,12 @@ const Nav = () => {
             : router.push({ pathname: '/' + page });
     };
 
-    const isLearn = router.route.includes('/learn');
-    const isDaily = router.route === '/';
+    const isLearn =
+        router.route.includes('/learn') ||
+        (router.route.includes('/quiz') && router.query.test !== 'daily');
+    const isDaily =
+        router.route === '/' ||
+        (router.route.includes('/quiz') && router.query.test === 'daily');
     const isMe = router.route === '/me';
 
     return (

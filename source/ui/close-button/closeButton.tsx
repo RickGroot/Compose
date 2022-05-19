@@ -9,7 +9,8 @@ const CloseButton = () => {
     const router = useRouter();
     const handleRedirect = () => {
         const { test } = router.query;
-        router.push({ pathname: `/learn/${test}` });
+        if (test === 'daily') router.push({ pathname: '/' });
+        else router.push({ pathname: `/learn/${test}` });
     };
     return (
         <section className={$.container}>

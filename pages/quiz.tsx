@@ -1,14 +1,19 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useState } from 'react';
-import { getQuiztopics, randomizeTopics } from '~source/core/getQuizData';
+import {
+    getDailyTopics,
+    getQuiztopics,
+    randomizeTopics,
+} from '~source/core/getQuizData';
 import { TopicDifficulty, Topics } from '~source/types/data';
 import { QuestionResult } from '~source/types/questions';
-import { Nav, QuestionBlock } from '~source/ui';
+import { Nav, QuestionBlock, QuizDone } from '~source/ui';
+import cx from 'classnames';
 import $ from '../styles/pages/Page.module.scss';
 
 interface Props {
-    test: Topics | 'Daily';
+    test: Topics | 'daily';
     difficulty: TopicDifficulty | 'none';
     topicIds: number[];
 }
@@ -35,20 +40,23 @@ const Quiz: NextPage<Props> = (props) => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <main className={$.main}>
+            <main className={cx($.main, !isFinished && $.mainQuiz)}>
                 {!isFinished && (
                     <QuestionBlock
                         topicId={topicIds[activeItem]}
                         next={(result) => handleNext(result)}
                     />
                 )}
-                {isFinished &&
-                    results.map((result) => (
-                        <p>
-                            {result.userAnswer}
-                            {result.isCorrect && ' <- this one was correct'}
-                        </p>
-                    ))}
+                {isFinished && (
+                    <>
+                        <QuizDone
+                            results={results}
+                            test={test}
+                            difficulty={difficulty}
+                        />
+                        <Nav />
+                    </>
+                )}
             </main>
         </>
     );
@@ -60,7 +68,10 @@ export async function getServerSideProps(context: {
     const { test, difficulty } = context.query;
     const topicData = getQuiztopics({ topic: test, difficulty });
     const topicIds = randomizeTopics(topicData, difficulty);
-    return { props: { test, difficulty, topicIds } };
+    if (test !== 'daily') return { props: { test, difficulty, topicIds } };
+
+    const dailyTopics = getDailyTopics();
+    return { props: { test, difficulty, topicIds: dailyTopics } };
 }
 
 export default Quiz;
