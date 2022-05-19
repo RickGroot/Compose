@@ -9,3 +9,5 @@ export { default as Leaderboard } from './leaderboard';
 export { default as UserData } from './userData';
 export { default as Friends } from './friends';
 export { default as Achievements } from './achievements';
+export { default as QuestionBlock } from './questionBlock';
+export { default as CloseButton } from './close-button';

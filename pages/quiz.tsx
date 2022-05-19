@@ -1,8 +1,10 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import { useState } from 'react';
 import { getQuiztopics, randomizeTopics } from '~source/core/getQuizData';
 import { TopicDifficulty, Topics } from '~source/types/data';
-import { Nav } from '~source/ui';
+import { QuestionResult } from '~source/types/questions';
+import { Nav, QuestionBlock } from '~source/ui';
 import $ from '../styles/pages/Page.module.scss';
 
 interface Props {
@@ -13,6 +15,15 @@ interface Props {
 
 const Quiz: NextPage<Props> = (props) => {
     const { test, difficulty, topicIds } = props;
+    const [isFinished, setIsFinished] = useState<boolean>(false);
+    const [activeItem, setActiveItem] = useState<number>(0);
+    const [results, setResults] = useState<QuestionResult[]>([]);
+
+    const handleNext = (questionResults: QuestionResult) => {
+        setResults([...results, questionResults]);
+        if (activeItem === topicIds.length - 1) setIsFinished(true);
+        else setActiveItem(activeItem + 1);
+    };
     return (
         <>
             <Head>
@@ -25,11 +36,19 @@ const Quiz: NextPage<Props> = (props) => {
             </Head>
 
             <main className={$.main}>
-                <h1 className={$.title}>
-                    {test}
-                    {difficulty}
-                    {topicIds}
-                </h1>
+                {!isFinished && (
+                    <QuestionBlock
+                        topicId={topicIds[activeItem]}
+                        next={(result) => handleNext(result)}
+                    />
+                )}
+                {isFinished &&
+                    results.map((result) => (
+                        <p>
+                            {result.userAnswer}
+                            {result.isCorrect && ' <- this one was correct'}
+                        </p>
+                    ))}
             </main>
         </>
     );
