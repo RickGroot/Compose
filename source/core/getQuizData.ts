@@ -27,9 +27,15 @@ const randomizeTopics = (
 const getDailyTopics = (): number[] => {
     const maxNumber = Object.keys(data).length;
     const today = getDate();
-    const hash = dailyHash(today) * 1;
-    const hashArray = hash.toString().match(/.{1,2}/g) || [0];
-    const numberArray = hashArray.map((item) => {
+    const hashArray = (i: number) =>
+        (dailyHash(today) * i).toString().match(/.{1,2}/g) || [0];
+    const longArray = [
+        hashArray(1),
+        hashArray(2),
+        hashArray(3),
+        hashArray(4),
+    ].flat();
+    const numberArray = longArray.map((item) => {
         if (typeof item === 'number') return item;
         else return parseInt(item);
     });
