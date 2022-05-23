@@ -40,15 +40,22 @@ const getLongestStreak = (userData: User | Friend) => {
 };
 
 const getCurrentStreak = (userData: User | Friend) => {
-    let count = 0;
-
     const streakArray = userData.streakDays.map(
         (day) => day && getDateType(day.date),
     );
 
+    let count = 0;
+    const hasToday = streakArray.some((el) =>
+        el ? el.getTime() === getDateType(today).getTime() : false,
+    );
+
     streakArray.reverse().forEach((el, i) => {
         if (!el) return;
-        if (getDateType(today).getTime() - el.getTime() <= i * oneDay) count++;
+        const todayTimeCode = getDateType(today).getTime();
+        const elTimeCode = el.getTime();
+        if (hasToday && todayTimeCode - elTimeCode <= i * oneDay) count++;
+        else if (!hasToday && todayTimeCode - elTimeCode <= (i + 1) * oneDay)
+            count++;
     });
 
     return count;
