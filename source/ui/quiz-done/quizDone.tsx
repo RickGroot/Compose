@@ -91,10 +91,13 @@ const QuizDone = ({ results, test, difficulty }: Props) => {
             </button>
             <h2 className={$.view}>See your answers</h2>
             <section className={$.answers}>
-                {results.map((result) => {
+                {results.map((result, i) => {
                     const resultTopic = getItemData(result.itemId);
                     return (
-                        <div className={$.answer} key={result.itemId}>
+                        <div
+                            className={$.answer}
+                            key={`${result.itemId} / ${i}`}
+                        >
                             <p
                                 className={cx(
                                     $.answerIcon,
