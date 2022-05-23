@@ -3,7 +3,7 @@ import User from '~source/types/user';
 const user: User = {
     userName: 'RickG',
     userId: 1234,
-    img: null,
+    img: 'https://avatars.githubusercontent.com/u/58476652?v=4',
     progress: {
         dynamics: {
             easy: 100,
