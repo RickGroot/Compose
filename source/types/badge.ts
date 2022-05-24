@@ -1,14 +1,14 @@
-export type BadgeDifficulty = 1 | 2 | 3;
-
 export type BadgeLevel = {
-    [key in BadgeDifficulty]: {
+    // number stands for badge level
+    [key: number]: {
         desc: string;
-        completeIf: any;
+        amountToComplete: number;
     };
 };
 
 export type Badge = {
     [key: number]: {
+        badgeName: string;
         levels: BadgeLevel;
         icon: string;
     };

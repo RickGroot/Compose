@@ -48,8 +48,12 @@ const user: User = {
         { date: '2022/05/22', score: 100 },
         { date: '2022/05/23', score: 100 },
     ],
-    badges: {},
+    badges: [{ 1: { currentLevel: 1, progress: 8 } }],
     friends: [4321, 5678, 5433],
+    invites: {
+        pending: [8888],
+        outgoing: null,
+    },
 };
 
 export default user;

@@ -18,9 +18,17 @@ type User = {
     };
     streakDays: StreakDay[];
     badges: {
-        [key: number]: number | undefined; //? { badgeId: levelNumber }
-    };
+        // badgeId
+        [key: number]: {
+            currentLevel: number | undefined;
+            progress: number;
+        };
+    }[];
     friends: number[];
+    invites: {
+        pending: number[] | null;
+        outgoing: number[] | null;
+    };
 };
 
 export default User;
