@@ -19,6 +19,7 @@ $question-size: 55vh;
 }
 
 .question {
+    @include firstLetterCapital;
     font-family: 'Lato', sans-serif;
     font-weight: 700;
     font-size: px(24);
@@ -54,6 +55,7 @@ $question-size: 55vh;
 
 .answer {
     @include removeButton;
+    @include firstLetterCapital;
     position: relative;
     border-radius: px(10);
     color: $c-white;

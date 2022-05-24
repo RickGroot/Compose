@@ -34,6 +34,7 @@ const DailyBlock = ({ user }: { user: User }) => {
                 color="green"
                 className={$.button}
                 backgroundType="linear"
+                animate
             >
                 <Link
                     href={{

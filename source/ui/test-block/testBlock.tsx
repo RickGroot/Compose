@@ -23,6 +23,7 @@ const TestBlock = () => {
                         className={$.block}
                         color={color(keyIndex)}
                         backgroundType={backgroundType(keyIndex)}
+                        animate
                     >
                         <h1 className={$.blockTitle}>{keyName}</h1>
                         <p className={$.blockDesc}>{dataSets[keyName].desc}</p>

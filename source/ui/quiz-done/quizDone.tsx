@@ -70,17 +70,19 @@ const QuizDone = ({ results, test, difficulty }: Props) => {
                 className={cx($.result, $.resultScore)}
                 color="red"
                 backgroundType="linear"
+                animate
             >
                 <p className={$.resultText}>Score:</p>
-                <p className={$.resultText}>{quizScore ? quizScore : '...'}%</p>
+                <p className={$.resultText}>{quizScore ? quizScore : '0'}%</p>
             </ColoredBox>
             <ColoredBox
                 className={cx($.result, $.resultXp)}
                 color="red"
                 backgroundType="linear"
+                animate
             >
                 <p className={$.resultText}>XP earned:</p>
-                <p className={$.resultText}>{quizXp ? quizXp : '...'}XP</p>
+                <p className={$.resultText}>{quizXp ? quizXp : '0'}XP</p>
             </ColoredBox>
             <button
                 type="button"
@@ -114,13 +116,13 @@ const QuizDone = ({ results, test, difficulty }: Props) => {
                                 </h3>
                                 <p className={$.answerRow}>
                                     Your answer:{' '}
-                                    <span className={$.answerRowBold}>
+                                    <span className={$.answerRowLight}>
                                         {result.userAnswer}
                                     </span>
                                 </p>
                                 <p className={$.answerRow}>
                                     Correct answer:{' '}
-                                    <span className={$.answerRowBold}>
+                                    <span className={$.answerRowLight}>
                                         {result.correctAnswer}
                                     </span>
                                 </p>

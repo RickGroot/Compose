@@ -20,22 +20,31 @@ const getQuestionAnswers = (questionType: QuestionTypes, topic: Topic) => {
     const { is, isNot } = topic;
 
     if (questionType === 'choose right') {
-        const rightAnswer = { text: getRandomFromArray(is), isCorrect: true };
+        const rightAnswer = {
+            text: `this ${getRandomFromArray(is)}`,
+            isCorrect: true,
+        };
         const wrongAnswers = shuffleArray(isNot)
             .slice(0, 3)
-            .map((topic) => ({ text: topic, isCorrect: false }));
+            .map((topic) => ({
+                text: `this ${topic}`,
+                isCorrect: false,
+            }));
         const answers: Answer[] = shuffleArray([rightAnswer, ...wrongAnswers]);
 
         return answers;
     }
     if (questionType === 'choose wrong') {
         const wrongAnswer = {
-            text: getRandomFromArray(isNot),
+            text: `this ${getRandomFromArray(isNot)}`,
             isCorrect: true,
         };
         const rightAnswers = shuffleArray(is)
             .slice(0, 3)
-            .map((topic) => ({ text: topic, isCorrect: false }));
+            .map((topic) => ({
+                text: `this ${topic}`,
+                isCorrect: false,
+            }));
         const answers: Answer[] = shuffleArray([wrongAnswer, ...rightAnswers]);
 
         return answers;

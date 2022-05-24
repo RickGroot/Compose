@@ -31,6 +31,7 @@ const DifficultyBlock = ({
             className={$.container}
             color={getColor()}
             onClick={() => startQuiz(level)}
+            animate
         >
             <div className={$.icon}>
                 <p>{[...Array(getAmountOfStars())].map(() => '\u2605')}</p>

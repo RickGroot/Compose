@@ -14,12 +14,14 @@ const ColoredBox = ({
     onClick,
     color,
     backgroundType,
+    animate,
 }: {
     children: any;
     onClick?: () => void;
     className?: string;
     color?: AvailableColors;
     backgroundType?: BackgroundTypes;
+    animate?: boolean;
 }) => {
     const [blockColor, setBlockColor] = React.useState<AvailableColors>('red');
     const [blockBackground, setBlockBackground] =
@@ -59,6 +61,7 @@ const ColoredBox = ({
                 isRadial && isGreen && $.containerGreenRadial,
                 isRadial && isYellow && $.containerYellowRadial,
                 isRadial && isBlue && $.containerBlueRadial,
+                animate && $.containerAnimate,
             )}
             onClick={() => onClick && onClick()}
         >

@@ -5,9 +5,9 @@ const dynamics: DataSetTopic = {
     icon: '\uD834\uDD91\uD834\uDD91',
     iconType: 'icon',
     levels: {
-        easy: { topics: [1, 2, 3, 4, 5, 6, 7, 8, 9], expNeeded: 200 },
+        easy: { topics: [1, 2, 3, 4, 5, 6], expNeeded: 200 },
         medium: {
-            topics: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+            topics: [2, 3, 4, 6, 7, 8],
             expNeeded: 200,
         },
         hard: { topics: [1, 2, 3, 4, 5, 6, 7, 8, 9], expNeeded: 200 },

@@ -89,7 +89,6 @@ const QuestionBlock = ({ topicId, next }: Props) => {
                         key={answer.text}
                     >
                         {answer.text}
-                        {answer.isCorrect && ' this one is good yes'}
                     </button>
                 ))}
             </div>

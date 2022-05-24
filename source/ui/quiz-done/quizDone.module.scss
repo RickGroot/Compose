@@ -131,6 +131,7 @@ $question-size: 55vh;
         $size: px(85);
         @include musicIcon;
         display: flex;
+        flex: 0 0 auto;
         align-items: center;
         justify-content: center;
         font-size: px(44);
@@ -157,11 +158,12 @@ $question-size: 55vh;
 
     &Row {
         margin: 0;
-        font-weight: 300;
+        font-weight: 400;
         font-size: px(14);
 
-        &Bold {
-            font-weight: 400;
+        &Light {
+            @include firstLetterCapital;
+            font-weight: 300;
         }
     }
 }

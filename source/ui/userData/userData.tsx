@@ -12,7 +12,7 @@ const UserData = ({ user }: { user: User }) => {
     const longestStreak = getLongestStreak(user);
     return (
         <section className={$.container}>
-            <ColoredBox className={$.icon} backgroundType="radial">
+            <ColoredBox className={$.icon} backgroundType="radial" animate>
                 <img
                     src={user.img ? user.img : '/icons/user.svg'}
                     alt={user.userName}

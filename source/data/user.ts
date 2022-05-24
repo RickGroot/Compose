@@ -48,7 +48,7 @@ const user: User = {
         { date: '2022/05/22', score: 100 },
         { date: '2022/05/23', score: 100 },
     ],
-    badges: [{ 1: { currentLevel: 1, progress: 8 } }],
+    badges: { 1: 2, 2: 1, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0 },
     friends: [4321, 5678, 5433],
     invites: {
         pending: [8888],
