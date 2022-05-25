@@ -47,37 +47,14 @@
 
 .container {
     color: $c-white;
-
-    &Red {
-        &Linear {
-            @include patternLines($c-red);
-        }
-        &Radial {
-            @include patternCircles($c-red);
-        }
-    }
-    &Green {
-        &Linear {
-            @include patternCircles($c-green);
-        }
-        &Radial {
-            @include patternCircles($c-green);
-        }
-    }
-    &Blue {
-        &Linear {
-            @include patternLines($c-blue);
-        }
-        &Radial {
-            @include patternCircles($c-blue);
-        }
-    }
-    &Yellow {
-        &Linear {
-            @include patternLines($c-yellow);
-        }
-        &Radial {
-            @include patternCircles($c-yellow);
+    @each $color, $hex in $themeColors {
+        &-#{$color} {
+            &-linear {
+                @include patternLines($hex);
+            }
+            &-radial {
+                @include patternCircles($hex);
+            }
         }
     }
     &Animate {

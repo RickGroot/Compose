@@ -27,13 +27,6 @@ const ColoredBox = ({
     const [blockBackground, setBlockBackground] =
         React.useState<BackgroundTypes>('linear');
 
-    const isLinear = blockBackground === 'linear';
-    const isRadial = blockBackground === 'radial';
-    const isRed = blockColor === 'red';
-    const isGreen = blockColor === 'green';
-    const isBlue = blockColor === 'blue';
-    const isYellow = blockColor === 'yellow';
-
     React.useEffect(() => {
         if (color) return setBlockColor(color);
 
@@ -53,14 +46,7 @@ const ColoredBox = ({
             className={cx(
                 $.container,
                 className && className,
-                isLinear && isRed && $.containerRedLinear,
-                isLinear && isGreen && $.containerGreenLinear,
-                isLinear && isYellow && $.containerYellowLinear,
-                isLinear && isBlue && $.containerBlueLinear,
-                isRadial && isRed && $.containerRedRadial,
-                isRadial && isGreen && $.containerGreenRadial,
-                isRadial && isYellow && $.containerYellowRadial,
-                isRadial && isBlue && $.containerBlueRadial,
+                $[`container-${blockColor}-${blockBackground}`],
                 animate && $.containerAnimate,
             )}
             onClick={() => onClick && onClick()}
