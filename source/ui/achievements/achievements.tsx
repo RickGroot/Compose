@@ -51,9 +51,11 @@ const Achievements = ({ user, badges }: { user: User; badges: Badges }) => {
                                             $['badgeProgressBar-100'],
                                         $[`badgeProgressBar-${color(i)}`],
                                         $[
-                                            `badgeProgressBar-${getPercentage(
-                                                badge.needed,
-                                                badge.progress,
+                                            `badgeProgressBar-${Math.floor(
+                                                getPercentage(
+                                                    badge.needed,
+                                                    badge.progress,
+                                                ),
                                             )}`
                                         ],
                                     )}

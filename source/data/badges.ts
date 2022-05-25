@@ -37,7 +37,7 @@ const badges: Badges = {
             },
             2: {
                 desc: 'Have 5 friends',
-                amountToComplete: 8,
+                amountToComplete: 5,
             },
             3: {
                 desc: 'Have 10 friends',
