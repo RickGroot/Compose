@@ -7,10 +7,10 @@ const dynamics: DataSetTopic = {
     levels: {
         easy: { topics: [1, 2, 3, 4, 5, 6], expNeeded: 200 },
         medium: {
-            topics: [2, 3, 4, 6, 7, 8],
+            topics: [2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13],
             expNeeded: 200,
         },
-        hard: { topics: [1, 2, 3, 4, 5, 6, 7, 8, 9], expNeeded: 200 },
+        hard: { topics: [9, 10, 11, 12, 13, 14, 15, 16, 17], expNeeded: 200 },
     },
 };
 const tempo: DataSetTopic = {
