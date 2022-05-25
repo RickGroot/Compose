@@ -17,6 +17,7 @@ type User = {
         };
     };
     streakDays: StreakDay[];
+    quizzesDone: number;
     badges: {
         [key: number]: number | undefined; //? { badgeId: user level number }
     };

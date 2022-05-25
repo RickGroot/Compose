@@ -1,6 +1,6 @@
-import { Badge } from '~source/types/badge';
+import { Badges } from '~source/types/badge';
 
-const badges: Badge = {
+const badges: Badges = {
     1: {
         badgeName: 'Challenger',
         icon: 'calendar',

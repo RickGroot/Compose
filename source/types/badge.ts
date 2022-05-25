@@ -7,9 +7,11 @@ export type BadgeLevel = {
 };
 
 export type Badge = {
-    [key: number]: {
-        badgeName: string;
-        levels: BadgeLevel;
-        icon: string;
-    };
+    badgeName: string;
+    levels: BadgeLevel;
+    icon: string;
+};
+
+export type Badges = {
+    [key: number]: Badge;
 };

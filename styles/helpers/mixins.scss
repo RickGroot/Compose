@@ -20,6 +20,13 @@ $base-size: 16;
     width: px(1);
 }
 
+@mixin hideScrollbar {
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
 @function px($target, $context: $base-size) {
     @return math.div($target, $context) * 1rem;
 }
