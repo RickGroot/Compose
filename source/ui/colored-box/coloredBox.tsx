@@ -27,6 +27,8 @@ const ColoredBox = ({
     const [blockBackground, setBlockBackground] =
         React.useState<BackgroundTypes>('linear');
 
+    const randomTime = Math.floor(Math.random() * 25);
+
     React.useEffect(() => {
         if (color) return setBlockColor(color);
 
@@ -47,7 +49,7 @@ const ColoredBox = ({
                 $.container,
                 className && className,
                 $[`container-${blockColor}-${blockBackground}`],
-                animate && $.containerAnimate,
+                animate && $[`containerAnimate-${randomTime}`],
             )}
             onClick={() => onClick && onClick()}
         >

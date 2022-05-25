@@ -57,8 +57,18 @@
             }
         }
     }
-    &Animate {
-        background-size: 100% 175%;
-        animation: animate 20s ease-in-out infinite #{randomNum(0, 1000) / 100}s;
+    // &Animate {
+    //     background-size: 100% 175%;
+    //     animation: animate 20s ease-in-out infinite #{randomNum(0, 1000) / 100}s;
+    // }
+    @for $i from 0 through 26 {
+        &Animate-#{$i} {
+            background-size: 100% 175%;
+            animation: animate
+                #{randomNum(20, 40)}s
+                ease-in-out
+                infinite
+                ($i + unquote('s'));
+        }
     }
 }
