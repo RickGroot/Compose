@@ -24,10 +24,16 @@ const ColoredBox = ({
     animate?: boolean;
 }) => {
     const [blockColor, setBlockColor] = React.useState<AvailableColors>('red');
+    const [randomTime, setRandomTime] = React.useState<number>(0);
     const [blockBackground, setBlockBackground] =
         React.useState<BackgroundTypes>('linear');
 
-    const randomTime = Math.floor(Math.random() * 25);
+    React.useEffect(() => {
+        if (!animate) return;
+
+        const randomNumber = Math.floor(Math.random() * 25);
+        return setRandomTime(randomNumber);
+    }, []);
 
     React.useEffect(() => {
         if (color) return setBlockColor(color);
