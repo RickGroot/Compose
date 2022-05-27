@@ -18,9 +18,9 @@ const StreaksBar = ({ user }: { user: User }) => {
     const currentStreak = getCurrentStreak(user);
 
     const hasPlayed = (date: string) =>
-        !!user.streakDays.find((streakDay) => streakDay?.date === date);
-    const hasNotPlayed = (date: string) =>
-        !user.streakDays.find((streakDay) => streakDay?.date === date);
+        user.streakDays
+            ? !!user.streakDays.find((streakDay) => streakDay?.date === date)
+            : false;
 
     const upcomingDate = (date: string) => {
         const ckeckingDate = getDateType(date);
@@ -38,7 +38,7 @@ const StreaksBar = ({ user }: { user: User }) => {
                             $.barDate,
                             currentDate === date && $.barDateToday,
                             hasPlayed(date) && $.barDateGreen,
-                            hasNotPlayed(date) && $.barDateRed,
+                            !hasPlayed(date) && $.barDateRed,
                             upcomingDate(date) && $.barDateUpcoming,
                         )}
                         key={date}

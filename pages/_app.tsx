@@ -1,5 +1,6 @@
 import type { AppProps } from 'next/app';
 import { useEffect } from 'react';
+import Provider from '~source/contexts/user-context';
 import '../styles/styles.scss';
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -23,7 +24,11 @@ function MyApp({ Component, pageProps }: AppProps) {
             });
         }
     }, []);
-    return <Component {...pageProps} />;
+    return (
+        <Provider>
+            <Component {...pageProps} />;
+        </Provider>
+    );
 }
 
 export default MyApp;

@@ -1,3 +1,4 @@
+import { getDate } from '~source/core/getDate';
 import { Friends } from '~source/types/friend';
 
 const friends: Friends = {
@@ -15,7 +16,7 @@ const friends: Friends = {
             { date: '2022/05/08', score: 100 },
             { date: '2022/05/11', score: 100 },
             { date: '2022/05/15', score: 100 },
-            { date: '2022/05/17', score: 600 },
+            { date: getDate(), score: 89 },
         ],
     },
     5678: {
@@ -37,7 +38,7 @@ const friends: Friends = {
             { date: '2022/05/13', score: 300 },
             { date: '2022/05/14', score: 300 },
             { date: '2022/05/15', score: 300 },
-            { date: '2022/05/23', score: 700 },
+            { date: getDate(), score: 132 },
         ],
     },
     5433: {
@@ -54,7 +55,7 @@ const friends: Friends = {
             { date: '2022/05/08', score: 100 },
             { date: '2022/05/11', score: 100 },
             { date: '2022/05/15', score: 100 },
-            { date: '2022/05/17', score: 100 },
+            { date: getDate(), score: 16 },
         ],
     },
     6666: {
@@ -71,7 +72,7 @@ const friends: Friends = {
             { date: '2022/05/08', score: 100 },
             { date: '2022/05/11', score: 100 },
             { date: '2022/05/15', score: 100 },
-            { date: '2022/05/17', score: 100 },
+            { date: getDate(), score: 56 },
         ],
     },
 };

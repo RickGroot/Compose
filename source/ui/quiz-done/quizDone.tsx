@@ -3,61 +3,64 @@ import { ColoredBox } from '~source/ui';
 import { dataSets } from '~source/data/dataSets';
 import { QuestionResult } from '~source/types/questions';
 import { TopicDifficulty, Topics } from '~source/types/data';
-import cx from 'classnames';
-
-import $ from './quizDone.module.scss';
 import { useRouter } from 'next/router';
 import { getItemData } from '~source/core/getQuestion';
 import { getScore, getXp } from '~source/core/getResults';
-import saveTestData from '~source/core/saveUserData';
+import getSaveTestData from '~source/core/saveUserData';
+import { UserState } from '~source/contexts/user-context';
+import User from '~source/types/user';
+import cx from 'classnames';
+
+import $ from './quizDone.module.scss';
 
 interface Props {
     results: QuestionResult[];
-    test: Topics | 'daily';
+    topic: Topics | 'daily';
     difficulty: TopicDifficulty | 'none';
+    updateUser: (e: User) => void;
 }
 
-const QuizDone = ({ results, test, difficulty }: Props) => {
+const QuizDone = ({ results, topic, difficulty, updateUser }: Props) => {
     const router = useRouter();
-    const [quizScore, setQuizScore] = React.useState<number | null>(null);
-    const [quizXp, setQuizXp] = React.useState<number | null>(null);
+    const userContext = React.useContext(UserState);
+    const quizXp = getXp(results);
+    const quizScore = getScore(results);
     const endQuiz = () => {
+        const newUserData: User = getSaveTestData(
+            results,
+            topic,
+            difficulty,
+            userContext,
+        );
+        updateUser(newUserData);
+
         const { test } = router.query;
         if (test === 'daily') router.push({ pathname: '/' });
         else router.push({ pathname: `/learn/${test}` });
     };
 
-    React.useEffect(() => {
-        saveTestData(results, test, difficulty);
-        const userScore = getScore(results);
-        const userXp = getXp(results);
-
-        setQuizScore(userScore);
-        setQuizXp(userXp);
-        //!@todo: push data to the user
-    }, []);
     return (
         <section className={$.container}>
             <ColoredBox className={$.head}>
-                {test !== 'daily' && (
+                {topic !== 'daily' && (
                     <>
                         <h1 className={$.title}>
                             Nicely done!
                             <br />
-                            Quiz {test}, {difficulty}
+                            Quiz {topic}, {difficulty}
                         </h1>
                         <p
                             className={cx(
                                 $.icon,
-                                dataSets[test].iconType === 'text' &&
+                                dataSets[topic].iconType === 'text' &&
                                     $.iconText,
                             )}
                         >
-                            {dataSets[test].icon}
+                            {dataSets[topic].icon}
                         </p>
                     </>
                 )}
-                {test === 'daily' && (
+                {topic === 'daily' && (
                     <>
                         <h1 className={$.title}>
                             Nicely done!

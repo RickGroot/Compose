@@ -1,11 +1,9 @@
 import { TopicDifficulty, Topics } from './data';
 
-export type StreakDay =
-    | {
-          date: string;
-          score: number;
-      }
-    | undefined;
+export type StreakDay = {
+    date: string;
+    score: number;
+};
 
 type User = {
     userName: string;

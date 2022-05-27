@@ -1,11 +1,11 @@
 @import '~/styles/helpers.scss';
 
 $head-size: 40vh;
-$question-size: 55vh;
+$question-size: 45vh;
 
 .head {
     $padding: px(30);
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: calc(100% - #{$padding} * 2);
@@ -45,8 +45,11 @@ $question-size: 55vh;
 }
 
 .answers {
-    margin-top: $head-size;
-    height: calc(#{$question-size} - #{px(60)} * 2);
+    position: fixed;
+    top: calc(#{$head-size} + #{px(30)});
+    left: px(20);
+    right: px(20);
+    height: $question-size;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;

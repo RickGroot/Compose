@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import {
     getDailyTopics,
     getQuiztopics,
@@ -11,6 +11,8 @@ import { QuestionResult } from '~source/types/questions';
 import { Nav, QuestionBlock, QuizDone } from '~source/ui';
 import cx from 'classnames';
 import $ from '../styles/pages/Page.module.scss';
+import User from '~source/types/user';
+import { UpdateUser } from '~source/contexts/user-context';
 
 interface Props {
     test: Topics | 'daily';
@@ -20,15 +22,21 @@ interface Props {
 
 const Quiz: NextPage<Props> = (props) => {
     const { test, difficulty, topicIds } = props;
+    const updateUserState = useContext(UpdateUser);
     const [isFinished, setIsFinished] = useState<boolean>(false);
     const [activeItem, setActiveItem] = useState<number>(0);
     const [results, setResults] = useState<QuestionResult[]>([]);
+
+    const updateUser = (newUser: User) => {
+        updateUserState(newUser);
+    };
 
     const handleNext = (questionResults: QuestionResult) => {
         setResults([...results, questionResults]);
         if (activeItem === topicIds.length - 1) setIsFinished(true);
         else setActiveItem(activeItem + 1);
     };
+
     return (
         <>
             <Head>
@@ -51,8 +59,9 @@ const Quiz: NextPage<Props> = (props) => {
                     <>
                         <QuizDone
                             results={results}
-                            test={test}
+                            topic={test}
                             difficulty={difficulty}
+                            updateUser={(data) => updateUser(data)}
                         />
                         <Nav />
                     </>

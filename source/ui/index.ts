@@ -12,3 +12,5 @@ export { default as Achievements } from './achievements';
 export { default as QuestionBlock } from './questionBlock';
 export { default as CloseButton } from './close-button';
 export { default as QuizDone } from './quiz-done';
+export { default as AnswerPopup } from './answer-popup';
+export { default as BadgeOverlay } from './badge-overlay';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ColoredBox, CloseButton } from '~source/ui';
+import { ColoredBox, CloseButton, AnswerPopup } from '~source/ui';
 import {
     getItemData,
     getQuestion,
@@ -25,6 +25,10 @@ const QuestionBlock = ({ topicId, next }: Props) => {
         Answer[] | null
     >(null);
     const [question, setQuestion] = React.useState<string | null>(null);
+    const [answerData, setAnswerData] = React.useState<QuestionResult | null>(
+        null,
+    );
+    const [isAswered, setIsAswered] = React.useState<boolean>(false);
 
     const handleNextQuestion = (
         answer: Answer,
@@ -42,7 +46,9 @@ const QuestionBlock = ({ topicId, next }: Props) => {
             questionType: userQuestionType,
         };
 
-        next(userAnswer);
+        setAnswerData(userAnswer);
+        setIsAswered(true);
+        setTimeout(() => next(userAnswer), 5000);
     };
 
     React.useEffect(() => {
@@ -51,6 +57,7 @@ const QuestionBlock = ({ topicId, next }: Props) => {
         const questionData = getQuestionAnswers(type, itemData);
         const questionString = getQuestion(type, itemData);
 
+        setIsAswered(false);
         setTopic(itemData);
         setQuestionType(type);
         setQuestionAnswers(questionData || null);
@@ -58,7 +65,7 @@ const QuestionBlock = ({ topicId, next }: Props) => {
     }, [topicId]);
 
     if (!topic || !questionType || !questionAnswers || !question)
-        return <h1>Whoops</h1>;
+        return <h1>Sorry, something went wrong</h1>;
     return (
         <section className={$.container}>
             <ColoredBox className={$.head}>
@@ -92,6 +99,7 @@ const QuestionBlock = ({ topicId, next }: Props) => {
                     </button>
                 ))}
             </div>
+            {isAswered && answerData && <AnswerPopup data={answerData} />}
             <CloseButton />
         </section>
     );

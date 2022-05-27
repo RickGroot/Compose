@@ -47,7 +47,7 @@ const getDailyTopics = (): number[] => {
         return reducedId;
     });
 
-    return ids;
+    return ids.slice(0, 8);
 };
 
 const getQuiztopics = ({

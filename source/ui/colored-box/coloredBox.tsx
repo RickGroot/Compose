@@ -2,7 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 import $ from './coloredBox.module.scss';
 
-type AvailableColors = 'red' | 'blue' | 'green' | 'yellow';
+export type AvailableColors = 'red' | 'blue' | 'green' | 'yellow';
 type BackgroundTypes = 'linear' | 'radial';
 
 const availableColors: AvailableColors[] = ['red', 'blue', 'green', 'yellow'];

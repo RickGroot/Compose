@@ -47,6 +47,8 @@ const user: User = {
         { date: '2022/05/21', score: 100 },
         { date: '2022/05/22', score: 100 },
         { date: '2022/05/23', score: 100 },
+        { date: '2022/05/25', score: 100 },
+        { date: '2022/05/26', score: 100 },
     ],
     badges: { 1: 2, 2: 2, 3: 3, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0 },
     quizzesDone: 21,
