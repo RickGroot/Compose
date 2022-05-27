@@ -1,11 +1,11 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { TopicDifficulty } from '~source/types/data';
+import { Topics } from '~source/types/data';
 import { Nav, QuizHandler } from '~source/ui';
 import $ from '../../styles/pages/Page.module.scss';
 
 interface Props {
-    subject: TopicDifficulty;
+    subject: Topics;
 }
 
 const Subject: NextPage<Props> = (props) => {
