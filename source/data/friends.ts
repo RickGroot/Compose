@@ -1,3 +1,4 @@
+import { getDate } from '~source/core/getDate';
 import { Friends } from '~source/types/friend';
 
 const friends: Friends = {
@@ -15,24 +16,29 @@ const friends: Friends = {
             { date: '2022/05/08', score: 100 },
             { date: '2022/05/11', score: 100 },
             { date: '2022/05/15', score: 100 },
-            { date: '2022/05/17', score: 600 },
+            { date: getDate(), score: 89 },
         ],
     },
     5678: {
-        userName: 'James',
+        userName: 'Rick',
         userId: 5678,
-        img: null,
+        img: 'https://avatars.githubusercontent.com/u/58476652?v=4',
         streakDays: [
-            { date: '2022/05/01', score: 100 },
             { date: '2022/05/02', score: 100 },
+            { date: '2022/05/03', score: 100 },
             { date: '2022/05/04', score: 100 },
             { date: '2022/05/05', score: 100 },
             { date: '2022/05/06', score: 100 },
             { date: '2022/05/07', score: 100 },
             { date: '2022/05/08', score: 100 },
-            { date: '2022/05/11', score: 100 },
-            { date: '2022/05/15', score: 100 },
-            { date: '2022/05/17', score: 300 },
+            { date: '2022/05/09', score: 100 },
+            { date: '2022/05/10', score: 100 },
+            { date: '2022/05/11', score: 300 },
+            { date: '2022/05/12', score: 300 },
+            { date: '2022/05/13', score: 300 },
+            { date: '2022/05/14', score: 300 },
+            { date: '2022/05/15', score: 300 },
+            { date: getDate(), score: 132 },
         ],
     },
     5433: {
@@ -49,7 +55,7 @@ const friends: Friends = {
             { date: '2022/05/08', score: 100 },
             { date: '2022/05/11', score: 100 },
             { date: '2022/05/15', score: 100 },
-            { date: '2022/05/17', score: 100 },
+            { date: getDate(), score: 16 },
         ],
     },
     6666: {
@@ -66,7 +72,7 @@ const friends: Friends = {
             { date: '2022/05/08', score: 100 },
             { date: '2022/05/11', score: 100 },
             { date: '2022/05/15', score: 100 },
-            { date: '2022/05/17', score: 100 },
+            { date: getDate(), score: 56 },
         ],
     },
 };

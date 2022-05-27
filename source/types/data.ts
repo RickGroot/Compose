@@ -8,6 +8,8 @@ export type TopicDifficulty = 'easy' | 'medium' | 'hard';
 
 export type Topic = {
     name: string;
+    icon: string;
+    iconType: 'icon' | 'text';
     is: string[];
     isNot: string[];
 };
@@ -19,6 +21,7 @@ export type DataType = {
 export type DataSetTopic = {
     desc: string;
     icon: string; // unicode JS source code or text
+    iconType: 'icon' | 'text';
     levels: {
         [key in TopicDifficulty]: {
             topics: number[];

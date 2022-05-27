@@ -5,4 +5,11 @@ $c-green: #0baca4;
 $c-blue: #3794df;
 $c-red: #da124d;
 $c-background: #fff9f5;
-$c-icon: #777777;
+$c-icon: #404040;
+
+$themeColors: (
+    'red': $c-red,
+    'blue': $c-blue,
+    'green': $c-green,
+    'yellow': $c-yellow,
+);

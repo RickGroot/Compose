@@ -3,15 +3,20 @@ import { DataSetTopic } from '~source/types/data';
 const dynamics: DataSetTopic = {
     desc: 'How quietly or loudly',
     icon: '\uD834\uDD91\uD834\uDD91',
+    iconType: 'icon',
     levels: {
-        easy: { topics: [], expNeeded: 200 },
-        medium: { topics: [], expNeeded: 200 },
-        hard: { topics: [], expNeeded: 200 },
+        easy: { topics: [1, 2, 3, 4, 5, 6], expNeeded: 200 },
+        medium: {
+            topics: [2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13],
+            expNeeded: 200,
+        },
+        hard: { topics: [9, 10, 11, 12, 13, 14, 15, 16, 17], expNeeded: 200 },
     },
 };
 const tempo: DataSetTopic = {
     desc: 'The rate of speed',
     icon: 'accel.',
+    iconType: 'text',
     levels: {
         easy: { topics: [], expNeeded: 200 },
         medium: { topics: [], expNeeded: 200 },
@@ -20,7 +25,8 @@ const tempo: DataSetTopic = {
 };
 const articulation: DataSetTopic = {
     desc: 'The style to play a note',
-    icon: '\uD834\uDD7B \uD834\uDD7C',
+    icon: '\uD834\uDD81',
+    iconType: 'icon',
     levels: {
         easy: { topics: [], expNeeded: 200 },
         medium: { topics: [], expNeeded: 200 },
@@ -29,7 +35,8 @@ const articulation: DataSetTopic = {
 };
 const ornamentation: DataSetTopic = {
     desc: 'Make the melody more interesting',
-    icon: 'tr',
+    icon: 'tr.',
+    iconType: 'text',
     levels: {
         easy: { topics: [], expNeeded: 200 },
         medium: { topics: [], expNeeded: 200 },
@@ -39,6 +46,7 @@ const ornamentation: DataSetTopic = {
 const notes: DataSetTopic = {
     desc: 'How long to (not) play a note',
     icon: '\uD834\uDD61',
+    iconType: 'icon',
     levels: {
         easy: { topics: [], expNeeded: 200 },
         medium: { topics: [], expNeeded: 200 },

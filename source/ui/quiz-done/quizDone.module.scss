@@ -1,0 +1,169 @@
+@import '~/styles/helpers.scss';
+
+$head-size: 40vh;
+$question-size: 55vh;
+
+@keyframes hover {
+    0% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(#{px(3)});
+    }
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.container {
+    padding-top: $head-size;
+    padding-bottom: $nav-height;
+    font-family: 'Lato', sans-serif;
+}
+
+.head {
+    $padding: px(30);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% - #{$padding} * 2);
+    height: calc(#{$head-size} - #{$padding} * 2);
+    border-radius: 0 0 px(100) px(100);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: $padding;
+}
+
+.title {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: px(24);
+    margin: 0;
+    text-align: center;
+}
+
+.icon {
+    @include musicIcon;
+    width: $icon-size;
+    height: $icon-size;
+    border-radius: 50%;
+    background-color: $c-white;
+    color: #404040;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: px(100);
+
+    &Text {
+        @include musicFont;
+        font-size: px(50);
+    }
+}
+
+.result {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: px(16);
+    font-size: px(16);
+    font-weight: 400;
+    border-radius: px(10);
+
+    &Score {
+        margin-top: px(30);
+    }
+
+    &Xp {
+        margin: px(30) 0 px(70);
+    }
+
+    &Text {
+        margin: 0;
+    }
+}
+
+.endButton {
+    @include removeButton;
+    display: block;
+    margin: 0 auto;
+    padding: px(15) px(50);
+    color: $c-white;
+    background-color: $c-green;
+    font-weight: 400;
+    font-size: px(16);
+    border-radius: px(10);
+}
+
+.view {
+    position: relative;
+    display: block;
+    text-align: center;
+    margin: px(50) auto;
+    font-weight: 300;
+    font-size: px(20);
+
+    &::after {
+        position: absolute;
+        content: '';
+        top: calc(100% + #{px(10)});
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid black;
+        animation: hover 2.5s ease-in-out infinite;
+    }
+}
+
+.answer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: px(20);
+    margin: px(20) 0;
+
+    &Icon {
+        $size: px(85);
+        @include musicIcon;
+        display: flex;
+        flex: 0 0 auto;
+        align-items: center;
+        justify-content: center;
+        font-size: px(44);
+        color: $c-white;
+        background-color: $c-red;
+        width: $size;
+        height: $size;
+        border-radius: 50%;
+
+        &Text {
+            @include musicFont;
+            font-size: px(24);
+        }
+        &Correct {
+            background-color: $c-green;
+        }
+    }
+
+    &Question {
+        margin: 0 0 px(5);
+        font-weight: 400;
+        font-size: px(16);
+    }
+
+    &Row {
+        margin: 0;
+        font-weight: 400;
+        font-size: px(14);
+
+        &Light {
+            @include firstLetterCapital;
+            font-weight: 300;
+        }
+    }
+}

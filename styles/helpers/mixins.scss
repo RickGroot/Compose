@@ -20,6 +20,13 @@ $base-size: 16;
     width: px(1);
 }
 
+@mixin hideScrollbar {
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
 @function px($target, $context: $base-size) {
     @return math.div($target, $context) * 1rem;
 }
@@ -29,6 +36,22 @@ $base-size: 16;
     font-family: 'Lato', sans-serif;
     font-weight: 700;
     font-size: px(20);
+}
+
+@mixin musicIcon {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+        Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol';
+    margin: 0;
+    text-align: center;
+    letter-spacing: px(-2);
+}
+
+@mixin musicFont {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    text-align: center;
+    letter-spacing: 0;
 }
 
 @mixin subText {

@@ -1,15 +1,29 @@
-export type BadgeDifficulty = 1 | 2 | 3;
+export type BadgeName =
+    | 'Challenger'
+    | 'Friends'
+    | 'Quizmaster'
+    | 'Dynamics'
+    | 'Tempo'
+    | 'Articulation'
+    | 'Ornamentation'
+    | 'Notes';
 
 export type BadgeLevel = {
-    [key in BadgeDifficulty]: {
+    // number stands for badge level
+    [key: number]: {
         desc: string;
-        completeIf: any;
+        amountToComplete: number;
     };
 };
 
 export type Badge = {
-    [key: number]: {
-        levels: BadgeLevel;
-        icon: string;
-    };
+    badgeName: BadgeName;
+    topic: boolean;
+    levels: BadgeLevel;
+    icon: string;
+    iconType: 'icon' | 'text' | 'svg';
+};
+
+export type Badges = {
+    [key: number]: Badge;
 };

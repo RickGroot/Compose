@@ -1,17 +1,22 @@
 {
-  "name": "NextJS PWA template",
-  "short_name": "Next PWA",
-  "description": "Template for PWA and NextJS",
+  "name": "Compose, your music theory app",
+  "short_name": "Compose",
+  "description": "Test your music theory skills with Compose",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
     }
   ],
-  "theme_color": "#FFFFFF",
-  "background_color": "#FFFFFF",
+  "theme_color": "#da124d",
+  "background_color": "#fff9f5",
   "start_url": "/",
-  "display": "standalone",
+  "display": "fullscreen",
   "orientation": "portrait"
 }

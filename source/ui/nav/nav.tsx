@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import React from 'react';
 import { CalendarIcon, LearnIcon, UserIcon } from './icons';
+import cx from 'classnames';
 import $ from './nav.module.scss';
 
 const Nav = () => {
@@ -11,8 +12,12 @@ const Nav = () => {
             : router.push({ pathname: '/' + page });
     };
 
-    const isLearn = router.route.includes('/learn');
-    const isDaily = router.route === '/';
+    const isLearn =
+        router.route.includes('/learn') ||
+        (router.route.includes('/quiz') && router.query.test !== 'daily');
+    const isDaily =
+        router.route === '/' ||
+        (router.route.includes('/quiz') && router.query.test === 'daily');
     const isMe = router.route === '/me';
 
     return (
@@ -23,7 +28,7 @@ const Nav = () => {
                 className={$.item}
             >
                 <LearnIcon colored={isLearn} />
-                <p className={$.itemText}>Learn</p>
+                <p className={cx($.itemText, isLearn && $.active)}>Learn</p>
             </button>
             <button
                 onClick={() => handleNav('daily')}
@@ -31,7 +36,9 @@ const Nav = () => {
                 className={$.item}
             >
                 <CalendarIcon colored={isDaily} />
-                <p className={$.itemText}>Daily Challenge</p>
+                <p className={cx($.itemText, isDaily && $.active)}>
+                    Daily Challenge
+                </p>
             </button>
             <button
                 onClick={() => handleNav('me')}
@@ -39,7 +46,7 @@ const Nav = () => {
                 className={$.item}
             >
                 <UserIcon colored={isMe} />
-                <p className={$.itemText}>Me</p>
+                <p className={cx($.itemText, isMe && $.active)}>Me</p>
             </button>
         </nav>
     );

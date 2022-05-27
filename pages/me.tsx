@@ -1,15 +1,16 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import friends from '~source/data/friends';
-import user from '~source/data/user';
-import { Friend } from '~source/types/friend';
-import User from '~source/types/user';
+import badges from '~source/data/badges';
 import { Achievements, Friends, Nav, UserData } from '~source/ui';
 import $ from '../styles/pages/Page.module.scss';
+import { useContext } from 'react';
+import { UserState } from '~source/contexts/user-context';
 
-const Home: NextPage = (props: any) => {
-    const userData: User = props.userData;
-    const friendsData: Friend[] = props.friendsData;
+const Home: NextPage = () => {
+    const userData = useContext(UserState);
+    const friendsData = userData.friends.map((friend) => friends[friend]);
+    const badgeData = badges;
     return (
         <>
             <Head>
@@ -24,21 +25,11 @@ const Home: NextPage = (props: any) => {
             <main className={$.main}>
                 <Nav />
                 <UserData user={userData} />
-                <Achievements user={userData} />
+                <Achievements user={userData} badges={badgeData} />
                 <Friends friends={friendsData} />
             </main>
         </>
     );
 };
-
-//! getServerSideProps added for possible future user data fetching
-export async function getServerSideProps() {
-    const userData = user;
-    const friendsDataBase = friends;
-    const friendsData = userData.friends.map(
-        (friend) => friendsDataBase[friend],
-    );
-    return { props: { userData, friendsData } };
-}
 
 export default Home;

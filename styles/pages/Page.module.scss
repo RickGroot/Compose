@@ -10,6 +10,10 @@
     &Daily {
         padding-top: px(20);
     }
+    &Quiz {
+        padding-bottom: 0;
+        min-height: calc(100vh - #{$padding-top});
+    }
 }
 
 .title {

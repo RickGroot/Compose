@@ -1,11 +1,9 @@
 import { TopicDifficulty, Topics } from './data';
 
-export type StreakDay =
-    | {
-          date: string;
-          score: number;
-      }
-    | undefined;
+export type StreakDay = {
+    date: string;
+    score: number;
+};
 
 type User = {
     userName: string;
@@ -17,10 +15,15 @@ type User = {
         };
     };
     streakDays: StreakDay[];
+    quizzesDone: number;
     badges: {
-        [key: number]: number | undefined; //? { badgeId: levelNumber }
+        [key: number]: number | undefined; //? { badgeId: user level number }
     };
     friends: number[];
+    invites: {
+        pending: number[] | null;
+        outgoing: number[] | null;
+    };
 };
 
 export default User;

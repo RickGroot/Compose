@@ -2,7 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 import $ from './coloredBox.module.scss';
 
-type AvailableColors = 'red' | 'blue' | 'green' | 'yellow';
+export type AvailableColors = 'red' | 'blue' | 'green' | 'yellow';
 type BackgroundTypes = 'linear' | 'radial';
 
 const availableColors: AvailableColors[] = ['red', 'blue', 'green', 'yellow'];
@@ -14,23 +14,26 @@ const ColoredBox = ({
     onClick,
     color,
     backgroundType,
+    animate,
 }: {
     children: any;
     onClick?: () => void;
     className?: string;
     color?: AvailableColors;
     backgroundType?: BackgroundTypes;
+    animate?: boolean;
 }) => {
     const [blockColor, setBlockColor] = React.useState<AvailableColors>('red');
+    const [randomTime, setRandomTime] = React.useState<number>(0);
     const [blockBackground, setBlockBackground] =
         React.useState<BackgroundTypes>('linear');
 
-    const isLinear = blockBackground === 'linear';
-    const isRadial = blockBackground === 'radial';
-    const isRed = blockColor === 'red';
-    const isGreen = blockColor === 'green';
-    const isBlue = blockColor === 'blue';
-    const isYellow = blockColor === 'yellow';
+    React.useEffect(() => {
+        if (!animate) return;
+
+        const randomNumber = Math.floor(Math.random() * 25);
+        return setRandomTime(randomNumber);
+    }, []);
 
     React.useEffect(() => {
         if (color) return setBlockColor(color);
@@ -51,14 +54,8 @@ const ColoredBox = ({
             className={cx(
                 $.container,
                 className && className,
-                isLinear && isRed && $.containerRedLinear,
-                isLinear && isGreen && $.containerGreenLinear,
-                isLinear && isYellow && $.containerYellowLinear,
-                isLinear && isBlue && $.containerBlueLinear,
-                isRadial && isRed && $.containerRedRadial,
-                isRadial && isGreen && $.containerGreenRadial,
-                isRadial && isYellow && $.containerYellowRadial,
-                isRadial && isBlue && $.containerBlueRadial,
+                $[`container-${blockColor}-${blockBackground}`],
+                animate && $[`containerAnimate-${randomTime}`],
             )}
             onClick={() => onClick && onClick()}
         >

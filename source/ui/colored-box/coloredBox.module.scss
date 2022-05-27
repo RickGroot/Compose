@@ -7,6 +7,18 @@
     @return $randomNum;
 }
 
+@keyframes animate {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 0% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
 @mixin patternLines($color) {
     background: linear-gradient(
         #{randomNum(-30, -150)}deg,
@@ -22,7 +34,7 @@
 
 @mixin patternCircles($color) {
     background: radial-gradient(
-        circle at left #{randomNum(0, 100)}px,
+        circle at left #{percentage(randomNum(0, 100) / 100)},
         rgba($color, 1) 0% 40%,
         rgba($color, 0.9) 40.1% 50%,
         rgba($color, 0.8) 50.1% 60%,
@@ -35,37 +47,24 @@
 
 .container {
     color: $c-white;
-
-    &Red {
-        &Linear {
-            @include patternLines($c-red);
-        }
-        &Radial {
-            @include patternCircles($c-red);
-        }
-    }
-    &Green {
-        &Linear {
-            @include patternCircles($c-green);
-        }
-        &Radial {
-            @include patternCircles($c-green);
+    @each $color, $hex in $themeColors {
+        &-#{$color} {
+            &-linear {
+                @include patternLines($hex);
+            }
+            &-radial {
+                @include patternCircles($hex);
+            }
         }
     }
-    &Blue {
-        &Linear {
-            @include patternLines($c-blue);
-        }
-        &Radial {
-            @include patternCircles($c-blue);
-        }
-    }
-    &Yellow {
-        &Linear {
-            @include patternLines($c-yellow);
-        }
-        &Radial {
-            @include patternCircles($c-yellow);
+    @for $i from 0 through 26 {
+        &Animate-#{$i} {
+            background-size: 100% 175%;
+            animation: animate
+                #{randomNum(20, 40)}s
+                ease-in-out
+                infinite
+                ($i + unquote('s'));
         }
     }
 }

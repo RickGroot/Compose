@@ -1,0 +1,82 @@
+@import '~/styles/helpers.scss';
+
+$head-size: 40vh;
+$question-size: 45vh;
+
+.head {
+    $padding: px(30);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: calc(100% - #{$padding} * 2);
+    height: calc(#{$head-size} - #{$padding} * 2);
+    border-radius: 0 0 px(100) px(100);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: $padding;
+}
+
+.question {
+    @include firstLetterCapital;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: px(24);
+    margin: px(20) 0 0;
+}
+
+.icon {
+    @include musicIcon;
+    width: $icon-size;
+    height: $icon-size;
+    border-radius: 50%;
+    background-color: $c-white;
+    color: #404040;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: px(100);
+
+    &Text {
+        @include musicFont;
+        font-size: px(50);
+    }
+}
+
+.answers {
+    position: fixed;
+    top: calc(#{$head-size} + #{px(30)});
+    left: px(20);
+    right: px(20);
+    height: $question-size;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: px(30);
+}
+
+.answer {
+    @include removeButton;
+    @include firstLetterCapital;
+    position: relative;
+    border-radius: px(10);
+    color: $c-white;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: px(16);
+    padding: px(15);
+
+    &Blue {
+        background-color: $c-blue;
+    }
+    &Green {
+        background-color: $c-green;
+    }
+    &Red {
+        background-color: $c-red;
+    }
+    &Yellow {
+        background-color: $c-yellow;
+    }
+}

@@ -4,7 +4,11 @@ import { TopicDifficulty } from '~source/types/data';
 import { Nav, QuizHandler } from '~source/ui';
 import $ from '../../styles/pages/Page.module.scss';
 
-const Subject: NextPage = (props: any) => {
+interface Props {
+    subject: TopicDifficulty;
+}
+
+const Subject: NextPage<Props> = (props) => {
     return (
         <>
             <Head>
@@ -19,7 +23,7 @@ const Subject: NextPage = (props: any) => {
             <main className={$.main}>
                 <Nav />
                 <h1 className={$.title}>Choose your difficulty</h1>
-                <QuizHandler subject={props.subject as TopicDifficulty} />
+                <QuizHandler subject={props.subject} />
             </main>
         </>
     );
