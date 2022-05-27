@@ -9,6 +9,7 @@ import $ from './quizDone.module.scss';
 import { useRouter } from 'next/router';
 import { getItemData } from '~source/core/getQuestion';
 import { getScore, getXp } from '~source/core/getResults';
+import saveTestData from '~source/core/saveUserData';
 
 interface Props {
     results: QuestionResult[];
@@ -27,6 +28,7 @@ const QuizDone = ({ results, test, difficulty }: Props) => {
     };
 
     React.useEffect(() => {
+        saveTestData(results, test, difficulty);
         const userScore = getScore(results);
         const userXp = getXp(results);
 

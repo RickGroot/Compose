@@ -1,4 +1,7 @@
+@use 'sass:math';
 @import '~/styles/helpers.scss';
+
+$badge-height: px(120);
 
 .container {
     font-family: 'Lato', sans-serif;
@@ -13,27 +16,34 @@
 .badges {
     $block-margin: px(20);
     @include hideScrollbar;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: $badge-height * 2 + px(20);
+    width: auto;
     gap: px(20) px(30);
     overflow-y: scroll;
     margin: 0 (-$block-margin);
     padding: 0 $block-margin;
     scroll-snap-type: x mandatory;
+    @for $i from 0 through 100 {
+        &-#{$i} {
+            grid-template-columns: repeat(#{math.ceil($i / 2)}, 1fr);
+        }
+    }
 }
 
 .badge {
-    scroll-snap-align: center;
+    scroll-snap-align: start;
+    scroll-margin: px(20);
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: px(15);
     &Icon {
         $padding: px(10);
-        $height: px(120);
         width: px(80);
-        height: $height - $padding * 2;
+        height: $badge-height - $padding * 2;
         border-radius: px(10);
         display: flex;
         flex-direction: column;
@@ -48,6 +58,20 @@
         }
         &Img {
             margin: 0;
+
+            &-icon {
+                @include musicIcon;
+                font-size: px(40);
+                margin-top: px(15);
+            }
+            &-text {
+                @include musicFont;
+                font-size: px(20);
+                margin-top: px(15);
+            }
+            &-svg {
+                margin: 0;
+            }
         }
     }
 

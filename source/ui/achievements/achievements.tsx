@@ -13,19 +13,27 @@ const Achievements = ({ user, badges }: { user: User; badges: Badges }) => {
     const allBadgeData = getAllBadges(user, badges);
     const color = (index: number) =>
         availableColors[index % availableColors.length];
-    console.log(allBadgeData);
     return (
         <section className={$.container}>
             <h2 className={$.title}>Achievements</h2>
-            <div className={$.badges}>
+            <div className={cx($.badges, $[`badges-${allBadgeData.length}`])}>
                 {allBadgeData.map((badge, i) => (
-                    <div className={$.badge}>
+                    <div className={$.badge} key={badge.id}>
                         <ColoredBox
                             className={$.badgeIcon}
                             backgroundType="radial"
                             color={color(i)}
                         >
-                            <p className={$.badgeIconImg}>
+                            <p
+                                className={cx(
+                                    $.badgeIconImg,
+                                    $[
+                                        `badgeIconImg-${
+                                            badges[badge.id].iconType
+                                        }`
+                                    ],
+                                )}
+                            >
                                 {badges[badge.id].icon}
                             </p>
                             <p className={$.badgeIconLevel}>

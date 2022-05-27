@@ -1,3 +1,13 @@
+export type BadgeName =
+    | 'Challenger'
+    | 'Friends'
+    | 'Quizmaster'
+    | 'Dynamics'
+    | 'Tempo'
+    | 'Articulation'
+    | 'Ornamentation'
+    | 'Notes';
+
 export type BadgeLevel = {
     // number stands for badge level
     [key: number]: {
@@ -7,9 +17,11 @@ export type BadgeLevel = {
 };
 
 export type Badge = {
-    badgeName: string;
+    badgeName: BadgeName;
+    topic: boolean;
     levels: BadgeLevel;
     icon: string;
+    iconType: 'icon' | 'text' | 'svg';
 };
 
 export type Badges = {

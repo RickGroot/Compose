@@ -1,9 +1,12 @@
 import { Badges } from '~source/types/badge';
+import { dataSets } from './dataSets';
 
 const badges: Badges = {
     1: {
         badgeName: 'Challenger',
+        topic: false,
         icon: 'calendar',
+        iconType: 'svg',
         levels: {
             1: {
                 desc: 'Have a streak that lasts a week',
@@ -29,7 +32,9 @@ const badges: Badges = {
     },
     2: {
         badgeName: 'Friends',
+        topic: false,
         icon: 'friends',
+        iconType: 'svg',
         levels: {
             1: {
                 desc: 'Have 2 friends',
@@ -51,7 +56,9 @@ const badges: Badges = {
     },
     3: {
         badgeName: 'Quizmaster',
+        topic: false,
         icon: 'quiz',
+        iconType: 'svg',
         levels: {
             1: {
                 desc: 'Complete your first quiz',
@@ -72,6 +79,107 @@ const badges: Badges = {
             5: {
                 desc: 'Complete 100 quizzes',
                 amountToComplete: 10,
+            },
+        },
+    },
+    4: {
+        badgeName: 'Dynamics',
+        topic: true,
+        icon: '\uD834\uDD91\uD834\uDD91',
+        iconType: 'icon',
+        levels: {
+            1: {
+                desc: 'Complete easy difficulty on dynamics',
+                amountToComplete: dataSets.dynamics.levels.easy.expNeeded,
+            },
+            2: {
+                desc: 'Complete medium difficulty on dynamics',
+                amountToComplete: dataSets.dynamics.levels.medium.expNeeded,
+            },
+            3: {
+                desc: 'Complete all difficulties on dynamics',
+                amountToComplete: dataSets.dynamics.levels.hard.expNeeded,
+            },
+        },
+    },
+    5: {
+        badgeName: 'Tempo',
+        topic: true,
+        icon: 'accel.',
+        iconType: 'text',
+        levels: {
+            1: {
+                desc: 'Complete easy difficulty on tempo',
+                amountToComplete: dataSets.tempo.levels.easy.expNeeded,
+            },
+            2: {
+                desc: 'Complete medium difficulty on tempo',
+                amountToComplete: dataSets.tempo.levels.medium.expNeeded,
+            },
+            3: {
+                desc: 'Complete all difficulties on tempo',
+                amountToComplete: dataSets.tempo.levels.hard.expNeeded,
+            },
+        },
+    },
+    6: {
+        badgeName: 'Articulation',
+        topic: true,
+        icon: '>',
+        iconType: 'text',
+        levels: {
+            1: {
+                desc: 'Complete easy difficulty on articulation',
+                amountToComplete: dataSets.articulation.levels.easy.expNeeded,
+            },
+            2: {
+                desc: 'Complete medium difficulty on articulation',
+                amountToComplete: dataSets.articulation.levels.medium.expNeeded,
+            },
+            3: {
+                desc: 'Complete all difficulties on articulation',
+                amountToComplete: dataSets.articulation.levels.hard.expNeeded,
+            },
+        },
+    },
+    7: {
+        badgeName: 'Ornamentation',
+        topic: true,
+        icon: 'tr.',
+        iconType: 'text',
+        levels: {
+            1: {
+                desc: 'Complete easy difficulty on ornamentation',
+                amountToComplete: dataSets.ornamentation.levels.easy.expNeeded,
+            },
+            2: {
+                desc: 'Complete medium difficulty on ornamentation',
+                amountToComplete:
+                    dataSets.ornamentation.levels.medium.expNeeded,
+            },
+            3: {
+                desc: 'Complete all difficulties on ornamentation',
+                amountToComplete: dataSets.ornamentation.levels.hard.expNeeded,
+            },
+        },
+    },
+    8: {
+        badgeName: 'Notes',
+        topic: true,
+        icon: '\uD834\uDD61',
+        iconType: 'icon',
+        levels: {
+            1: {
+                desc: 'Complete easy difficulty on notes',
+                amountToComplete: dataSets.notes.levels.easy.expNeeded,
+            },
+            2: {
+                desc: 'Complete medium difficulty on notes',
+                amountToComplete: dataSets.notes.levels.medium.expNeeded,
+            },
+            3: {
+                desc: 'Complete all difficulties on notes',
+                amountToComplete: dataSets.notes.levels.hard.expNeeded,
             },
         },
     },

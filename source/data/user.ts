@@ -11,22 +11,22 @@ const user: User = {
             hard: 0,
         },
         tempo: {
-            easy: 100,
+            easy: 20,
             medium: 40,
             hard: 0,
         },
         articulation: {
-            easy: 100,
+            easy: 40,
             medium: 40,
             hard: 0,
         },
         ornamentation: {
-            easy: 100,
+            easy: 140,
             medium: 40,
             hard: 0,
         },
         notes: {
-            easy: 100,
+            easy: 60,
             medium: 40,
             hard: 0,
         },
