@@ -59,7 +59,7 @@ const QuestionBlock = ({ topicId, next }: Props) => {
 
         setAnswerData(userAnswer);
         setIsAswered(true);
-        setTimeout(() => next(userAnswer), answer.isCorrect ? 30 : 50);
+        setTimeout(() => next(userAnswer), answer.isCorrect ? 3000 : 5000);
     };
 
     React.useEffect(() => {
@@ -108,8 +108,9 @@ const QuestionBlock = ({ topicId, next }: Props) => {
                         )}
                         key={answer.text}
                     >
-                        {questionType !== 'true false' && answer.text}
-                        {questionType === 'true false' && answer.text
+                        {!isTrueFalse
+                            ? answer.text
+                            : answer.text
                             ? 'true'
                             : 'false'}
                     </button>

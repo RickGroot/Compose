@@ -55,24 +55,14 @@ const getQuestionAnswers = (questionType: QuestionTypes, topic: Topic) => {
     }
     if (questionType === 'true false') {
         const isCorrect = Math.random() < 0.5;
-        const statement = isCorrect
-            ? {
-                  text: getRandomFromArray(is),
-                  isCorrect: true,
-              }
-            : {
-                  text: getRandomFromArray(isNot),
-                  isCorrect: false,
-              };
-        const incorrect = isCorrect
-            ? {
-                  text: null,
-                  isCorrect: false,
-              }
-            : {
-                  text: null,
-                  isCorrect: true,
-              };
+        const statement = {
+            text: getRandomFromArray(isCorrect ? is : isNot),
+            isCorrect: true,
+        };
+        const incorrect = {
+            text: null,
+            isCorrect: isCorrect ? false : true,
+        };
         const answers: Answer[] = shuffleArray([statement, incorrect]);
 
         return answers;
