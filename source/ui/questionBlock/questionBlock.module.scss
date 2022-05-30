@@ -54,6 +54,10 @@ $question-size: 45vh;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: px(30);
+
+    &Alt {
+        grid-template-rows: 1fr;
+    }
 }
 
 .answer {

@@ -11,7 +11,11 @@ const getItemData = (id: number) => {
 };
 
 const getQuestionType = () => {
-    const questionTypes: QuestionTypes[] = ['choose right', 'choose wrong'];
+    const questionTypes: QuestionTypes[] = [
+        'choose right',
+        'choose wrong',
+        'true false',
+    ];
     const randomType = getRandomFromArray(questionTypes);
     return randomType;
 };
@@ -49,12 +53,40 @@ const getQuestionAnswers = (questionType: QuestionTypes, topic: Topic) => {
 
         return answers;
     }
+    if (questionType === 'true false') {
+        const isCorrect = Math.random() < 0.5;
+        const statement = isCorrect
+            ? {
+                  text: getRandomFromArray(is),
+                  isCorrect: true,
+              }
+            : {
+                  text: getRandomFromArray(isNot),
+                  isCorrect: false,
+              };
+        const incorrect = isCorrect
+            ? {
+                  text: null,
+                  isCorrect: false,
+              }
+            : {
+                  text: null,
+                  isCorrect: true,
+              };
+        const answers: Answer[] = shuffleArray([statement, incorrect]);
+
+        return answers;
+    }
     return [];
 };
 
-const getQuestion = (questionType: QuestionTypes, topic: Topic) => {
+const getQuestion = (questionType: QuestionTypes, answers: Answer[]) => {
     if (questionType === 'choose right') return 'Which is true?';
     if (questionType === 'choose wrong') return 'Which is NOT correct?';
+    if (questionType === 'true false') {
+        const statement = answers.find((e) => e.text !== null);
+        return `This ${statement?.text}`;
+    }
     return '';
 };
 
