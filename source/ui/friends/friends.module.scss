@@ -98,3 +98,30 @@ $size: px(65);
         bottom: calc(#{$dotSize} + #{$dotSize} / 2);
     }
 }
+
+.login {
+    &Button {
+        @include removeButton;
+        display: block;
+        margin: 0 auto;
+        width: 50vw;
+        padding: px(16) 0;
+        background-color: $c-yellow;
+        border-radius: px(10);
+        color: $c-white;
+        font-family: 'Lato', sans-serif;
+        font-weight: 400;
+        font-size: px(16);
+    }
+    &Login {
+        margin: px(50) auto 0;
+    }
+    &Text {
+        font-family: 'Lato', sans-serif;
+        margin: px(10) 0;
+        text-align: center;
+        font-size: px(16);
+        font-weight: 400;
+        color: #898989;
+    }
+}

@@ -26,13 +26,15 @@ const QuizDone = ({ results, topic, difficulty, updateUser }: Props) => {
     const quizXp = getXp(results);
     const quizScore = getScore(results);
     const endQuiz = () => {
-        const newUserData: User = getSaveTestData(
-            results,
-            topic,
-            difficulty,
-            userContext,
-        );
-        updateUser(newUserData);
+        if (userContext) {
+            const newUserData: User = getSaveTestData(
+                results,
+                topic,
+                difficulty,
+                userContext,
+            );
+            updateUser(newUserData);
+        }
 
         const { test } = router.query;
         if (test === 'daily') router.push({ pathname: '/' });

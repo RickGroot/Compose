@@ -77,6 +77,12 @@
         margin: 0;
         padding: px(5) 0;
     }
+    &Login {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: underline $c-white;
+    }
 }
 
 .bold {

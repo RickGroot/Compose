@@ -178,7 +178,7 @@ const data: DataType = {
         icon: 'dim.',
         iconType: 'text',
         is: [
-            'dimenuendo',
+            'means dimenuendo',
             'means decreasing',
             'means get softer',
             'is the opposite of crescendo',

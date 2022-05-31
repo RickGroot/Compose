@@ -154,3 +154,18 @@ $badge-height: px(120);
         }
     }
 }
+
+.login {
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    font-weight: 400;
+    width: 100%;
+    &Prompt {
+        font-size: px(20);
+        margin: 0 0 px(30);
+    }
+    &Benefits {
+        font-size: px(12);
+        margin: px(5) 0;
+    }
+}

@@ -19,15 +19,15 @@ const Leaderboard = ({
     user,
     friends,
 }: {
-    user?: User;
-    friends?: Friend[];
+    user: User | null;
+    friends: Friend[] | null;
 }) => {
     const [scores, setScores] = React.useState<Score[] | null>(null);
     const isMe = (rowData: Score) =>
         user?.userName === rowData.name && user?.userId === rowData.id;
 
     React.useEffect(() => {
-        const friendScores: Score[] | undefined =
+        const friendScores: Score[] | null =
             friends &&
             Object.keys(friends).map((e: unknown) => {
                 return {
@@ -77,9 +77,9 @@ const Leaderboard = ({
             )}
             {!user && (
                 <div className={$.row}>
-                    <p className={cx($.rowItem, $.rowItemError)}>
+                    <a href="/login" className={cx($.rowItem, $.rowItemError)}>
                         Log in to see your friends!
-                    </p>
+                    </a>
                 </div>
             )}
         </section>

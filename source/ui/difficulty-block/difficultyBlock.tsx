@@ -18,13 +18,15 @@ const DifficultyBlock = ({
     startQuiz: (level: TopicDifficulty) => void;
 }) => {
     const user = React.useContext(UserState);
-    const progress = Math.floor(
-        getPercentage(
-            dataSets[subject].levels[level].expNeeded,
-            user.progress[subject][level],
-        ),
-    );
-    const percentage = progress > 100 ? 100 : progress;
+    const progress = user
+        ? Math.floor(
+              getPercentage(
+                  dataSets[subject].levels[level].expNeeded,
+                  user.progress[subject][level],
+              ),
+          )
+        : null;
+    const percentage = progress && progress > 100 ? 100 : progress || 0;
     const getColor = () => {
         if (level === 'easy') return 'green';
         if (level === 'medium') return 'yellow';
@@ -37,7 +39,10 @@ const DifficultyBlock = ({
     };
     return (
         <ColoredBox
-            className={$.container}
+            className={cx(
+                $.container,
+                !user && level !== 'easy' && $.containerHidden,
+            )}
             color={getColor()}
             onClick={() => startQuiz(level)}
             animate
@@ -47,10 +52,16 @@ const DifficultyBlock = ({
             </div>
             <div>
                 <h1 className={$.title}>{level}</h1>
-                <p className={$.percentage}>{percentage}% completed</p>
+                <p className={$.percentage}>
+                    {user && `${percentage}% completed`}
+                    {!user && level === 'easy' && 'Play now!'}
+                </p>
             </div>
             <div
-                className={cx($.progressBar, $[`progressBar-${percentage}`])}
+                className={cx(
+                    $.progressBar,
+                    percentage && $[`progressBar-${percentage}`],
+                )}
             />
         </ColoredBox>
     );
