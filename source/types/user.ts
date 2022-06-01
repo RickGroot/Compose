@@ -17,12 +17,12 @@ type User = {
     streakDays: StreakDay[];
     quizzesDone: number;
     badges: {
-        [key: number]: number | undefined; //? { badgeId: user level number }
+        [key: number]: number; //? { badgeId: user level number }
     };
     friends: number[];
     invites: {
-        pending: number[] | null;
-        outgoing: number[] | null;
+        pending: number[];
+        outgoing: number[];
     };
 };
 

@@ -6,7 +6,7 @@ import { useContext } from 'react';
 import Form from '../styles/pages/Login.module.scss';
 import cx from 'classnames';
 import $ from '../styles/pages/Page.module.scss';
-import user from '~source/data/user';
+import { user } from '~source/data/user';
 
 const Login: NextPage = () => {
     const updateUser = useContext(UpdateUser);
@@ -40,6 +40,7 @@ const Login: NextPage = () => {
                             name="mail"
                             id="mail"
                             className={Form.formInput}
+                            value="IlseVGrachten@gmail.com"
                         />
                     </label>
                     <label htmlFor="password" className={Form.formLabel}>
@@ -49,6 +50,7 @@ const Login: NextPage = () => {
                             name="password"
                             id="password"
                             className={Form.formInput}
+                            value="HeyIkBenIlse123"
                         />
                         <span className={Form.formLabelLink}>
                             I forgot my password

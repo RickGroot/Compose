@@ -6,14 +6,14 @@ import { useContext } from 'react';
 import Form from '../styles/pages/Login.module.scss';
 import cx from 'classnames';
 import $ from '../styles/pages/Page.module.scss';
-import user from '~source/data/user';
+import { emptyUser } from '~source/data/user';
 
 const Register: NextPage = () => {
     const updateUser = useContext(UpdateUser);
     const router = useRouter();
     const handleLogin = () => {
-        updateUser(user);
-        localStorage.setItem(storageName, JSON.stringify(user));
+        updateUser(emptyUser);
+        localStorage.setItem(storageName, JSON.stringify(emptyUser));
         router.push({ pathname: '/' });
     };
     const handleback = () => {
@@ -40,6 +40,7 @@ const Register: NextPage = () => {
                             name="mail"
                             id="mail"
                             className={Form.formInput}
+                            value="BartVanDerKolk@gmail.com"
                         />
                     </label>
                     <label htmlFor="username" className={Form.formLabel}>
@@ -49,6 +50,7 @@ const Register: NextPage = () => {
                             name="username"
                             id="username"
                             className={Form.formInput}
+                            value="Bart"
                         />
                     </label>
                     <label htmlFor="password" className={Form.formLabel}>
@@ -58,6 +60,7 @@ const Register: NextPage = () => {
                             name="password"
                             id="password"
                             className={Form.formInput}
+                            value="HeyIkBenBart123"
                         />
                     </label>
                     <label htmlFor="repeatpassword" className={Form.formLabel}>
@@ -67,6 +70,7 @@ const Register: NextPage = () => {
                             name="repeatpassword"
                             id="repeatpassword"
                             className={Form.formInput}
+                            value="HeyIkBenBart123"
                         />
                     </label>
                 </form>

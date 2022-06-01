@@ -1,3 +1,4 @@
+import { storageName } from '~source/contexts/user-context';
 import { Badges, Badge } from '~source/types/badge';
 import { TopicDifficulty, Topics } from '~source/types/data';
 import User from '~source/types/user';
@@ -15,7 +16,7 @@ ID's:
 8: notes
 */
 
-const getUserPropgress = (id: number, badge: Badge, user: User) => {
+const getUserProgress = (id: number, badge: Badge, user: User) => {
     if (id === 1) return getLongestStreak(user);
     if (id === 2) return user.friends.length;
     if (id === 3) return user.quizzesDone;
@@ -44,14 +45,16 @@ const nextLevelRequired = (id: number, badge: Badge, level: number) => {
 };
 
 const getBadgeProgress = (id: number, badge: Badge, user: User) => {
-    const level = user.badges[id] || 0;
+    const maxLevel = Object.keys(badge.levels).length - 1;
+    const level = user.badges[id];
+    const userLevel = level >= maxLevel ? maxLevel : level;
     const badgeProgress = {
         id,
-        needed: nextLevelRequired(id, badge, level),
-        currentLevel: level,
+        needed: nextLevelRequired(id, badge, userLevel),
+        currentLevel: userLevel,
         progress: badge.topic
-            ? getUserTopicPropgress(id, level, user)
-            : getUserPropgress(id, badge, user),
+            ? getUserTopicPropgress(id, userLevel, user)
+            : getUserProgress(id, badge, user),
     };
 
     return badgeProgress;
@@ -69,10 +72,6 @@ const getAllBadges = (user: User, badges: Badges) => {
 const getBadge = (id: number, user: User, badges: Badges) => {
     const data = getBadgeProgress(id, badges[id], user);
     return data;
-};
-
-const checkNextLevelBadge = (id: number, user: User, badges: Badges) => {
-    return false;
 };
 
 export { getAllBadges, getBadge };

@@ -1,11 +1,11 @@
 import React from 'react';
-import { ColoredBox } from '~source/ui';
+import { ColoredBox, Confetti } from '~source/ui';
 import badges from '~source/data/badges';
+import { AvailableColors } from '../colored-box/coloredBox';
+import { UpdateUser, UserState } from '~source/contexts/user-context';
 import cx from 'classnames';
 
 import $ from './badgeOverlay.module.scss';
-import { AvailableColors } from '../colored-box/coloredBox';
-import UserContext, { UserState } from '~source/contexts/user-context';
 
 const BadgeOverlay = ({
     id,
@@ -19,21 +19,35 @@ const BadgeOverlay = ({
     color?: AvailableColors;
 }) => {
     const user = React.useContext(UserState);
-    const userLevel = user.badges[id];
+    const updateUser = React.useContext(UpdateUser);
+    const userLevel = user ? user.badges[id] : 0;
     const badgeLevels = badges[id].levels;
-    const getDescription = () =>
-        userLevel ? badgeLevels[userLevel].desc : badgeLevels['1'].desc;
+    const maxLevel = Object.keys(badgeLevels).length - 1;
+    const getDescription = () => {
+        if (userLevel >= maxLevel) return badgeLevels[maxLevel].desc;
+        return badgeLevels[userLevel].desc;
+    };
     const getNextLevel = () => {
-        const maxLevel = Object.keys(badgeLevels).length;
         if (userLevel) {
-            return userLevel < maxLevel
-                ? badgeLevels[userLevel + 1].desc
-                : badgeLevels[maxLevel].desc;
+            return userLevel < maxLevel ? badgeLevels[userLevel].desc : null;
         } else return badgeLevels['1'].desc;
     };
 
+    const closeOverlay = () => {
+        if (newLevel && user) {
+            const newUser = () => {
+                if (user.badges[id] + 1 <= maxLevel) {
+                    user.badges[id]++;
+                }
+                return user;
+            };
+            updateUser(newUser());
+        }
+        close();
+    };
+
     return (
-        <section className={$.container} onClick={() => close()}>
+        <section className={$.container} onClick={() => closeOverlay()}>
             {newLevel && <h2 className={$.new}>You have won a badge!</h2>}
             <ColoredBox color={color} className={$.icon}>
                 <p
@@ -44,11 +58,16 @@ const BadgeOverlay = ({
                 >
                     {badges[id].icon}
                 </p>
-                <p className={$.iconLevel}>Level {userLevel}</p>
+                <p className={$.iconLevel}>
+                    Level {newLevel ? userLevel + 1 : userLevel}
+                </p>
             </ColoredBox>
             <h1 className={$.title}>{badges[id].badgeName}</h1>
             <p className={$.description}>{getDescription()}</p>
-            <p className={$.next}>Next level: {getNextLevel()}</p>
+            {getNextLevel() && (
+                <p className={$.next}>Next level: {getNextLevel()}</p>
+            )}
+            {newLevel && <Confetti />}
         </section>
     );
 };

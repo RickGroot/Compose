@@ -41,81 +41,114 @@ const Achievements = ({
     const allBadgeData = getAllBadges(user, badges);
     const color = (index: number) =>
         availableColors[index % availableColors.length];
+    const isCompleted = (badge: {
+        id: number;
+        needed: number;
+        currentLevel: number;
+        progress: number;
+    }) => badge.needed <= badge.progress;
+    const badgeOverlayIsNew = () => {
+        const badge = allBadgeData.find((e) => e.id === openedBadge);
+        return badge ? isCompleted(badge) : false;
+    };
     return (
         <section className={$.container}>
             <h2 className={$.title}>Achievements</h2>
             <div className={cx($.badges, $[`badges-${allBadgeData.length}`])}>
-                {allBadgeData.map((badge, i) => (
-                    <div
-                        className={$.badge}
-                        key={badge.id}
-                        onClick={() => setOpenedBadge(badge.id)}
-                    >
-                        <ColoredBox className={$.badgeIcon} color={color(i)}>
-                            <p
+                {allBadgeData.map((badge, i) => {
+                    const userLevel = user && user.badges[badge.id];
+                    const badgeLevels = badges[badge.id].levels;
+                    const badgeLevelKeys = Object.keys(badgeLevels);
+                    const isMaxLevel =
+                        badgeLevelKeys[badgeLevelKeys.length - 1] ===
+                        userLevel.toString();
+                    return (
+                        <div
+                            className={$.badge}
+                            key={badge.id}
+                            onClick={() => setOpenedBadge(badge.id)}
+                        >
+                            <ColoredBox
                                 className={cx(
-                                    $.badgeIconImg,
-                                    $[
-                                        `badgeIconImg-${
-                                            badges[badge.id].iconType
-                                        }`
-                                    ],
+                                    $.badgeIcon,
+                                    isCompleted(badge) && $.badgeIconComplete,
+                                    isMaxLevel && $.badgeIconCompleteMax,
                                 )}
+                                color={color(i)}
                             >
-                                {badges[badge.id].icon}
-                            </p>
-                            <p className={$.badgeIconLevel}>
-                                Level {badge.currentLevel}
-                            </p>
-                        </ColoredBox>
-                        <div className={$.badgeContent}>
-                            <h3 className={$.badgeTitle}>
-                                {badges[badge.id].badgeName}
-                            </h3>
-                            <p className={$.badgeDescription}>
-                                {badge.currentLevel === 0
-                                    ? badges[badge.id].levels[1].desc
-                                    : badges[badge.id].levels[
-                                          badge.currentLevel
-                                      ].desc}
-                            </p>
-                            <div className={$.badgeProgress}>
-                                <div
+                                <p
                                     className={cx(
-                                        $.badgeProgressBar,
-                                        badge.needed <= badge.progress &&
-                                            $['badgeProgressBar-100'],
-                                        $[`badgeProgressBar-${color(i)}`],
+                                        $.badgeIconImg,
                                         $[
-                                            `badgeProgressBar-${Math.floor(
-                                                getPercentage(
-                                                    badge.needed,
-                                                    badge.progress,
-                                                ),
-                                            )}`
+                                            `badgeIconImg-${
+                                                badges[badge.id].iconType
+                                            }`
                                         ],
                                     )}
                                 >
-                                    {badge.needed <= badge.progress && (
-                                        <p className={$.badgeProgressBarText}>
-                                            completed
+                                    {badges[badge.id].icon}
+                                </p>
+                                <p className={$.badgeIconLevel}>
+                                    Level {badge.currentLevel}
+                                </p>
+                            </ColoredBox>
+                            <div className={$.badgeContent}>
+                                <h3 className={$.badgeTitle}>
+                                    {badges[badge.id].badgeName}
+                                </h3>
+                                <p className={$.badgeDescription}>
+                                    {
+                                        badges[badge.id].levels[
+                                            badge.currentLevel
+                                        ].desc
+                                    }
+                                </p>
+                                <div className={$.badgeProgress}>
+                                    <div
+                                        className={cx(
+                                            $.badgeProgressBar,
+                                            isCompleted(badge) &&
+                                                $['badgeProgressBar-100'],
+                                            $[`badgeProgressBar-${color(i)}`],
+                                            $[
+                                                `badgeProgressBar-${Math.floor(
+                                                    getPercentage(
+                                                        badge.needed,
+                                                        badge.progress,
+                                                    ),
+                                                )}`
+                                            ],
+                                            isCompleted(badge) &&
+                                                $.badgeProgressBarComplete,
+                                            isMaxLevel &&
+                                                $.badgeProgressBarCompleteMax,
+                                        )}
+                                    >
+                                        {isCompleted(badge) && (
+                                            <p
+                                                className={
+                                                    $.badgeProgressBarText
+                                                }
+                                            >
+                                                completed
+                                            </p>
+                                        )}
+                                    </div>
+                                    {!isCompleted(badge) && (
+                                        <p className={$.badgeProgressText}>
+                                            {badge.progress} / {badge.needed}
                                         </p>
                                     )}
                                 </div>
-                                {badge.needed >= badge.progress && (
-                                    <p className={$.badgeProgressText}>
-                                        {badge.progress} / {badge.needed}
-                                    </p>
-                                )}
                             </div>
                         </div>
-                    </div>
-                ))}
+                    );
+                })}
             </div>
             {openedBadge && (
                 <BadgeOverlay
                     id={openedBadge}
-                    newLevel={false}
+                    newLevel={badgeOverlayIsNew()}
                     close={() => setOpenedBadge(null)}
                     color={color(openedBadge - 1)}
                 />
