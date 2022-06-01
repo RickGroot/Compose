@@ -1,5 +1,4 @@
 @import '~/styles/helpers.scss';
-$size: px(65);
 
 .container {
     font-family: 'Lato', sans-serif;
@@ -9,94 +8,7 @@ $size: px(65);
 .title {
     @include pageTitle;
     margin: 0 0 px(20);
-}
-
-.friend {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: px(20);
-}
-
-.icon {
-    position: relative;
-    border-radius: 50%;
-    width: $size;
-    height: $size;
-    margin: 0 px(20) 0 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    &Content {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        border-radius: 50%;
-
-        &Placeholder {
-            width: 60%;
-            height: 60%;
-        }
-    }
-}
-
-.content {
-    margin: 0 auto 0 0;
-}
-
-.name {
-    margin: 0 0 px(5);
-    font-weight: 400;
-    font-size: px(20);
-
-    &Id {
-        font-weight: 300;
-        font-size: px(14);
-    }
-}
-
-.info {
-    margin: 0;
-    font-weight: 300;
-    font-size: px(12);
-
-    &Highlight {
-        font-weight: 400;
-    }
-}
-
-.dots {
-    $dotSize: calc(#{$size} / 7);
-    $color: #aeaeae;
-    @include removeButton;
-    position: relative;
-    margin: calc(#{$dotSize} * 3) 0 calc(#{$dotSize} * 3) $dotSize;
-    border-radius: 50%;
-    display: block;
-    height: $dotSize;
-    width: $dotSize;
-    background-color: $color;
-
-    &::after,
-    &::before {
-        position: absolute;
-        content: '';
-        border-radius: 50%;
-        left: 0;
-        background-color: $color;
-        width: $dotSize;
-        height: $dotSize;
-    }
-
-    &::after {
-        top: calc(#{$dotSize} + #{$dotSize} / 2);
-    }
-    &::before {
-        bottom: calc(#{$dotSize} + #{$dotSize} / 2);
-    }
+    display: inline-block;
 }
 
 .login {
@@ -124,4 +36,24 @@ $size: px(65);
         font-weight: 400;
         color: #898989;
     }
+}
+
+.addFriends {
+    @include removeButton;
+    width: px(34);
+    height: px(34);
+    padding: px(5);
+    background-color: $c-green;
+    border-radius: px(10);
+    color: $c-white;
+    margin-left: px(12);
+}
+
+.noFriends {
+    @include removeButton;
+    display: block;
+    padding: px(10) px(28);
+    background-color: $c-green;
+    border-radius: px(10);
+    color: $c-white;
 }

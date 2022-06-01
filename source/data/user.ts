@@ -55,8 +55,8 @@ const user: User = {
     quizzesDone: 24,
     friends: [4321, 5678, 5433],
     invites: {
-        pending: [8888],
-        outgoing: [],
+        pending: [8642, 3388],
+        outgoing: [6666, 9090],
     },
 };
 

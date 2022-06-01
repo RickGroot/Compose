@@ -40,7 +40,7 @@ const Login: NextPage = () => {
                             name="mail"
                             id="mail"
                             className={Form.formInput}
-                            value="IlseVGrachten@gmail.com"
+                            defaultValue="IlseVGrachten@gmail.com"
                         />
                     </label>
                     <label htmlFor="password" className={Form.formLabel}>
@@ -50,7 +50,7 @@ const Login: NextPage = () => {
                             name="password"
                             id="password"
                             className={Form.formInput}
-                            value="HeyIkBenIlse123"
+                            defaultValue="HeyIkBenIlse123"
                         />
                         <span className={Form.formLabelLink}>
                             I forgot my password

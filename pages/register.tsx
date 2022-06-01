@@ -40,7 +40,7 @@ const Register: NextPage = () => {
                             name="mail"
                             id="mail"
                             className={Form.formInput}
-                            value="BartVanDerKolk@gmail.com"
+                            defaultValue="BartVanDerKolk@gmail.com"
                         />
                     </label>
                     <label htmlFor="username" className={Form.formLabel}>
@@ -50,7 +50,7 @@ const Register: NextPage = () => {
                             name="username"
                             id="username"
                             className={Form.formInput}
-                            value="Bart"
+                            defaultValue="Bart"
                         />
                     </label>
                     <label htmlFor="password" className={Form.formLabel}>
@@ -60,7 +60,7 @@ const Register: NextPage = () => {
                             name="password"
                             id="password"
                             className={Form.formInput}
-                            value="HeyIkBenBart123"
+                            defaultValue="HeyIkBenBart123"
                         />
                     </label>
                     <label htmlFor="repeatpassword" className={Form.formLabel}>
@@ -70,7 +70,7 @@ const Register: NextPage = () => {
                             name="repeatpassword"
                             id="repeatpassword"
                             className={Form.formInput}
-                            value="HeyIkBenBart123"
+                            defaultValue="HeyIkBenBart123"
                         />
                     </label>
                 </form>
