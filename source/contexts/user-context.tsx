@@ -22,7 +22,6 @@ const Provider = ({ children }: { children: any }) => {
 
     React.useEffect(() => {
         const update = () => {
-            console.log('update');
             setData(
                 JSON.parse(localStorage.getItem(storageName) || 'null') || null,
             );
