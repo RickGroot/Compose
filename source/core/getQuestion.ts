@@ -57,7 +57,7 @@ const getQuestionAnswers = (questionType: QuestionTypes, topic: Topic) => {
         const isCorrect = Math.random() < 0.5;
         const statement = {
             text: getRandomFromArray(isCorrect ? is : isNot),
-            isCorrect: true,
+            isCorrect: isCorrect ? true : false,
         };
         const incorrect = {
             text: null,
