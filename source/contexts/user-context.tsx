@@ -2,14 +2,14 @@ import * as React from 'react';
 import User from '~source/types/user';
 
 export const UserState = React.createContext<User | null>(null);
-export const UpdateUser = React.createContext((e: User) => {});
+export const UpdateUser = React.createContext((e: User | null) => {});
 export const storageName = 'compose-user';
 
 const Provider = ({ children }: { children: any }) => {
     const [data, setData] = React.useState<User | null>(null);
     const isDefined = typeof window !== 'undefined';
 
-    const updateUser = (user: User) => {
+    const updateUser = (user: User | null) => {
         localStorage.setItem(storageName, JSON.stringify(user));
         setData(user);
     };
