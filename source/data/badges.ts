@@ -38,7 +38,7 @@ const badges: Badges = {
         levels: {
             0: {
                 desc: 'Have 2 friends',
-                amountToComplete: 3,
+                amountToComplete: 2,
             },
             1: {
                 desc: 'Have 5 friends',

@@ -8,7 +8,7 @@ import cx from 'classnames';
 
 import $ from './badge.module.scss';
 
-const BadgeComponent = ({
+const Badge = ({
     user,
     badge,
     badges,
@@ -101,4 +101,4 @@ const BadgeComponent = ({
     );
 };
 
-export default BadgeComponent;
+export default Badge;
