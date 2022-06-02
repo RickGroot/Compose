@@ -75,6 +75,49 @@ const friends: Friends = {
             { date: getDate(), score: 56 },
         ],
     },
+    9090: {
+        userName: 'Frank',
+        userId: 9090,
+        img: null,
+        streakDays: [
+            { date: '2022/05/01', score: 100 },
+            { date: '2022/05/02', score: 100 },
+            { date: '2022/05/04', score: 100 },
+            { date: '2022/05/05', score: 100 },
+            { date: getDate(), score: 52 },
+        ],
+    },
+    8642: {
+        userName: 'Sammy',
+        userId: 8642,
+        img: null,
+        streakDays: [
+            { date: '2022/05/01', score: 100 },
+            { date: '2022/05/02', score: 100 },
+            { date: '2022/05/03', score: 100 },
+            { date: '2022/05/04', score: 100 },
+            { date: '2022/05/05', score: 100 },
+            { date: '2022/05/06', score: 100 },
+            { date: '2022/05/07', score: 100 },
+            { date: '2022/05/08', score: 100 },
+            { date: getDate(), score: 65 },
+        ],
+    },
+    3388: {
+        userName: 'Alex',
+        userId: 3388,
+        img: null,
+        streakDays: [
+            { date: '2022/05/01', score: 100 },
+            { date: '2022/05/02', score: 100 },
+            { date: '2022/05/03', score: 100 },
+            { date: '2022/05/04', score: 100 },
+            { date: '2022/05/05', score: 100 },
+            { date: '2022/05/07', score: 100 },
+            { date: '2022/05/08', score: 100 },
+            { date: getDate(), score: 44 },
+        ],
+    },
 };
 
 export default friends;

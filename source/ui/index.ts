@@ -14,3 +14,4 @@ export { default as CloseButton } from './close-button';
 export { default as QuizDone } from './quiz-done';
 export { default as AnswerPopup } from './answer-popup';
 export { default as BadgeOverlay } from './badge-overlay';
+export { default as Confetti } from './confetti';

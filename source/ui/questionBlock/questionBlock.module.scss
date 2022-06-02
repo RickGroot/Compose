@@ -23,7 +23,8 @@ $question-size: 45vh;
     font-family: 'Lato', sans-serif;
     font-weight: 700;
     font-size: px(24);
-    margin: px(20) 0 0;
+    margin: 0;
+    text-align: center;
 }
 
 .icon {
@@ -54,6 +55,10 @@ $question-size: 45vh;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: px(30);
+
+    &Alt {
+        grid-template-rows: 1fr;
+    }
 }
 
 .answer {

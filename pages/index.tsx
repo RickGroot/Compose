@@ -9,7 +9,8 @@ import { UserState } from '~source/contexts/user-context';
 
 const Home: NextPage = () => {
     const userData = useContext(UserState);
-    const friendsData = userData.friends.map((friend) => friends[friend]);
+    const friendsData =
+        userData && userData.friends.map((friend) => friends[friend]);
     return (
         <>
             <Head>

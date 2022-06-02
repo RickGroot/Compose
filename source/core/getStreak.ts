@@ -12,6 +12,7 @@ const getLongestStreak = (userData: User | Friend) => {
         (day) => day && getDateType(day.date),
     );
 
+    if (streakArray.length < 1) return 0;
     // function will push true or false to an array when it is a consecutive day
     streakArray.reverse().reduce((previousValue, currentValue) => {
         if (!currentValue || !previousValue) successive.push(false);

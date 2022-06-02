@@ -33,124 +33,17 @@ $badge-height: px(120);
     }
 }
 
-.badge {
-    scroll-snap-align: start;
-    scroll-margin: px(20);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: px(15);
-    &Icon {
-        $padding: px(10);
-        width: px(80);
-        height: $badge-height - $padding * 2;
-        border-radius: px(10);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        flex: 1 0 auto;
-        padding: px(10) 0;
-        &Level {
-            font-weight: 700;
-            font-size: px(14);
-            margin: 0;
-        }
-        &Img {
-            margin: 0;
-
-            &-icon {
-                @include musicIcon;
-                font-size: px(40);
-                margin-top: px(15);
-            }
-            &-text {
-                @include musicFont;
-                font-size: px(20);
-                margin-top: px(15);
-            }
-            &-svg {
-                margin: 0;
-            }
-        }
-    }
-
-    &Title {
-        margin: 0;
-        font-weight: 400;
+.login {
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    font-weight: 400;
+    width: 100%;
+    &Prompt {
         font-size: px(20);
+        margin: 0 0 px(30);
     }
-
-    &Description {
-        @include firstLetterCapital;
-        margin: px(5) 0 px(10);
-        width: px(150);
-        font-weight: 300;
+    &Benefits {
         font-size: px(12);
-    }
-
-    &Progress {
-        $progress: 75%;
-        $text: 20%;
-        position: relative;
-        margin: 0;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-
-        &Text {
-            margin: 0;
-            font-weight: 300;
-            font-size: px(8);
-            width: $text;
-            text-align: end;
-        }
-
-        &Bar {
-            $height: px(12);
-            position: relative;
-            overflow: hidden;
-            background-color: $c-green;
-            display: flex;
-            align-items: center;
-            height: $height;
-            width: $progress;
-            border-radius: $height / 2;
-            padding: 0 px(5);
-
-            &Text {
-                margin: 0;
-                color: $c-white;
-                font-weight: 300;
-                font-size: px(8);
-                z-index: 1;
-            }
-
-            @each $color, $hex in $themeColors {
-                &-#{$color} {
-                    background-color: rgba($hex, 0.25);
-
-                    &::after {
-                        background-color: $hex;
-                    }
-                }
-            }
-            @for $i from 0 through 100 {
-                &-#{$i}::after {
-                    position: absolute;
-                    content: '';
-                    top: 0;
-                    left: 0;
-                    height: 100%;
-                    width: percentage($i / 100);
-                    border-radius: $height / 2;
-                }
-
-                &-100 {
-                    width: 100%;
-                }
-            }
-        }
+        margin: px(5) 0;
     }
 }

@@ -6,9 +6,9 @@ import { ColoredBox } from '~source/ui';
 
 import $ from './dailyBlock.module.scss';
 
-const DailyBlock = ({ user }: { user: User }) => {
+const DailyBlock = ({ user }: { user: User | null }) => {
     const today = new Date();
-    const dayScore = getTodayScore(user);
+    const dayScore = user && getTodayScore(user);
     return (
         <section className={$.container}>
             <ColoredBox
@@ -26,10 +26,10 @@ const DailyBlock = ({ user }: { user: User }) => {
                 {' - '}
                 {today.getFullYear()}
             </h1>
-            <p className={$.score}>
+            {user &&<p className={$.score}>
                 Your highscore:{' '}
                 <span className={$.scoreHighlight}>{dayScore?.score || 0}</span>
-            </p>
+            </p>}
             <ColoredBox
                 color="green"
                 className={$.button}

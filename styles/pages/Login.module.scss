@@ -1,0 +1,81 @@
+@import '~/styles/helpers.scss';
+
+.page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form {
+    &Label {
+        font-family: 'Lato', sans-serif;
+        font-weight: 400;
+        font-size: px(16);
+        display: block;
+        margin-bottom: px(20);
+
+        &:first-of-type {
+            margin-top: px(30);
+        }
+        &:last-of-type {
+            margin-bottom: px(60);
+        }
+        &Link {
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            font-size: px(12);
+            color: inherit;
+            text-decoration: underline;
+            margin-top: px(5);
+        }
+    }
+    &Input {
+        font-family: 'Lato', sans-serif;
+        font-weight: 300;
+        font-size: px(16);
+        display: block;
+        width: 100%;
+        background-color: $c-white;
+        border: px(1) solid #e2e2e2;
+        border-radius: px(6);
+        margin-top: px(5);
+    }
+    &Submit {
+        @include removeButton;
+        font-family: 'Lato', sans-serif;
+        font-weight: 400;
+        font-size: px(20);
+        background-color: $c-green;
+        color: $c-white;
+        border-radius: px(10);
+        padding: px(10) px(60);
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+.switch {
+    color: inherit;
+    display: block;
+    margin: px(20) auto px(50);
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: px(12);
+}
+
+.back {
+    @include removeButton;
+    position: absolute;
+    bottom: px(100);
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: px(16);
+    display: block;
+    margin: 0 auto;
+    background-color: $c-yellow;
+    padding: px(6) px(40);
+    color: $c-white;
+    border-radius: px(10);
+}

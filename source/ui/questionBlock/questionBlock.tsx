@@ -30,17 +30,28 @@ const QuestionBlock = ({ topicId, next }: Props) => {
     );
     const [isAswered, setIsAswered] = React.useState<boolean>(false);
 
+    const isTrueFalse = questionType === 'true false';
+
     const handleNextQuestion = (
         answer: Answer,
         userQuestion: string,
         userQuestionType: QuestionTypes,
     ) => {
-        const correctAnswer =
-            questionAnswers?.find((obj) => obj.isCorrect)?.text || 'N/A';
+        const correctAnswer = questionAnswers?.find((obj) => obj.isCorrect);
+        const correctAnswerText = !isTrueFalse
+            ? correctAnswer?.text || 'N/A'
+            : correctAnswer?.text
+            ? 'True'
+            : 'False';
+        const userInput = !isTrueFalse
+            ? answer.text
+            : answer.text
+            ? 'True'
+            : 'False';
         const userAnswer: QuestionResult = {
             itemId: topicId,
-            userAnswer: answer.text,
-            correctAnswer: correctAnswer,
+            userAnswer: userInput,
+            correctAnswer: correctAnswerText,
             isCorrect: answer.isCorrect,
             question: userQuestion,
             questionType: userQuestionType,
@@ -48,14 +59,14 @@ const QuestionBlock = ({ topicId, next }: Props) => {
 
         setAnswerData(userAnswer);
         setIsAswered(true);
-        setTimeout(() => next(userAnswer), 5000);
+        setTimeout(() => next(userAnswer), answer.isCorrect ? 3000 : 5000);
     };
 
     React.useEffect(() => {
-        const type = getQuestionType();
+        const type: QuestionTypes = getQuestionType();
         const itemData = getItemData(topicId);
         const questionData = getQuestionAnswers(type, itemData);
-        const questionString = getQuestion(type, itemData);
+        const questionString = getQuestion(type, questionData);
 
         setIsAswered(false);
         setTopic(itemData);
@@ -80,7 +91,7 @@ const QuestionBlock = ({ topicId, next }: Props) => {
                 </p>
             </ColoredBox>
 
-            <div className={$.answers}>
+            <div className={cx($.answers, isTrueFalse && $.answersAlt)}>
                 {questionAnswers.map((answer, i) => (
                     <button
                         onClick={() =>
@@ -92,10 +103,16 @@ const QuestionBlock = ({ topicId, next }: Props) => {
                             i === 1 && $.answerGreen,
                             i === 2 && $.answerRed,
                             i === 3 && $.answerYellow,
+                            isTrueFalse && answer.text && $.answerGreen,
+                            isTrueFalse && !answer.text && $.answerRed,
                         )}
                         key={answer.text}
                     >
-                        {answer.text}
+                        {!isTrueFalse
+                            ? answer.text
+                            : answer.text
+                            ? 'true'
+                            : 'false'}
                     </button>
                 ))}
             </div>

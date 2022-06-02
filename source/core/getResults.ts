@@ -10,6 +10,7 @@ const getScore = (results: QuestionResult[]) => {
 const getXpByQuestionType = (type: QuestionTypes) => {
     if (type === 'choose right') return 10;
     if (type === 'choose wrong') return 12;
+    if (type === 'true false') return 6;
     return 0;
 };
 

@@ -25,16 +25,23 @@ const QuizDone = ({ results, topic, difficulty, updateUser }: Props) => {
     const userContext = React.useContext(UserState);
     const quizXp = getXp(results);
     const quizScore = getScore(results);
-    const endQuiz = () => {
-        const newUserData: User = getSaveTestData(
-            results,
-            topic,
-            difficulty,
-            userContext,
-        );
-        updateUser(newUserData);
+    const { test } = router.query;
 
-        const { test } = router.query;
+    const saveUser = () => {
+        if (userContext) {
+            const newUserData: User = getSaveTestData(
+                results,
+                topic,
+                difficulty,
+                userContext,
+            );
+            updateUser(newUserData);
+        }
+    };
+
+    const endQuiz = () => {
+        saveUser();
+
         if (test === 'daily') router.push({ pathname: '/' });
         else router.push({ pathname: `/learn/${test}` });
     };

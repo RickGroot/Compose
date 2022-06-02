@@ -1,4 +1,4 @@
-type QuestionTypes = 'choose right' | 'choose wrong';
+type QuestionTypes = 'choose right' | 'choose wrong' | 'true false';
 
 type QuestionResult = {
     itemId: number;
