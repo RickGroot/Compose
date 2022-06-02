@@ -1,7 +1,7 @@
 @import '~/styles/helpers.scss';
 
-$head-size: 40vh;
-$question-size: 55vh;
+$padding: px(30);
+$head-height: calc(50vh - #{$padding} * 2);
 
 @keyframes hover {
     0% {
@@ -16,30 +16,36 @@ $question-size: 55vh;
 }
 
 .container {
-    padding-top: $head-size;
-    padding-bottom: $nav-height;
+    margin-top: $head-height;
+    padding: 0 px(20) calc(#{px(30)} + #{$nav-height});
     font-family: 'Lato', sans-serif;
+    background-color: $c-background;
+    border-radius: px(10) px(10) 0 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: $z-overlay;
 }
 
 .head {
-    $padding: px(30);
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: calc(100% - #{$padding} * 2);
-    height: calc(#{$head-size} - #{$padding} * 2);
-    border-radius: 0 0 px(100) px(100);
+    height: calc(50vh - #{$padding} * 2);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: $padding;
+    z-index: 1;
 }
 
 .title {
     @include font-xl;
     font-weight: 700;
     margin: 0;
+    margin: px(20) 0 0;
     text-align: center;
 }
 
