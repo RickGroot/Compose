@@ -24,11 +24,13 @@ const Confetti = () => {
             spread: 26,
             startVelocity: 55,
             colors: ['#f2950e', '#0baca4', '#3794df', '#da124d'],
+            disableForReducedMotion: true,
         });
 
         makeShot(0.2, {
             spread: 60,
             colors: ['#f2950e', '#0baca4', '#3794df', '#da124d'],
+            disableForReducedMotion: true,
         });
 
         makeShot(0.35, {
@@ -36,6 +38,7 @@ const Confetti = () => {
             decay: 0.91,
             scalar: 0.8,
             colors: ['#f2950e', '#0baca4', '#3794df', '#da124d'],
+            disableForReducedMotion: true,
         });
 
         makeShot(0.1, {
@@ -44,12 +47,14 @@ const Confetti = () => {
             decay: 0.92,
             scalar: 1.2,
             colors: ['#f2950e', '#0baca4', '#3794df', '#da124d'],
+            disableForReducedMotion: true,
         });
 
         makeShot(0.1, {
             spread: 120,
             startVelocity: 45,
             colors: ['#f2950e', '#0baca4', '#3794df', '#da124d'],
+            disableForReducedMotion: true,
         });
     }, [makeShot]);
 
