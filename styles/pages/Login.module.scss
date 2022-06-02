@@ -19,19 +19,13 @@
         &:last-of-type {
             margin-bottom: px(60);
         }
-        &Link {
-            @include font-s;
-            font-weight: 300;
-            color: inherit;
-            text-decoration: underline;
-            margin-top: px(5);
-        }
     }
     &Input {
         @include font-m;
         font-weight: 300;
         display: block;
         width: 100%;
+        padding: px(5) px(10);
         background-color: $c-white;
         border: px(1) solid #e2e2e2;
         border-radius: px(6);
@@ -51,7 +45,7 @@
 }
 
 .switch {
-    @include font-s;
+    @include font-m;
     color: inherit;
     display: block;
     margin: px(20) auto px(50);
