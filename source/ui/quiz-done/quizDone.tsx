@@ -48,7 +48,7 @@ const QuizDone = ({ results, topic, difficulty, updateUser }: Props) => {
 
     return (
         <>
-            <ColoredBox className={$.head}>
+            <ColoredBox className={$.head} color="red">
                 {topic !== 'daily' && (
                     <>
                         <p
@@ -81,7 +81,7 @@ const QuizDone = ({ results, topic, difficulty, updateUser }: Props) => {
             <section className={$.container}>
                 <ColoredBox
                     className={cx($.result, $.resultScore)}
-                    color="red"
+                    color="blue"
                     backgroundType="linear"
                     animate
                 >
@@ -92,7 +92,7 @@ const QuizDone = ({ results, topic, difficulty, updateUser }: Props) => {
                 </ColoredBox>
                 <ColoredBox
                     className={cx($.result, $.resultXp)}
-                    color="red"
+                    color="blue"
                     backgroundType="linear"
                     animate
                 >
