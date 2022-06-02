@@ -40,11 +40,12 @@
 
 .addFriends {
     @include removeButton;
-    width: px(34);
-    height: px(34);
-    padding: px(5);
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: px(12);
+    padding: px(5) px(10);
     background-color: $c-green;
-    border-radius: px(10);
+    border-radius: px(6);
     color: $c-white;
     margin-left: px(12);
 }

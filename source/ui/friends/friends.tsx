@@ -60,7 +60,7 @@ const Friends = ({ user }: { user: User | null }) => {
                     className={$.addFriends}
                     onClick={() => handleAddFriends()}
                 >
-                    +
+                    Add friend
                 </button>
             )}
             {isFriendsOpen && <p>add friends page is coming here</p>}
