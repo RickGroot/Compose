@@ -42,14 +42,23 @@ const BadgeComponent = ({
                 )}
                 color={color}
             >
-                <p
-                    className={cx(
-                        $.badgeIconImg,
-                        $[`badgeIconImg-${badges[badge.id].iconType}`],
-                    )}
-                >
-                    {badges[badge.id].icon}
-                </p>
+                {badges[badge.id].iconType !== 'svg' && (
+                    <p
+                        className={cx(
+                            $.badgeIconImg,
+                            $[`badgeIconImg-${badges[badge.id].iconType}`],
+                        )}
+                    >
+                        {badges[badge.id].icon}
+                    </p>
+                )}
+                {badges[badge.id].iconType === 'svg' && (
+                    <img
+                        src={`/icons/${badges[badge.id].icon}.svg`}
+                        alt={badges[badge.id].badgeName}
+                        className={$.badgeIconLevelImg}
+                    />
+                )}
                 {!isMaxLevel && (
                     <p className={$.badgeIconLevel}>
                         Level {badge.currentLevel}

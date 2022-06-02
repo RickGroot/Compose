@@ -59,14 +59,23 @@ const BadgeOverlay = ({
                 </h2>
             )}
             <ColoredBox color={color} className={$.icon}>
-                <p
-                    className={cx(
-                        $.iconImg,
-                        $[`iconImg-${badges[id].iconType}`],
-                    )}
-                >
-                    {badges[id].icon}
-                </p>
+                {badges[id].iconType !== 'svg' && (
+                    <p
+                        className={cx(
+                            $.badgeIconImg,
+                            $[`badgeIconImg-${badges[id].iconType}`],
+                        )}
+                    >
+                        {badges[id].icon}
+                    </p>
+                )}
+                {badges[id].iconType === 'svg' && (
+                    <img
+                        src={`/icons/${badges[id].icon}.svg`}
+                        alt={badges[id].badgeName}
+                        className={$.iconLevelImg}
+                    />
+                )}
                 <p className={$.iconLevel}>{getCurrentLevel()}</p>
             </ColoredBox>
             <h1 className={$.title}>{badges[id].badgeName}</h1>
