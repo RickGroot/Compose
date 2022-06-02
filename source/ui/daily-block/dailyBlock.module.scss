@@ -1,5 +1,17 @@
 @import '~/styles/helpers.scss';
 
+@keyframes breathe {
+    0% {
+        transform: scale(1) rotate(0.6deg);
+    }
+    50% {
+        transform: scale(1.03) rotate(-0.6deg);
+    }
+    100% {
+        transform: scale(1) rotate(0.6deg);
+    }
+}
+
 .container {
     font-family: 'Lato', sans-serif;
     display: flex;
@@ -16,10 +28,12 @@
     align-items: center;
     justify-content: center;
     margin-bottom: px(30);
+    animation: breathe 3s infinite 1s ease-in-out;
 
     &Content {
         @include font-xxxl;
         margin: 0;
+        animation: breathe 3s infinite 1s ease-in-out;
     }
 }
 
