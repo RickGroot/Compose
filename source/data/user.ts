@@ -51,8 +51,8 @@ const user: User = {
         { date: '2022/05/24', score: 100 },
         { date: getDate(), score: 54 },
     ],
-    badges: { 1: 1, 2: 1, 3: 2, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0 },
-    quizzesDone: 24,
+    badges: { 1: 1, 2: 1, 3: 3, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0 },
+    quizzesDone: 99,
     friends: [4321, 5678, 5433],
     invites: {
         pending: [8642, 3388],

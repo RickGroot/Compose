@@ -1,10 +1,10 @@
 import React from 'react';
-import { ColoredBox, BadgeOverlay } from '~source/ui';
+import { BadgeOverlay } from '~source/ui';
 import { getAllBadges } from '~source/core/handlebadges';
-import { Badges } from '~source/types/badge';
+import { BadgeProgress, Badges } from '~source/types/badge';
 import User from '~source/types/user';
 import { availableColors } from '../colored-box/coloredBox';
-import { getPercentage } from '~source/core/calculations';
+import Badge from './badge';
 import cx from 'classnames';
 
 import $ from './achievements.module.scss';
@@ -41,12 +41,8 @@ const Achievements = ({
     const allBadgeData = getAllBadges(user, badges);
     const color = (index: number) =>
         availableColors[index % availableColors.length];
-    const isCompleted = (badge: {
-        id: number;
-        needed: number;
-        currentLevel: number;
-        progress: number;
-    }) => badge.needed <= badge.progress;
+    const isCompleted = (badge: BadgeProgress) =>
+        badge.needed <= badge.progress;
     const badgeOverlayIsNew = () => {
         const badge = allBadgeData.find((e) => e.id === openedBadge);
         return badge ? isCompleted(badge) : false;
@@ -55,95 +51,16 @@ const Achievements = ({
         <section className={$.container}>
             <h2 className={$.title}>Achievements</h2>
             <div className={cx($.badges, $[`badges-${allBadgeData.length}`])}>
-                {allBadgeData.map((badge, i) => {
-                    const userLevel = user && user.badges[badge.id];
-                    const badgeLevels = badges[badge.id].levels;
-                    const badgeLevelKeys = Object.keys(badgeLevels);
-                    const isMaxLevel =
-                        badgeLevelKeys[badgeLevelKeys.length - 1] ===
-                        userLevel.toString();
-                    return (
-                        <div
-                            className={$.badge}
-                            key={badge.id}
-                            onClick={() => setOpenedBadge(badge.id)}
-                        >
-                            <ColoredBox
-                                className={cx(
-                                    $.badgeIcon,
-                                    isCompleted(badge) && $.badgeIconComplete,
-                                    isMaxLevel && $.badgeIconCompleteMax,
-                                )}
-                                color={color(i)}
-                            >
-                                <p
-                                    className={cx(
-                                        $.badgeIconImg,
-                                        $[
-                                            `badgeIconImg-${
-                                                badges[badge.id].iconType
-                                            }`
-                                        ],
-                                    )}
-                                >
-                                    {badges[badge.id].icon}
-                                </p>
-                                <p className={$.badgeIconLevel}>
-                                    Level {badge.currentLevel}
-                                </p>
-                            </ColoredBox>
-                            <div className={$.badgeContent}>
-                                <h3 className={$.badgeTitle}>
-                                    {badges[badge.id].badgeName}
-                                </h3>
-                                <p className={$.badgeDescription}>
-                                    {
-                                        badges[badge.id].levels[
-                                            badge.currentLevel
-                                        ].desc
-                                    }
-                                </p>
-                                <div className={$.badgeProgress}>
-                                    <div
-                                        className={cx(
-                                            $.badgeProgressBar,
-                                            isCompleted(badge) &&
-                                                $['badgeProgressBar-100'],
-                                            $[`badgeProgressBar-${color(i)}`],
-                                            $[
-                                                `badgeProgressBar-${Math.floor(
-                                                    getPercentage(
-                                                        badge.needed,
-                                                        badge.progress,
-                                                    ),
-                                                )}`
-                                            ],
-                                            isCompleted(badge) &&
-                                                $.badgeProgressBarComplete,
-                                            isMaxLevel &&
-                                                $.badgeProgressBarCompleteMax,
-                                        )}
-                                    >
-                                        {isCompleted(badge) && (
-                                            <p
-                                                className={
-                                                    $.badgeProgressBarText
-                                                }
-                                            >
-                                                completed
-                                            </p>
-                                        )}
-                                    </div>
-                                    {!isCompleted(badge) && (
-                                        <p className={$.badgeProgressText}>
-                                            {badge.progress} / {badge.needed}
-                                        </p>
-                                    )}
-                                </div>
-                            </div>
-                        </div>
-                    );
-                })}
+                {allBadgeData.map((badge, i) => (
+                    <Badge
+                        user={user}
+                        badge={badge}
+                        badges={badges}
+                        color={color(i)}
+                        setOpenedBadge={(e) => setOpenedBadge(e)}
+                        isCompleted={(e) => isCompleted(e)}
+                    />
+                ))}
             </div>
             {openedBadge && (
                 <BadgeOverlay

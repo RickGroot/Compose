@@ -28,9 +28,12 @@ const BadgeOverlay = ({
         return badgeLevels[userLevel].desc;
     };
     const getNextLevel = () => {
-        if (userLevel) {
-            return userLevel < maxLevel ? badgeLevels[userLevel].desc : null;
-        } else return badgeLevels['1'].desc;
+        return userLevel < maxLevel ? badgeLevels[userLevel + 1].desc : null;
+    };
+    const getCurrentLevel = () => {
+        if (userLevel >= maxLevel) return 'Max level';
+        if (newLevel) return `level ${userLevel + 1}`;
+        else return `level ${userLevel}`;
     };
 
     const closeOverlay = () => {
@@ -48,7 +51,13 @@ const BadgeOverlay = ({
 
     return (
         <section className={$.container} onClick={() => closeOverlay()}>
-            {newLevel && <h2 className={$.new}>You have won a badge!</h2>}
+            {newLevel && (
+                <h2 className={$.new}>
+                    {userLevel >= maxLevel
+                        ? 'You have completed this badge!'
+                        : 'You have won a badge!'}
+                </h2>
+            )}
             <ColoredBox color={color} className={$.icon}>
                 <p
                     className={cx(
@@ -58,9 +67,7 @@ const BadgeOverlay = ({
                 >
                     {badges[id].icon}
                 </p>
-                <p className={$.iconLevel}>
-                    Level {newLevel ? userLevel + 1 : userLevel}
-                </p>
+                <p className={$.iconLevel}>{getCurrentLevel()}</p>
             </ColoredBox>
             <h1 className={$.title}>{badges[id].badgeName}</h1>
             <p className={$.description}>{getDescription()}</p>

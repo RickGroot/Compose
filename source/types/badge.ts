@@ -8,6 +8,13 @@ export type BadgeName =
     | 'Ornamentation'
     | 'Notes';
 
+export type BadgeProgress = {
+    id: number;
+    needed: number;
+    currentLevel: number;
+    progress: number;
+};
+
 export type BadgeLevel = {
     // number stands for badge level
     [key: number]: {
