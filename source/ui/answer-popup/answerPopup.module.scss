@@ -1,20 +1,51 @@
 @import '~/styles/helpers.scss';
 
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes remove {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
 .container {
     position: fixed;
     left: 0;
-    top: calc(40vh + #{px(10)});
+    top: 0;
     width: 100vw;
-    padding-bottom: $nav-height;
-    height: 50vh;
+    height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    backdrop-filter: blur(#{px(3)});
+    background-color: rgba($c-background, 0.7);
+    backdrop-filter: blur(#{px(2)});
+    animation: appear 0.2s ease-in-out;
+
+    &Correct {
+        animation: remove 0.1s ease-in-out 2.9s;
+    }
+    &Incorrect {
+        animation: remove 0.1s ease-in-out 4.9s;
+    }
+}
+
+.title {
+    @include font-xl;
+    font-weight: 700;
 }
 
 .message {
-    $size: px(150);
+    $size: px(50);
     padding: px(15);
     display: flex;
     flex-direction: column;
@@ -23,21 +54,10 @@
     width: $size;
     height: $size;
     border-radius: px(10);
+    background-color: $c-white;
     color: $c-white;
     box-shadow: 0px 1px 4px 0px rgb(0 0 0 / 25%);
-
-    &Correct {
-        background-color: $c-green;
-    }
-    &Incorrect {
-        background-color: $c-red;
-    }
-}
-
-.text {
-    @include font-xl;
-    margin: px(15) 0 0;
-    font-weight: 700;
+    margin: px(30) 0;
 }
 
 .icon {
@@ -47,14 +67,15 @@
 }
 
 .description {
-    @include font-s;
+    @include font-l;
     font-weight: 300;
     text-align: center;
     margin: 0 0 px(15);
 
     &Bold {
+        @include firstLetterCapital;
         display: block;
         font-weight: 700;
-        margin-top: px(2);
+        margin-top: px(10);
     }
 }
