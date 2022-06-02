@@ -80,7 +80,7 @@
             font-weight: 700;
             margin: 0;
             &Img {
-                width: 70%;
+                width: 50%;
             }
         }
         &Img {
@@ -126,8 +126,6 @@
     }
 
     &Progress {
-        $progress: 75%;
-        $text: 20%;
         position: relative;
         margin: 0;
         display: flex;
@@ -139,8 +137,10 @@
             @include font-s;
             margin: 0;
             font-weight: 300;
-            width: $text;
             text-align: end;
+            flex: 1;
+            white-space: nowrap;
+            margin-left: px(10);
         }
 
         &Bar {
@@ -151,7 +151,7 @@
             display: flex;
             align-items: center;
             height: $height;
-            width: $progress;
+            width: 100%;
             border-radius: $height / 2;
             padding: 0 px(5);
 
