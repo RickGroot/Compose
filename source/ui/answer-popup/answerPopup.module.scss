@@ -8,7 +8,7 @@
         opacity: 1;
     }
 }
-@keyframes remove {
+@keyframes disappear {
     from {
         opacity: 1;
     }
@@ -32,10 +32,10 @@
     animation: appear 0.2s ease-in-out;
 
     &Correct {
-        animation: remove 0.1s ease-in-out 2.9s;
+        animation: appear 0.2s ease-in-out, disappear 0.1s ease-in-out 2.9s;
     }
     &Incorrect {
-        animation: remove 0.1s ease-in-out 4.9s;
+        animation: appear 0.2s ease-in-out, disappear 0.1s ease-in-out 4.9s;
     }
 }
 

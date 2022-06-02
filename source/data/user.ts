@@ -17,7 +17,7 @@ const user: User = {
             hard: 0,
         },
         articulation: {
-            easy: 40,
+            easy: 160,
             medium: 40,
             hard: 0,
         },
