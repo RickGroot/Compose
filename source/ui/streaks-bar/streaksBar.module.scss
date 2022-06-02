@@ -35,13 +35,12 @@
 }
 
 .info {
+    @include font-s;
     position: relative;
     width: 100%;
     display: grid;
     grid-template-columns: 1fr auto 1fr;
-    font-family: 'Lato', sans-serif;
     font-weight: 300;
-    font-size: px(12);
     padding-top: px(10);
 
     &Today {

@@ -14,6 +14,7 @@
 .login {
     &Button {
         @include removeButton;
+        @include font-m;
         display: block;
         margin: 0 auto;
         width: 50vw;
@@ -21,18 +22,15 @@
         background-color: $c-yellow;
         border-radius: px(10);
         color: $c-white;
-        font-family: 'Lato', sans-serif;
         font-weight: 400;
-        font-size: px(16);
     }
     &Login {
         margin: px(50) auto 0;
     }
     &Text {
-        font-family: 'Lato', sans-serif;
+        @include font-m;
         margin: px(10) 0;
         text-align: center;
-        font-size: px(16);
         font-weight: 400;
         color: #898989;
     }
@@ -40,9 +38,8 @@
 
 .addFriends {
     @include removeButton;
-    font-family: 'Lato', sans-serif;
+    @include font-s;
     font-weight: 300;
-    font-size: px(12);
     padding: px(5) px(10);
     background-color: $c-green;
     border-radius: px(6);

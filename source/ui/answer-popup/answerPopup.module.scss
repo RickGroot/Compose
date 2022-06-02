@@ -35,22 +35,20 @@
 }
 
 .text {
+    @include font-xl;
     margin: px(15) 0 0;
-    font-family: 'Lato', sans-serif;
     font-weight: 700;
-    font-size: px(24);
 }
 
 .icon {
+    @include font-xxl;
     margin: auto;
-    font-size: px(30);
     color: $c-white;
 }
 
 .description {
-    font-family: 'Lato', sans-serif;
+    @include font-s;
     font-weight: 300;
-    font-size: px(12);
     text-align: center;
     margin: 0 0 px(15);
 

@@ -15,6 +15,7 @@
 
 .button {
     @include removeButton;
+    @include font-l;
     position: relative;
     height: $nav-height;
     width: $nav-height;
@@ -23,7 +24,6 @@
     box-shadow: 0px 1px 4px 0px #00000040;
     font-family: 'Lato', sans-serif;
     font-weight: 400;
-    font-size: px(20);
 
     &Cross {
         &::after,
@@ -65,6 +65,7 @@
     gap: px(20);
 
     &Message {
+        @include font-s;
         position: absolute;
         bottom: 100%;
         left: 50%;
@@ -72,9 +73,7 @@
         width: max-content;
         text-align: center;
         transform: translateX(-50%);
-        font-family: 'Lato', sans-serif;
         font-weight: 300;
-        font-size: px(12);
         background-color: $c-yellow;
         border-radius: px(5);
         color: $c-white;

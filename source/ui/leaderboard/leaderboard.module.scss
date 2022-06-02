@@ -7,9 +7,9 @@
 }
 
 .title {
+    @include font-l;
     position: relative;
     font-weight: 400;
-    font-size: px(20);
     margin: 0 0 px(10);
     padding-bottom: px(5);
     width: 100%;
@@ -26,8 +26,8 @@
 }
 
 .row {
+    @include font-m;
     font-weight: 300;
-    font-size: px(16);
     display: flex;
     flex-direction: row;
     align-items: center;

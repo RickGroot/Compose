@@ -4,3 +4,33 @@
 // 300 - light
 // 400 - regular
 // 700 - bold
+
+@mixin font-s {
+    font-family: 'Lato', sans-serif;
+    font-size: px(12);
+}
+
+@mixin font-m {
+    font-family: 'Lato', sans-serif;
+    font-size: px(16);
+}
+
+@mixin font-l {
+    font-family: 'Lato', sans-serif;
+    font-size: px(20);
+}
+
+@mixin font-xl {
+    font-family: 'Lato', sans-serif;
+    font-size: px(24);
+}
+
+@mixin font-xxl {
+    font-family: 'Lato', sans-serif;
+    font-size: px(40);
+}
+
+@mixin font-xxxl {
+    font-family: 'Lato', sans-serif;
+    font-size: px(100);
+}

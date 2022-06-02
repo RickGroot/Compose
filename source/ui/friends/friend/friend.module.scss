@@ -39,20 +39,20 @@ $size: px(65);
 }
 
 .name {
+    @include font-l;
     margin: 0 0 px(5);
     font-weight: 400;
-    font-size: px(20);
 
     &Id {
+        @include font-m;
         font-weight: 300;
-        font-size: px(14);
     }
 }
 
 .info {
+    @include font-s;
     margin: 0;
     font-weight: 300;
-    font-size: px(12);
 
     &Highlight {
         font-weight: 400;
@@ -110,10 +110,10 @@ $size: px(65);
 }
 
 .remove {
+    @include font-s;
     position: absolute;
     top: $size - px(15);
     right: 0;
-    font-size: px(12);
     font-weight: 300;
     text-decoration: underline $c-white;
     color: $c-white;

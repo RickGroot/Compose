@@ -33,20 +33,20 @@
 }
 
 .title {
+    @include font-xl;
     font-weight: 700;
-    font-size: px(24);
     margin: px(10) 0 0;
 }
 
 .id {
+    @include font-m;
     font-weight: 300;
-    font-size: px(14);
     margin: 0 0 px(10);
 }
 
 .score {
+    @include font-m;
     font-weight: 300;
-    font-size: px(16);
     margin: 0;
 
     &Highlight {
@@ -60,6 +60,7 @@
 
 .logout {
     @include removeButton;
+    @include font-s;
     position: absolute;
     top: px(10);
     right: px(10);
@@ -68,5 +69,4 @@
     background-color: $c-red;
     color: $c-white;
     font-weight: 300;
-    font-size: px(12);
 }

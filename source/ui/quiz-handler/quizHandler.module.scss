@@ -17,6 +17,7 @@
 }
 
 .login {
+    @include font-s;
     position: relative;
     display: block;
     top: px(-30);
@@ -27,9 +28,7 @@
     text-align: center;
     border-radius: px(5);
     text-decoration: underline $c-white;
-    font-family: 'Lato', sans-serif;
     font-weight: 300;
-    font-size: px(12);
     width: fit-content;
 
     &::after {

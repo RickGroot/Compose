@@ -20,14 +20,15 @@ $question-size: 45vh;
 
 .question {
     @include firstLetterCapital;
+    @include font-xl;
     font-family: 'Lato', sans-serif;
     font-weight: 700;
-    font-size: px(24);
     margin: 0;
     text-align: center;
 }
 
 .icon {
+    @include font-xxxl;
     @include musicIcon;
     width: $icon-size;
     height: $icon-size;
@@ -37,11 +38,10 @@ $question-size: 45vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: px(100);
 
     &Text {
+        @include font-xxl;
         @include musicFont;
-        font-size: px(50);
     }
 }
 
@@ -64,12 +64,11 @@ $question-size: 45vh;
 .answer {
     @include removeButton;
     @include firstLetterCapital;
+    @include font-m;
     position: relative;
     border-radius: px(10);
     color: $c-white;
-    font-family: 'Lato', sans-serif;
     font-weight: 400;
-    font-size: px(16);
     padding: px(15);
 
     &Blue {

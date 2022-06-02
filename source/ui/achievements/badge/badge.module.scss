@@ -76,8 +76,8 @@
         flex: 1 0 auto;
         padding: px(10) 0;
         &Level {
+            @include font-m;
             font-weight: 700;
-            font-size: px(14);
             margin: 0;
             &Img {
                 width: 70%;
@@ -87,13 +87,13 @@
             margin: 0;
 
             &-icon {
+                @include font-xxl;
                 @include musicIcon;
-                font-size: px(40);
                 margin-top: px(15);
             }
             &-text {
+                @include font-l;
                 @include musicFont;
-                font-size: px(20);
                 margin-top: px(15);
             }
             &-svg {
@@ -112,17 +112,17 @@
     }
 
     &Title {
+        @include font-l;
         margin: 0;
         font-weight: 400;
-        font-size: px(20);
     }
 
     &Description {
+        @include font-s;
         @include firstLetterCapital;
         margin: px(5) 0 px(10);
         width: px(150);
         font-weight: 300;
-        font-size: px(12);
     }
 
     &Progress {
@@ -136,9 +136,9 @@
         justify-content: space-between;
 
         &Text {
+            @include font-s;
             margin: 0;
             font-weight: 300;
-            font-size: px(8);
             width: $text;
             text-align: end;
         }
@@ -156,10 +156,10 @@
             padding: 0 px(5);
 
             &Text {
+                @include font-s;
                 margin: 0;
                 color: $c-white;
                 font-weight: 300;
-                font-size: px(8);
                 z-index: 1;
             }
 
