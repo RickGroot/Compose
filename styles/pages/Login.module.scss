@@ -8,9 +8,8 @@
 
 .form {
     &Label {
-        font-family: 'Lato', sans-serif;
+        @include font-m;
         font-weight: 400;
-        font-size: px(16);
         display: block;
         margin-bottom: px(20);
 
@@ -20,21 +19,13 @@
         &:last-of-type {
             margin-bottom: px(60);
         }
-        &Link {
-            font-family: 'Lato', sans-serif;
-            font-weight: 300;
-            font-size: px(12);
-            color: inherit;
-            text-decoration: underline;
-            margin-top: px(5);
-        }
     }
     &Input {
-        font-family: 'Lato', sans-serif;
+        @include font-m;
         font-weight: 300;
-        font-size: px(16);
         display: block;
         width: 100%;
+        padding: px(5) px(10);
         background-color: $c-white;
         border: px(1) solid #e2e2e2;
         border-radius: px(6);
@@ -42,9 +33,8 @@
     }
     &Submit {
         @include removeButton;
-        font-family: 'Lato', sans-serif;
+        @include font-l;
         font-weight: 400;
-        font-size: px(20);
         background-color: $c-green;
         color: $c-white;
         border-radius: px(10);
@@ -55,23 +45,21 @@
 }
 
 .switch {
+    @include font-m;
     color: inherit;
     display: block;
     margin: px(20) auto px(50);
-    font-family: 'Lato', sans-serif;
     font-weight: 300;
-    font-size: px(12);
 }
 
 .back {
     @include removeButton;
+    @include font-m;
     position: absolute;
     bottom: px(100);
     left: 50%;
     transform: translateX(-50%);
-    font-family: 'Lato', sans-serif;
     font-weight: 300;
-    font-size: px(16);
     display: block;
     margin: 0 auto;
     background-color: $c-yellow;

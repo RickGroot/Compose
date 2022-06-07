@@ -38,7 +38,7 @@ const badges: Badges = {
         levels: {
             0: {
                 desc: 'Have 2 friends',
-                amountToComplete: 3,
+                amountToComplete: 2,
             },
             1: {
                 desc: 'Have 5 friends',
@@ -125,8 +125,8 @@ const badges: Badges = {
     6: {
         badgeName: 'Articulation',
         topic: true,
-        icon: '>',
-        iconType: 'text',
+        icon: '\uD834\uDD88',
+        iconType: 'icon',
         levels: {
             0: {
                 desc: 'Complete easy difficulty on articulation',

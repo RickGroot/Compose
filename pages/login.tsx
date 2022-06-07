@@ -52,9 +52,6 @@ const Login: NextPage = () => {
                             className={Form.formInput}
                             defaultValue="HeyIkBenIlse123"
                         />
-                        <span className={Form.formLabelLink}>
-                            I forgot my password
-                        </span>
                     </label>
                 </form>
                 <button

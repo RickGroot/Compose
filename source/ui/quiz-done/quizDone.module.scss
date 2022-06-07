@@ -1,7 +1,7 @@
 @import '~/styles/helpers.scss';
 
-$head-size: 40vh;
-$question-size: 55vh;
+$padding: px(30);
+$head-height: calc(50vh - #{$padding} * 2);
 
 @keyframes hover {
     0% {
@@ -16,35 +16,41 @@ $question-size: 55vh;
 }
 
 .container {
-    padding-top: $head-size;
-    padding-bottom: $nav-height;
+    margin-top: $head-height;
+    padding: 0 px(20) calc(#{px(30)} + #{$nav-height});
     font-family: 'Lato', sans-serif;
+    background-color: $c-background;
+    border-radius: px(10) px(10) 0 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: $z-overlay;
 }
 
 .head {
-    $padding: px(30);
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: calc(100% - #{$padding} * 2);
-    height: calc(#{$head-size} - #{$padding} * 2);
-    border-radius: 0 0 px(100) px(100);
+    height: calc(50vh - #{$padding} * 2);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: $padding;
+    z-index: 1;
 }
 
 .title {
-    font-family: 'Lato', sans-serif;
+    @include font-xl;
     font-weight: 700;
-    font-size: px(24);
     margin: 0;
+    margin: px(20) 0 0;
     text-align: center;
 }
 
 .icon {
+    @include font-xxxl;
     @include musicIcon;
     width: $icon-size;
     height: $icon-size;
@@ -54,21 +60,20 @@ $question-size: 55vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: px(100);
 
     &Text {
+        @include font-xxl;
         @include musicFont;
-        font-size: px(50);
     }
 }
 
 .result {
+    @include font-m;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     padding: px(16);
-    font-size: px(16);
     font-weight: 400;
     border-radius: px(10);
 
@@ -87,23 +92,23 @@ $question-size: 55vh;
 
 .endButton {
     @include removeButton;
+    @include font-m;
     display: block;
     margin: 0 auto;
     padding: px(15) px(50);
     color: $c-white;
     background-color: $c-green;
     font-weight: 400;
-    font-size: px(16);
     border-radius: px(10);
 }
 
 .view {
+    @include font-l;
     position: relative;
     display: block;
     text-align: center;
     margin: px(50) auto;
     font-weight: 300;
-    font-size: px(20);
 
     &::after {
         position: absolute;
@@ -121,20 +126,33 @@ $question-size: 55vh;
 }
 
 .answer {
+    $margin: px(30);
+    position: relative;
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: px(20);
-    margin: px(20) 0;
+    margin: $margin 0;
+
+    &:not(:last-of-type)::after {
+        position: absolute;
+        content: '';
+        top: calc(100% + #{$margin} / 2);
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        height: px(1);
+        background-color: #e0e0e0;
+    }
 
     &Icon {
         $size: px(85);
+        @include font-xxl;
         @include musicIcon;
         display: flex;
         flex: 0 0 auto;
         align-items: center;
         justify-content: center;
-        font-size: px(44);
         color: $c-white;
         background-color: $c-red;
         width: $size;
@@ -142,8 +160,13 @@ $question-size: 55vh;
         border-radius: 50%;
 
         &Text {
+            $padding: px(5);
+            @include font-m;
             @include musicFont;
-            font-size: px(24);
+            line-break: anywhere;
+            padding: $padding;
+            width: calc(#{$size} - #{$padding} * 2);
+            height: calc(#{$size} - #{$padding} * 2);
         }
         &Correct {
             background-color: $c-green;
@@ -151,15 +174,15 @@ $question-size: 55vh;
     }
 
     &Question {
+        @include font-m;
         margin: 0 0 px(5);
         font-weight: 400;
-        font-size: px(16);
     }
 
     &Row {
+        @include font-s;
         margin: 0;
         font-weight: 400;
-        font-size: px(14);
 
         &Light {
             @include firstLetterCapital;

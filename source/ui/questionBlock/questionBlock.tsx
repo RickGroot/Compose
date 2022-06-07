@@ -80,7 +80,6 @@ const QuestionBlock = ({ topicId, next }: Props) => {
     return (
         <section className={$.container}>
             <ColoredBox className={$.head}>
-                <h1 className={$.question}>{question}</h1>
                 <p
                     className={cx(
                         $.icon,
@@ -89,9 +88,10 @@ const QuestionBlock = ({ topicId, next }: Props) => {
                 >
                     {topic.icon}
                 </p>
+                <h1 className={$.question}>{question}</h1>
             </ColoredBox>
 
-            <div className={cx($.answers, isTrueFalse && $.answersAlt)}>
+            <div className={cx($.answers)}>
                 {questionAnswers.map((answer, i) => (
                     <button
                         onClick={() =>
@@ -103,8 +103,8 @@ const QuestionBlock = ({ topicId, next }: Props) => {
                             i === 1 && $.answerGreen,
                             i === 2 && $.answerRed,
                             i === 3 && $.answerYellow,
-                            isTrueFalse && answer.text && $.answerGreen,
-                            isTrueFalse && !answer.text && $.answerRed,
+                            isTrueFalse && answer.text && $.answerTrue,
+                            isTrueFalse && !answer.text && $.answerFalse,
                         )}
                         key={answer.text}
                     >

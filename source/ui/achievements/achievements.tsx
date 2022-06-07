@@ -59,6 +59,7 @@ const Achievements = ({
                         color={color(i)}
                         setOpenedBadge={(e) => setOpenedBadge(e)}
                         isCompleted={(e) => isCompleted(e)}
+                        key={badge.id}
                     />
                 ))}
             </div>

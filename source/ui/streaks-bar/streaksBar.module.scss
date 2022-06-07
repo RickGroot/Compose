@@ -12,36 +12,47 @@
 
     &Date {
         color: $c-white;
-        padding: px(8);
+        padding: px(6) px(8) px(6);
         margin: 0;
         border-radius: px(10);
         font-family: 'Lato', sans-serif;
-        font-weight: 400;
+        font-weight: 700;
         font-size: 20;
-        background-color: rgba($c-yellow, 0.5);
+        background-color: $c-white;
 
         &Green {
-            background-color: $c-green;
+            box-sizing: border-box;
+            background-color: rgba($c-green, 0.06);
+            color: $c-green;
+            border: px(3) solid $c-green;
+            border-top: px(6) solid $c-green;
         }
 
         &Red {
-            background-color: $c-red;
+            box-sizing: border-box;
+            background-color: rgba($c-red, 0.06);
+            color: $c-red;
+            border: px(3) solid $c-red;
+            border-top: px(6) solid $c-red;
         }
 
         &Upcoming {
-            background-color: rgba($c-blue, 0.5);
+            box-sizing: border-box;
+            background-color: rgba($c-blue, 0.06);
+            color: $c-blue;
+            border: px(3) solid $c-blue;
+            border-top: px(6) solid $c-blue;
         }
     }
 }
 
 .info {
+    @include font-s;
     position: relative;
     width: 100%;
     display: grid;
     grid-template-columns: 1fr auto 1fr;
-    font-family: 'Lato', sans-serif;
     font-weight: 300;
-    font-size: px(12);
     padding-top: px(10);
 
     &Today {

@@ -1,33 +1,31 @@
 @import '~/styles/helpers.scss';
 
-$head-size: 40vh;
-$question-size: 45vh;
+$padding: px(30);
 
 .head {
-    $padding: px(30);
     position: fixed;
     top: 0;
     left: 0;
     width: calc(100% - #{$padding} * 2);
-    height: calc(#{$head-size} - #{$padding} * 2);
-    border-radius: 0 0 px(100) px(100);
+    height: calc(50vh - #{$padding} * 2);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: $padding;
 }
 
 .question {
     @include firstLetterCapital;
+    @include font-xl;
     font-family: 'Lato', sans-serif;
     font-weight: 700;
-    font-size: px(24);
-    margin: 0;
+    margin: px(20) 0 0;
     text-align: center;
 }
 
 .icon {
+    @include font-xxxl;
     @include musicIcon;
     width: $icon-size;
     height: $icon-size;
@@ -37,40 +35,50 @@ $question-size: 45vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: px(100);
+    overflow: hidden;
 
     &Text {
+        $padding: px(5);
+        @include font-xxl;
         @include musicFont;
-        font-size: px(50);
+        line-break: anywhere;
+        padding: $padding;
+        width: calc(#{$icon-size} - #{$padding} * 2);
+        height: calc(#{$icon-size} - #{$padding} * 2);
     }
 }
 
 .answers {
     position: fixed;
-    top: calc(#{$head-size} + #{px(30)});
-    left: px(20);
-    right: px(20);
-    height: $question-size;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: px(30);
-
-    &Alt {
-        grid-template-rows: 1fr;
-    }
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 45vh;
+    background-color: $c-background;
+    border-radius: px(10) px(10) 0 0;
+    padding: $padding;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .answer {
     @include removeButton;
     @include firstLetterCapital;
+    @include font-m;
     position: relative;
     border-radius: px(10);
+    width: 100%;
     color: $c-white;
-    font-family: 'Lato', sans-serif;
     font-weight: 400;
-    font-size: px(16);
-    padding: px(15);
+    padding: px(5) px(10);
+    margin-bottom: auto;
+    height: calc(24% - #{$padding} / 4);
+
+    &:last-of-type {
+        margin-bottom: 0;
+    }
 
     &Blue {
         background-color: $c-blue;
@@ -83,5 +91,13 @@ $question-size: 45vh;
     }
     &Yellow {
         background-color: $c-yellow;
+    }
+    &True {
+        background-color: $c-green;
+        height: calc(50% - #{$padding} / 2);
+    }
+    &False {
+        background-color: $c-red;
+        height: calc(50% - #{$padding} / 2);
     }
 }

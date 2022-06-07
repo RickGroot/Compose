@@ -62,8 +62,8 @@ const BadgeOverlay = ({
                 {badges[id].iconType !== 'svg' && (
                     <p
                         className={cx(
-                            $.badgeIconImg,
-                            $[`badgeIconImg-${badges[id].iconType}`],
+                            $.iconImg,
+                            $[`iconImg-${badges[id].iconType}`],
                         )}
                     >
                         {badges[id].icon}
@@ -73,7 +73,7 @@ const BadgeOverlay = ({
                     <img
                         src={`/icons/${badges[id].icon}.svg`}
                         alt={badges[id].badgeName}
-                        className={$.iconLevelImg}
+                        className={cx($.iconLevelImg)}
                     />
                 )}
                 <p className={$.iconLevel}>{getCurrentLevel()}</p>

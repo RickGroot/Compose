@@ -29,8 +29,8 @@
 }
 
 .new {
+    @include font-xl;
     font-weight: 700;
-    font-size: px(24);
     margin: 0 0 px(50);
 }
 
@@ -48,24 +48,24 @@
     padding: px(10) 0;
     background-color: $c-white;
     &Level {
+        @include font-m;
         font-weight: 700;
-        font-size: px(14);
         margin: 0;
         &Img {
-            width: 70%;
+            width: 50%;
         }
     }
     &Img {
         margin: 0;
 
         &-icon {
+            @include font-xxl;
             @include musicIcon;
-            font-size: px(40);
             margin-top: px(15);
         }
         &-text {
+            @include font-l;
             @include musicFont;
-            font-size: px(20);
             margin-top: px(15);
         }
         &-svg {
@@ -76,24 +76,24 @@
 
 .title {
     @include firstLetterCapital;
+    @include font-xl;
     font-weight: 700;
-    font-size: px(24);
     margin: px(60) 0 px(20);
     text-align: center;
 }
 
 .description {
     @include firstLetterCapital;
+    @include font-l;
     font-weight: 400;
-    font-size: px(20);
     margin: 0 0 px(20);
     text-align: center;
 }
 
 .next {
     @include firstLetterCapital;
+    @include font-m;
     font-weight: 300;
-    font-size: px(14);
     margin: 0;
     text-align: center;
 }

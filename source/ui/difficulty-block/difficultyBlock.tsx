@@ -37,6 +37,10 @@ const DifficultyBlock = ({
         if (level === 'medium') return 2;
         if (level === 'hard') return 3;
     };
+    const handleStart = () => {
+        if (!user && level !== 'easy') return;
+        startQuiz(level);
+    };
     return (
         <ColoredBox
             className={cx(
@@ -44,7 +48,7 @@ const DifficultyBlock = ({
                 !user && level !== 'easy' && $.containerHidden,
             )}
             color={getColor()}
-            onClick={() => startQuiz(level)}
+            onClick={() => handleStart()}
             animate
         >
             <div className={$.icon}>

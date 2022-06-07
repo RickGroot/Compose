@@ -24,6 +24,7 @@
 
     &Icon {
         $size: px(60);
+        @include font-xxl;
         @include musicIcon;
         position: absolute;
         top: 0;
@@ -36,14 +37,13 @@
         border-radius: 0 0 px(10) px(10);
         background-color: rgba(#ffffff, 0.8);
         color: $c-icon;
-        font-size: px(40);
         text-size-adjust: auto;
         margin: 0;
         overflow: hidden;
 
         &Text {
+            @include font-l;
             @include musicFont;
-            font-size: px(22);
         }
     }
 

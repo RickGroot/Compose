@@ -33,9 +33,8 @@ $base-size: 16;
 
 // font mixins
 @mixin pageTitle {
-    font-family: 'Lato', sans-serif;
+    @include font-l;
     font-weight: 700;
-    font-size: px(20);
 }
 
 @mixin musicIcon {
@@ -55,9 +54,9 @@ $base-size: 16;
 }
 
 @mixin subText {
+    @include font-s;
     font-family: 'Lato', sans-serif;
     font-weight: 300;
-    font-size: px(12);
 }
 
 @mixin firstLetterCapital {

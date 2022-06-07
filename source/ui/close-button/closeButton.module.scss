@@ -1,97 +1,39 @@
 @import '~/styles/helpers.scss';
 
-.container {
-    $margin: px(10);
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    margin: $margin;
-    width: calc(100% - #{$margin} * 2);
-    height: $nav-height;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .button {
+    $size: px(36);
     @include removeButton;
-    position: relative;
-    height: $nav-height;
-    width: $nav-height;
-    background-color: $c-white;
-    border-radius: px(10);
+    @include font-l;
+    position: fixed;
+    height: $size;
+    width: $size;
+    top: px(10);
+    left: px(10);
+    background-color: rgba($c-white, 0.1);
+    border-radius: 50%;
     box-shadow: 0px 1px 4px 0px #00000040;
     font-family: 'Lato', sans-serif;
     font-weight: 400;
-    font-size: px(20);
 
-    &Cross {
-        &::after,
-        &::before {
-            $height: px(2);
-            position: absolute;
-            content: '';
-            top: 50%;
-            left: 50%;
-            transform: translateY(-50%);
-            transform-origin: center;
-            width: 60%;
-            height: $height;
-            border-radius: calc(#{$height} / 2);
-            background-color: $c-red;
-        }
-        &::after {
-            transform: translateX(-50%) rotate(-45deg);
-        }
-
-        &::before {
-            transform: translateX(-50%) rotate(45deg);
-        }
-    }
-
-    &No {
-        color: $c-green;
-    }
-    &Yes {
-        color: $c-red;
-    }
-}
-
-.chooseContainer {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: px(20);
-
-    &Message {
+    &::after,
+    &::before {
+        $height: px(2);
         position: absolute;
-        bottom: 100%;
+        content: '';
+        top: 50%;
         left: 50%;
-        width: 100%;
-        width: max-content;
-        text-align: center;
-        transform: translateX(-50%);
-        font-family: 'Lato', sans-serif;
-        font-weight: 300;
-        font-size: px(12);
-        background-color: $c-yellow;
-        border-radius: px(5);
-        color: $c-white;
-        padding: px(5) px(10);
-        margin: 0 0 px(10);
+        transform: translateY(-50%);
+        transform-origin: center;
+        width: 60%;
+        height: $height;
+        border-radius: calc(#{$height} / 2);
+        background-color: $c-white;
+    }
+    &::after {
+        transform: translateX(-50%) rotate(-45deg);
+    }
 
-        &::after {
-            position: absolute;
-            content: '';
-            top: 96%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 0;
-            border-left: 5px solid transparent;
-            border-right: 5px solid transparent;
-            border-top: 5px solid $c-yellow;
-        }
+    &::before {
+        transform: translateX(-50%) rotate(45deg);
     }
 }

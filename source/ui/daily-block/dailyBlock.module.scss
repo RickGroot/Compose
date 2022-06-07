@@ -1,5 +1,17 @@
 @import '~/styles/helpers.scss';
 
+@keyframes breathe {
+    0% {
+        transform: scale(1) rotate(0.6deg);
+    }
+    50% {
+        transform: scale(1.03) rotate(-0.6deg);
+    }
+    100% {
+        transform: scale(1) rotate(0.6deg);
+    }
+}
+
 .container {
     font-family: 'Lato', sans-serif;
     display: flex;
@@ -16,28 +28,30 @@
     align-items: center;
     justify-content: center;
     margin-bottom: px(30);
+    animation: breathe 3s infinite 1s ease-in-out;
 
     &Content {
-        font-size: px(100);
+        @include font-xxxl;
         margin: 0;
+        animation: breathe 3s infinite 1s ease-in-out;
     }
 }
 
 .challengeTitle {
+    @include font-l;
     font-weight: 400;
-    font-size: px(20);
     margin: 0;
 }
 
 .title {
+    @include font-xl;
     font-weight: 700;
-    font-size: px(24);
     margin: px(10) 0;
 }
 
 .score {
+    @include font-m;
     font-weight: 300;
-    font-size: px(16);
     margin: 0;
 
     &Highlight {
@@ -46,9 +60,9 @@
 }
 
 .button {
+    @include font-m;
     position: relative;
     font-weight: 400;
-    font-size: px(16);
     margin-top: px(80);
     padding: px(15) px(40);
     border-radius: px(10);

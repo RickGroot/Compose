@@ -1,6 +1,7 @@
 import React from 'react';
 import getTodayScore from '~source/core/getScore';
 import { Friend } from '~source/types/friend';
+import { ColoredBox } from '~source/ui';
 import User from '~source/types/user';
 import cx from 'classnames';
 
@@ -8,6 +9,7 @@ import $ from './leaderboard.module.scss';
 
 type Score = {
     name: string;
+    img: string | null;
     id: number;
     score: {
         date?: string;
@@ -32,12 +34,14 @@ const Leaderboard = ({
             Object.keys(friends).map((e: unknown) => {
                 return {
                     name: friends[e as number].userName,
+                    img: friends[e as number].img,
                     id: e as number,
                     score: getTodayScore(friends[e as number]) || { score: 0 },
                 };
             });
         const yourScore = user && {
             name: user.userName,
+            img: user.img,
             id: user.userId,
             score: getTodayScore(user) || { score: 0 },
         };
@@ -62,7 +66,17 @@ const Leaderboard = ({
                         className={cx($.row, isMe(row) && $.rowMe)}
                         key={`${row.name}${row.id}`}
                     >
-                        <p className={$.rowItem}>
+                        <ColoredBox className={$.rowItemIcon}>
+                            <img
+                                src={row.img ? row.img : '/icons/user.svg'}
+                                alt={row.name}
+                                className={cx(
+                                    $.rowItemIconImg,
+                                    !row.img && $.rowItemIconPlaceholder,
+                                )}
+                            />
+                        </ColoredBox>
+                        <p className={cx($.rowItem, $.rowItemName)}>
                             {isMe(row) ? 'Me' : row.name}
                         </p>
                         <p className={$.rowItem}>{row.score.score}</p>
