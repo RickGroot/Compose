@@ -48,9 +48,9 @@ const notes: DataSetTopic = {
     icon: '\uD834\uDD61',
     iconType: 'icon',
     levels: {
-        easy: { topics: [1], expNeeded: 350 },
-        medium: { topics: [1], expNeeded: 450 },
-        hard: { topics: [1], expNeeded: 600 },
+        easy: { topics: [55, 56, 57, 63, 64, 65], expNeeded: 350 },
+        medium: { topics: [58, 59, 60, 66, 67, 68], expNeeded: 450 },
+        hard: { topics: [60, 61, 62, 68, 69, 70], expNeeded: 600 },
     },
 };
 
