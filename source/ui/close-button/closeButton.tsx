@@ -4,9 +4,10 @@ import cx from 'classnames';
 
 import $ from './closeButton.module.scss';
 
-const CloseButton = () => {
+const CloseButton = ({ closeFriend }: { closeFriend?: () => void }) => {
     const router = useRouter();
     const handleRedirect = () => {
+        if (closeFriend) return closeFriend();
         const { test } = router.query;
         if (test === 'daily') router.push({ pathname: '/' });
         else router.push({ pathname: `/learn/${test}` });
@@ -14,7 +15,7 @@ const CloseButton = () => {
     return (
         <button
             type="button"
-            className={cx($.button)}
+            className={cx($.button, closeFriend && $.buttonDark)}
             aria-label="quit quiz"
             onClick={() => handleRedirect()}
         />

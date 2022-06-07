@@ -54,7 +54,7 @@ const user: User = {
     ],
     badges: { 1: 1, 2: 2, 3: 2, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0 },
     quizzesDone: 24,
-    friends: [4321, 5678, 5433, 3388, 6666],
+    friends: [4321, 5678, 5433, 1508, 6666],
     invites: {
         pending: [8642],
         outgoing: [9090],

@@ -15,3 +15,5 @@ export { default as QuizDone } from './quiz-done';
 export { default as AnswerPopup } from './answer-popup';
 export { default as BadgeOverlay } from './badge-overlay';
 export { default as Confetti } from './confetti';
+export { default as AddFriend } from './add-friend';
+export { default as Friend } from './friend';

@@ -9,6 +9,7 @@ import $ from './friend.module.scss';
 import { UpdateUser, UserState } from '~source/contexts/user-context';
 import {
     acceptPending,
+    addNewFriend,
     removeFriend,
     removeOutgoing,
     removePending,
@@ -20,7 +21,7 @@ const Friend = ({
     forceUpdate,
 }: {
     friend: Friend;
-    type: 'friend' | 'pending' | 'outgoing';
+    type: 'friend' | 'pending' | 'outgoing' | 'new';
     forceUpdate: () => void;
 }) => {
     const user = useContext(UserState);
@@ -49,6 +50,10 @@ const Friend = ({
     const handleRemoveOutgoing = () => {
         forceUpdate();
         updateUser(removeOutgoing(friend.userId, user));
+    };
+    const handleAddNewFriend = () => {
+        forceUpdate();
+        updateUser(addNewFriend(friend.userId, user));
     };
     return (
         <div className={$.friend} key={`${friend.userName}${friend.userId}`}>
@@ -95,6 +100,11 @@ const Friend = ({
                         still waiting for a response...
                     </p>
                 )}
+                {type === 'new' && (
+                    <p className={$.info}>
+                        Ask {friend.userName} to be your friend!
+                    </p>
+                )}
             </div>
             {type === 'friend' && (
                 <button
@@ -128,6 +138,15 @@ const Friend = ({
                     onClick={() => handleRemoveOutgoing()}
                 >
                     &#10007;
+                </button>
+            )}
+            {type === 'new' && (
+                <button
+                    type="button"
+                    className={$.inviteAccept}
+                    onClick={() => handleAddNewFriend()}
+                >
+                    +
                 </button>
             )}
             {removeFriendOpen && (
