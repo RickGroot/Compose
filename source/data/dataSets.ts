@@ -25,12 +25,12 @@ const tempo: DataSetTopic = {
 };
 const articulation: DataSetTopic = {
     desc: 'The style to play a note',
-    icon: '\uD834\uDD81',
+    icon: '\uD834\uDD88',
     iconType: 'icon',
     levels: {
-        easy: { topics: [1], expNeeded: 350 },
-        medium: { topics: [1], expNeeded: 450 },
-        hard: { topics: [1], expNeeded: 600 },
+        easy: { topics: [16, 15, 14, 33, 35, 36, 37], expNeeded: 350 },
+        medium: { topics: [34, 36, 37, 38, 39, 40, 41], expNeeded: 450 },
+        hard: { topics: [36, 39, 40, 41, 42, 43, 44], expNeeded: 600 },
     },
 };
 const ornamentation: DataSetTopic = {

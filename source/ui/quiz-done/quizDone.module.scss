@@ -160,8 +160,13 @@ $head-height: calc(50vh - #{$padding} * 2);
         border-radius: 50%;
 
         &Text {
-            @include font-xl;
+            $padding: px(5);
+            @include font-m;
             @include musicFont;
+            line-break: anywhere;
+            padding: $padding;
+            width: calc(#{$size} - #{$padding} * 2);
+            height: calc(#{$size} - #{$padding} * 2);
         }
         &Correct {
             background-color: $c-green;

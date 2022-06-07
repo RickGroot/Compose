@@ -125,8 +125,8 @@ const badges: Badges = {
     6: {
         badgeName: 'Articulation',
         topic: true,
-        icon: '>',
-        iconType: 'text',
+        icon: '\uD834\uDD88',
+        iconType: 'icon',
         levels: {
             0: {
                 desc: 'Complete easy difficulty on articulation',
