@@ -29,8 +29,8 @@ const articulation: DataSetTopic = {
     iconType: 'icon',
     levels: {
         easy: { topics: [16, 15, 14, 33, 35, 36, 37], expNeeded: 350 },
-        medium: { topics: [34, 36, 37, 38, 39, 40, 41], expNeeded: 450 },
-        hard: { topics: [36, 39, 40, 41, 42, 43, 44], expNeeded: 600 },
+        medium: { topics: [34, 36, 37, 38, 39, 40, 41, 52], expNeeded: 450 },
+        hard: { topics: [36, 39, 40, 41, 42, 43, 44, 52], expNeeded: 600 },
     },
 };
 const ornamentation: DataSetTopic = {
@@ -38,9 +38,9 @@ const ornamentation: DataSetTopic = {
     icon: 'tr.',
     iconType: 'text',
     levels: {
-        easy: { topics: [1], expNeeded: 350 },
-        medium: { topics: [1], expNeeded: 450 },
-        hard: { topics: [1], expNeeded: 600 },
+        easy: { topics: [39, 45, 46, 47, 48, 49], expNeeded: 350 },
+        medium: { topics: [43, 44, 48, 49, 52, 53], expNeeded: 450 },
+        hard: { topics: [43, 44, 49, 50, 51, 54], expNeeded: 600 },
     },
 };
 const notes: DataSetTopic = {
