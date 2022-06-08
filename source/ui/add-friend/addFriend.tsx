@@ -57,13 +57,13 @@ const AddFriend = ({ user, close }: { user: User; close: () => void }) => {
         <section className={$.container}>
             <h1 className={$.title}>Add friend</h1>
             <form className={cx(Form.form, $.form)}>
-                <label htmlFor="id" className={cx(Form.formLabel, $.label)}>
+                <label htmlFor="id" className={cx($.label)}>
                     Username
                     <input
                         type="email"
                         name="id"
                         id="id"
-                        className={cx(Form.formInput, $.input, $.inputUser)}
+                        className={cx($.input, $.inputUser)}
                         placeholder="Username"
                         onChange={(e) =>
                             changeQuery({
@@ -73,13 +73,13 @@ const AddFriend = ({ user, close }: { user: User; close: () => void }) => {
                         }
                     />
                 </label>
-                <label htmlFor="id" className={cx(Form.formLabel, $.label)}>
+                <label htmlFor="id" className={cx($.label)}>
                     ID
                     <input
                         type="number"
                         name="number"
                         id="number"
-                        className={cx(Form.formInput, $.input, $.inputId)}
+                        className={cx($.input, $.inputId)}
                         placeholder="User-ID"
                         onChange={(e) =>
                             changeQuery({
