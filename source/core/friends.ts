@@ -7,6 +7,10 @@ const removeFriend = (friend: number, user: User): User => {
     }
     return user;
 };
+const addNewFriend = (friend: number, user: User): User => {
+    user.friends.push(friend);
+    return user;
+};
 const removePending = (friend: number, user: User): User => {
     const index = user.invites.pending.indexOf(friend);
     if (index > -1) {
@@ -40,4 +44,5 @@ export {
     removePending,
     addOutgoing,
     removeOutgoing,
+    addNewFriend,
 };

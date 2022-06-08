@@ -36,4 +36,12 @@
     &::before {
         transform: translateX(-50%) rotate(45deg);
     }
+
+    &Dark {
+        background-color: rgba($c-black, 0.2);
+        &::before,
+        &::after {
+            background-color: $c-black;
+        }
+    }
 }

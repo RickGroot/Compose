@@ -1,0 +1,63 @@
+@import '~/styles/helpers.scss';
+
+$padding: px(20);
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.container {
+    position: fixed;
+    width: calc(100vw - #{$padding} * 2);
+    height: 100vh;
+    padding: 0 $padding;
+    background-color: rgba($c-background, 0.7);
+    backdrop-filter: blur(#{px(2)});
+    top: 0;
+    left: 0;
+    animation: fade 0.5s ease;
+    z-index: $z-overlay;
+}
+
+.title {
+    @include pageTitle;
+    @include firstLetterCapital;
+    margin: 30vh 0 0;
+}
+
+.form {
+    display: grid;
+    grid-template-columns: auto px(80);
+    gap: px(10);
+    margin: px(40) 0 px(20);
+}
+
+.label {
+    position: relative;
+    margin: 0;
+
+    &:first-of-type {
+        margin: 0;
+    }
+    &:last-of-type {
+        margin: 0;
+    }
+}
+
+.input {
+    margin: px(5) 0 0;
+    padding: px(5) px(10);
+
+    &User {
+        width: calc(100% - #{px(10)} * 2);
+    }
+    &Id {
+        position: relative;
+        width: calc(100% - #{px(10)} * 2);
+    }
+}

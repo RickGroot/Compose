@@ -1,7 +1,7 @@
-import React, { useEffect, useReducer, useState } from 'react';
+import React, { useReducer, useState } from 'react';
 import friends from '~source/data/friends';
 import { useRouter } from 'next/router';
-import Friend from './friend';
+import { AddFriend, Friend } from '~source/ui';
 import User from '~source/types/user';
 import cx from 'classnames';
 
@@ -63,7 +63,9 @@ const Friends = ({ user }: { user: User | null }) => {
                     Add friend
                 </button>
             )}
-            {isFriendsOpen && <p>add friends page is coming here</p>}
+            {isFriendsOpen && (
+                <AddFriend user={user} close={() => setIsFriendsOpen(false)} />
+            )}
             {friendsData.map((friend) => (
                 <Friend
                     forceUpdate={() => forceUpdate()}
