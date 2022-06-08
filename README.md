@@ -9,6 +9,11 @@ Link: *https://compose-theory.netlify.app/*
 
 ---
 
+## Disclaimer
+Compose is a prototype, not full working project. For the best results open Compose in a Chromium browser and on your phone.
+* Works best in Chrome
+* Only works on mobile
+
 ## Running it locally
 
 First, in the root of the project, install dependencies and run dev server:
