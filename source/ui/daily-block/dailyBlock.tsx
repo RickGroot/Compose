@@ -26,10 +26,14 @@ const DailyBlock = ({ user }: { user: User | null }) => {
                 {' - '}
                 {today.getFullYear()}
             </h1>
-            {user &&<p className={$.score}>
-                Your highscore:{' '}
-                <span className={$.scoreHighlight}>{dayScore?.score || 0}</span>
-            </p>}
+            {user && (
+                <p className={$.score}>
+                    Your highscore:{' '}
+                    <span className={$.scoreHighlight}>
+                        {dayScore?.score || 0}
+                    </span>
+                </p>
+            )}
             <ColoredBox
                 color="green"
                 className={$.button}

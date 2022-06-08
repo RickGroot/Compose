@@ -16,7 +16,7 @@ $padding: px(20);
     width: calc(100vw - #{$padding} * 2);
     height: 100vh;
     padding: 0 $padding;
-    background-color: rgba($c-background, 0.7);
+    background-color: rgba($c-background, 0.9);
     backdrop-filter: blur(#{px(2)});
     top: 0;
     left: 0;
