@@ -57,16 +57,3 @@
         margin-top: px(5);
     }
 }
-
-.logout {
-    @include removeButton;
-    @include font-s;
-    position: absolute;
-    top: px(10);
-    right: px(10);
-    padding: px(5) px(10);
-    border-radius: px(5);
-    background-color: $c-red;
-    color: $c-white;
-    font-weight: 300;
-}

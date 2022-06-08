@@ -17,3 +17,4 @@ export { default as BadgeOverlay } from './badge-overlay';
 export { default as Confetti } from './confetti';
 export { default as AddFriend } from './add-friend';
 export { default as Friend } from './friend';
+export { default as UserOptions } from './user-options';
