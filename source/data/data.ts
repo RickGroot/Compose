@@ -1026,7 +1026,7 @@ const data: DataType = {
     },
     56: {
         name: 'half note',
-        icon: '\uD834\uDD5D',
+        icon: '\uD834\uDD5E',
         iconType: 'icon',
         is: [
             'is a half note',
