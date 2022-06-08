@@ -1,9 +1,9 @@
 # ![img](public/favicon.ico) This is [Compose](https://nextjs.org/)
 
-Graduation project [Rick Groot](https://www.linkedin.com/in/r-groot/)
-Client: [Triple](https://www.wearetriple.com/en/)
-Bachelor: Communication & Multimedia Design ([CMD](https://www.cmd-amsterdam.nl/))
-Link: *https://compose-theory.netlify.app/*
+Graduation project [Rick Groot](https://www.linkedin.com/in/r-groot/)  
+Client: [Triple](https://www.wearetriple.com/en/)  
+Bachelor: Communication & Multimedia Design ([CMD](https://www.cmd-amsterdam.nl/))  
+Link: *https://compose-theory.netlify.app/*  
 
 `Compose is a digital interactive product, that will motivate young and beginning musicians to learn music theory.`
 
