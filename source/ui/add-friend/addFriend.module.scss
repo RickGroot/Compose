@@ -50,8 +50,15 @@ $padding: px(20);
 }
 
 .input {
+    @include font-m;
     margin: px(5) 0 0;
     padding: px(5) px(10);
+    font-weight: 300;
+    display: block;
+    width: 100%;
+    background-color: $c-white;
+    border: px(1) solid #e2e2e2;
+    border-radius: px(6);
 
     &User {
         width: calc(100% - #{px(10)} * 2);
