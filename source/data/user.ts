@@ -1,4 +1,4 @@
-import { getDate } from '~source/core/getDate';
+import { getDaysAgo } from '~source/core/getDate';
 import User from '~source/types/user';
 
 const user: User = {
@@ -49,8 +49,8 @@ const user: User = {
         { date: '2022/05/22', score: 100 },
         { date: '2022/05/23', score: 100 },
         { date: '2022/05/24', score: 100 },
-        { date: '2022/06/01', score: 42 },
-        { date: getDate(), score: 54 },
+        { date: getDaysAgo(2), score: 58 },
+        { date: getDaysAgo(1), score: 42 },
     ],
     badges: { 1: 1, 2: 2, 3: 2, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0 },
     quizzesDone: 24,

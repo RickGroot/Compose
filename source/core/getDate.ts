@@ -12,6 +12,12 @@ const getDate = () => {
     return formatDate(date);
 };
 
+const getDaysAgo = (days: number) => {
+    const today = () => new Date();
+    const yesterday = new Date(today().setDate(today().getDate() - days));
+    return formatDate(yesterday);
+};
+
 const getDateType = (date: string) => {
     const unix = new Date(date);
     return unix;
@@ -40,4 +46,4 @@ const getStreakDates = () => {
     return dateArray.map((item) => formatDate(item));
 };
 
-export { getDate, getStreakDates, getDayFromDate, getDateType };
+export { getDate, getStreakDates, getDayFromDate, getDateType, getDaysAgo };

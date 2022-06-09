@@ -3,16 +3,25 @@
 Graduation project [Rick Groot](https://www.linkedin.com/in/r-groot/)  
 Client: [Triple](https://www.wearetriple.com/en/)  
 Bachelor: Communication & Multimedia Design ([CMD](https://www.cmd-amsterdam.nl/))  
-Link: *https://compose-theory.netlify.app/*  
+Link: *https://compose-theory.netlify.app/*
 
 `Compose is a digital interactive product, that will motivate young and beginning musicians to learn music theory.`
 
 ---
 
 ## Disclaimer
+
 Compose is a prototype, not full working project. For the best results open Compose in a Chromium browser and on your phone.
-* Works best in Chrome
-* Only works on mobile
+
+-   Works best in Chrome
+-   Only works on mobile
+
+## Log in and enjoy
+
+You can log in or register to this project with any credentials. The app is demonstration purposes only, if you decide to log in the app will give you an existing demo account, with friends and scores. If you register a new account you will recieve an empty (new) user. Data will not be stored in any way.
+
+-   Log in for an existing user, with friends and existing progress
+-   Register to view the app as if it's your first time here
 
 ## Running it locally
 
