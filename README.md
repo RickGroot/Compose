@@ -18,7 +18,7 @@ Compose is a prototype, not full working project. For the best results open Comp
 
 ## Log in and enjoy
 
-You can log in or register to this project with any credentials. The app is demonstration purposes only, if you decide to log in the app will give you an existing demo account, with friends and scores. If you register a new account you will recieve an empty (new) user. Data will not be stored in any way.
+You can log in or register to this project with any credentials. The app is for demonstration purposes only, if you decide to log in the app will give you an existing demo account, with friends and scores. If you register a new account you will recieve an empty (new) user. Your personal information will not be stored in any way.
 
 -   Log in for an existing user, with friends and existing progress
 -   Register to view the app as if it's your first time here
