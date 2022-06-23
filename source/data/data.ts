@@ -680,7 +680,7 @@ const data: DataType = {
             'is a gradual tempo change',
             'means play the note slower',
             'means play the notes short',
-            'play the note without emphasis',
+            'means play the note without emphasis',
         ],
     },
     38: {
